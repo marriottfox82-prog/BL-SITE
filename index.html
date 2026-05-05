@@ -118,7 +118,7 @@ footer a{color:var(--accent)}
   <div class="wrap">
     <img class="hero-icon" src="./bandwolf-icon.png" alt="Bandwolf wolf icon">
     <img class="hero-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
-    <div style="font-family:var(--font-display);font-size:clamp(2rem,6vw,3.2rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:18px;color:var(--text)">Plan.<span style="color:var(--accent)"> Rehearse.</span> Perform.</div>
+    <div id="tagline" style="font-family:var(--font-display);font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:18px;color:var(--text)">Plan.<span style="color:var(--accent)"> Rehearse.</span> Perform.</div>
     <p data-key="heroP" style="font-size:var(--fs-lg);color:var(--text-soft);max-width:480px;margin:0 auto 32px;line-height:1.6">Everything your band needs — setlists, scheduling, availability, song ideas — in one app. Less admin. More music.</p>
     <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px">
       <div style="display:flex;align-items:center;gap:8px;color:var(--text-soft);font-size:var(--fs-md)">
@@ -249,6 +249,15 @@ const T = {
   navPrivacy:{en:"Privacy",fr:"Confidentialité",es:"Privacidad",de:"Datenschutz",it:"Privacy",pt:"Privacidade",pl:"Prywatność"},
   navFaq:{en:"FAQ",fr:"FAQ",es:"FAQ",de:"FAQ",it:"FAQ",pt:"FAQ",pl:"FAQ"},
   navContact:{en:"Contact",fr:"Contact",es:"Contacto",de:"Kontakt",it:"Contatto",pt:"Contato",pl:"Kontakt"},
+  tagline:{
+    en:'Plan.<span style="color:var(--accent)"> Rehearse.</span> Perform.',
+    fr:'Plan.<span style="color:var(--accent)"> Répète.</span> Performe.',
+    es:'Planifica.<span style="color:var(--accent)"> Ensaya.</span> Actúa.',
+    de:'Planen.<span style="color:var(--accent)"> Proben.</span> Auftreten.',
+    it:'Pianifica.<span style="color:var(--accent)"> Prova.</span> Esegui.',
+    pt:'Planeia.<span style="color:var(--accent)"> Ensaia.</span> Atua.',
+    pl:'Planuj.<span style="color:var(--accent)"> Ćwicz.</span> Występuj.',
+  },
   heroP:{en:"Everything your band needs — setlists, scheduling, availability, song ideas — in one app. Less admin. More music.",fr:"Tout ce dont votre groupe a besoin — setlists, planning, disponibilités, idées de chansons — dans une seule app. Moins d'admin. Plus de musique.",es:"Todo lo que necesita tu banda — setlists, agenda, disponibilidad, ideas de canciones — en una sola app. Menos gestión. Más música.",de:"Alles, was deine Band braucht — Setlists, Planung, Verfügbarkeit, Songideen — in einer App. Weniger Verwaltung. Mehr Musik.",it:"Tutto ciò di cui ha bisogno la tua band — setlist, programmazione, disponibilità, idee di canzoni — in un'unica app. Meno amministrazione. Più musica.",pt:"Tudo o que a tua banda precisa — setlists, agenda, disponibilidade, ideias de músicas — numa só app. Menos gestão. Mais música.",pl:"Wszystko czego potrzebuje twój zespół — setlisty, planowanie, dostępność, pomysły na piosenki — w jednej aplikacji. Mniej administracji. Więcej muzyki."},
   comingSoon:{en:"Coming soon",fr:"Bientôt disponible",es:"Próximamente",de:"Demnächst",it:"Prossimamente",pt:"Em breve",pl:"Wkrótce"},
   heroSub:{en:"Free to start. 30-day Pro trial included.",fr:"Gratuit pour commencer. Essai Pro de 30 jours inclus.",es:"Gratis para empezar. Prueba Pro de 30 días incluida.",de:"Kostenlos starten. 30-tägige Pro-Testversion inklusive.",it:"Gratis per iniziare. Prova Pro di 30 giorni inclusa.",pt:"Grátis para começar. Teste Pro de 30 dias incluído.",pl:"Bezpłatny start. 30-dniowy okres próbny Pro w zestawie."},
@@ -303,10 +312,15 @@ function applyLang(){
     const key=el.getAttribute('data-key');
     const v=t(key);
     if(!v) return;
-    // privContact contains an <a> tag — use innerHTML
     if(key==='privContact') { el.innerHTML=v; return; }
     el.textContent=v;
   });
+  // Tagline — contains HTML span for accent colour
+  const taglineEl=document.getElementById('tagline');
+  if(taglineEl){
+    const tl=T.tagline&&(T.tagline[lang]||T.tagline.en);
+    if(tl) taglineEl.innerHTML=tl;
+  }
   // Privacy bullet list — rendered dynamically from array
   const privList=document.getElementById('priv-list');
   if(privList){
