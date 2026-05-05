@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reset your password — Bandwolf</title>
+<link rel="icon" type="image/png" href="./bandwolf-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bw-black: #000000;
+    --bw-gold: #FFC845;
+    --bw-gold-dim: #e6af30;
+    --bw-surface: #0a0a0a;
+    --bw-surface2: #141414;
+    --bw-border: rgba(255,255,255,0.06);
+    --bw-text: #ffffff;
+    --bw-text-soft: rgba(255,255,255,0.65);
+    --bw-muted: rgba(255,255,255,0.35);
+    --bw-red: #e05252;
+    --bw-green: #4caf82;
+    --radius: 12px;
+    --font-head: 'Manrope', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bw-black);
+    color: var(--bw-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: var(--bw-surface);
+    border: 1px solid rgba(255,200,69,0.15);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+  }
+
+  h1 {
+    font-family: var(--font-head);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--bw-text);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--bw-text-soft);
+    text-align: center;
+    margin-bottom: 24px;
+    line-height: 1.55;
+  }
+
+  label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bw-muted);
+    margin-bottom: 7px;
+  }
+
+  input[type="password"] {
+    width: 100%;
+    background: var(--bw-surface2);
+    border: 2px solid rgba(255,200,69,0.25);
+    border-radius: 10px;
+    padding: 13px 14px;
+    color: var(--bw-text);
+    font-size: 16px;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+  }
+  input[type="password"]:focus { border-color: rgba(255,200,69,0.6); }
+  input[type="password"].error { border-color: var(--bw-red); }
+
+  .field { margin-bottom: 16px; }
+
+  .strength-bar {
+    height: 3px;
+    border-radius: 2px;
+    background: var(--bw-surface2);
+    margin-top: 8px;
+    overflow: hidden;
+  }
+  .strength-fill {
+    height: 100%;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.2s, background 0.2s;
+  }
+  .strength-label {
+    font-size: 11px;
+    color: var(--bw-muted);
+    margin-top: 5px;
+    min-height: 16px;
+  }
+
+  .error-msg {
+    font-size: 13px;
+    color: var(--bw-red);
+    margin-top: 6px;
+    min-height: 18px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: var(--bw-gold);
+    color: #000;
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 8px;
+    transition: background 0.15s, opacity 0.15s;
+    -webkit-appearance: none;
+  }
+  .btn:hover { background: var(--bw-gold-dim); }
+  .btn:disabled { opacity: 0.4; cursor: default; background: var(--bw-gold); }
+
+  /* State panels — only one shown at a time */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  /* Verifying */
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid var(--bw-surface2);
+    border-top-color: var(--bw-gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Success / failure icons */
+  .icon { font-size: 2.4rem; text-align: center; margin-bottom: 12px; }
+
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--bw-muted);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--bw-text); }
+
+  .note {
+    margin-top: 16px;
+    padding: 12px 14px;
+    background: var(--bw-surface2);
+    border-left: 2px solid var(--bw-gold);
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    color: var(--bw-text-soft);
+    line-height: 1.55;
+  }
+  .note strong { color: var(--bw-text); font-weight: 600; }
+
+  .success-note {
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--bw-text-soft);
+    text-align: center;
+    line-height: 1.55;
+  }
+</style>
+</head>
+<body>
+
+<nav style="position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bw-border);padding:14px 0">
+  <div style="display:flex;align-items:center;max-width:860px;margin:0 auto;padding:0 24px;gap:0">
+    <a href="index.html" style="display:flex;align-items:center;gap:6px;text-decoration:none">
+      <img src="./bandwolf-icon.png" alt="Bandwolf" style="height:44px;width:44px;object-fit:contain">
+      <img src="./bandwolf-wordmark.png" alt="bandwolf" style="height:36px;object-fit:contain">
+    </a>
+  </div>
+</nav>
+
+<div style="min-height:calc(100vh - 73px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
+<div class="card">
+
+  <!-- ─── Verifying token ─── -->
+  <div class="panel active" id="panel-verifying">
+    <div class="spinner"></div>
+    <p style="text-align:center; color: var(--bw-muted); font-size:14px;">Verifying your reset link…</p>
+  </div>
+
+  <!-- ─── Form ─── -->
+  <div class="panel" id="panel-form">
+    <h1>Set a new password</h1>
+    <p class="subtitle">Must be at least 8 characters.</p>
+
+    <div class="field">
+      <label for="pw1">New password</label>
+      <input type="password" id="pw1" autocomplete="new-password" oninput="onPwInput()">
+      <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+      <div class="strength-label" id="strength-label"></div>
+    </div>
+
+    <div class="field">
+      <label for="pw2">Confirm new password</label>
+      <input type="password" id="pw2" autocomplete="new-password" oninput="onConfirmInput()">
+      <div class="error-msg" id="confirm-error"></div>
+    </div>
+
+    <div class="error-msg" id="submit-error"></div>
+
+    <button class="btn" id="submit-btn" onclick="submitPassword()" disabled>Update password</button>
+  </div>
+
+  <!-- ─── Success ─── -->
+  <div class="panel" id="panel-success">
+    <div class="icon">✅</div>
+    <h1 style="margin-bottom:10px;">Password updated</h1>
+    <p class="success-note">Your new password is set. Open the Bandwolf app and sign in.</p>
+    <p class="success-note" style="margin-top:10px; font-size:12px; color:var(--bw-muted);">You can close this tab.</p>
+  </div>
+
+  <!-- ─── Error / expired ─── -->
+  <div class="panel" id="panel-error">
+    <div class="icon">⚠️</div>
+    <h1 style="margin-bottom:10px;">Link expired or invalid</h1>
+    <p style="text-align:center; color:var(--bw-text-soft); font-size:14px; line-height:1.6;">
+      This reset link has already been used, has expired, or is missing a security token.
+      Reset links are valid for one hour and can only be used once.
+    </p>
+    <div class="note">
+      <strong>To try again:</strong> open Bandwolf, tap <em>Sign in</em> → <em>Forgot password?</em> and request a new link.
+    </div>
+  </div>
+
+  <!-- ─── Missing token (direct visit) ─── -->
+  <div class="panel" id="panel-missing">
+    <div class="icon">🔒</div>
+    <h1 style="margin-bottom:10px;">Nothing to do here</h1>
+    <p style="text-align:center; color:var(--bw-text-soft); font-size:14px; line-height:1.6;">
+      This page is only accessible via the reset link in your email.
+      Open Bandwolf and tap <em>Forgot password?</em> to get started.
+    </p>
+  </div>
+
+</div>
+
+<script>
+  // ─── Supabase config ──────────────────────────────────────────────────────
+  const SUPABASE_URL     = 'https://nncaasxgasgyhubalotd.supabase.co';
+  const SUPABASE_ANON    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5uY2Fhc3hnYXNneWh1YmFsb3RkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2NTgzNjYsImV4cCI6MjA4OTIzNDM2Nn0.wdo0Y7gC4zdRIeOwVLN_KbsMxEFqtQfc0iZEQSZfYOo';
+
+  // ─── Minimal Supabase REST client (no SDK needed) ────────────────────────
+  async function supabaseUpdatePassword(accessToken, newPassword) {
+    const res = await fetch(`${SUPABASE_URL}/auth/v1/user`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_ANON,
+        'Authorization': `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ password: newPassword }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.msg || data.error_description || 'Update failed');
+    return data;
+  }
+
+  // ─── Token extraction ─────────────────────────────────────────────────────
+  // Supabase puts the tokens in the URL fragment: #access_token=...&type=recovery
+  function getFragmentParams() {
+    const hash = window.location.hash.slice(1);
+    const params = {};
+    hash.split('&').forEach(pair => {
+      const [k, v] = pair.split('=');
+      if (k) params[decodeURIComponent(k)] = decodeURIComponent(v || '');
+    });
+    return params;
+  }
+
+  // ─── State ────────────────────────────────────────────────────────────────
+  let accessToken = null;
+
+  function show(panelId) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(panelId).classList.add('active');
+  }
+
+  // ─── Init: verify token on load ───────────────────────────────────────────
+  window.addEventListener('DOMContentLoaded', () => {
+    const params = getFragmentParams();
+
+    if (!params.access_token) {
+      // No token at all — direct visit or malformed link
+      show('panel-missing');
+      return;
+    }
+
+    if (params.type !== 'recovery') {
+      // Token present but wrong type (e.g. email confirmation link)
+      show('panel-error');
+      return;
+    }
+
+    // Token looks valid — show the form
+    accessToken = params.access_token;
+    // Clear the fragment so the token isn't sitting in the address bar
+    history.replaceState(null, '', window.location.pathname);
+    show('panel-form');
+    document.getElementById('pw1').focus();
+  });
+
+  // ─── Password strength ────────────────────────────────────────────────────
+  function passwordStrength(pw) {
+    if (!pw) return { score: 0, label: '', color: '' };
+    let score = 0;
+    if (pw.length >= 8)  score++;
+    if (pw.length >= 12) score++;
+    if (/[A-Z]/.test(pw)) score++;
+    if (/[0-9]/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw)) score++;
+    if (score <= 1) return { score, label: 'Weak',   color: '#e05252', pct: 25  };
+    if (score <= 2) return { score, label: 'Fair',   color: '#e8a838', pct: 50  };
+    if (score <= 3) return { score, label: 'Good',   color: '#4caf82', pct: 75  };
+    return              { score, label: 'Strong', color: '#4caf82', pct: 100 };
+  }
+
+  function onPwInput() {
+    const pw   = document.getElementById('pw1').value;
+    const info = passwordStrength(pw);
+    const fill  = document.getElementById('strength-fill');
+    const label = document.getElementById('strength-label');
+    fill.style.width      = (info.pct || 0) + '%';
+    fill.style.background = info.color || '';
+    label.textContent     = info.label || '';
+    label.style.color     = info.color || 'var(--bw-muted)';
+    checkReady();
+  }
+
+  function onConfirmInput() {
+    const pw1 = document.getElementById('pw1').value;
+    const pw2 = document.getElementById('pw2').value;
+    const err = document.getElementById('confirm-error');
+    if (pw2 && pw1 !== pw2) {
+      err.textContent = 'Passwords don\u2019t match.';
+    } else {
+      err.textContent = '';
+    }
+    checkReady();
+  }
+
+  function checkReady() {
+    const pw1 = document.getElementById('pw1').value;
+    const pw2 = document.getElementById('pw2').value;
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = !(pw1.length >= 8 && pw1 === pw2);
+  }
+
+  // ─── Submit ───────────────────────────────────────────────────────────────
+  async function submitPassword() {
+    const pw1 = document.getElementById('pw1').value;
+    const pw2 = document.getElementById('pw2').value;
+    const errEl = document.getElementById('submit-error');
+    const btn   = document.getElementById('submit-btn');
+
+    if (pw1 !== pw2) { errEl.textContent = 'Passwords don\u2019t match.'; return; }
+    if (pw1.length < 8) { errEl.textContent = 'Password must be at least 8 characters.'; return; }
+
+    btn.disabled    = true;
+    btn.textContent = 'Updating\u2026';
+    errEl.textContent = '';
+
+    try {
+      await supabaseUpdatePassword(accessToken, pw1);
+      show('panel-success');
+    } catch (e) {
+      btn.disabled    = false;
+      btn.textContent = 'Update password';
+      // Likely an expired or already-used token
+      if (e.message && (e.message.includes('expired') || e.message.includes('invalid'))) {
+        show('panel-error');
+      } else {
+        errEl.textContent = 'Something went wrong. Please try again or request a new reset link.';
+      }
+    }
+  }
+</script>
+
+</div>
+</body>
+</html>
+
