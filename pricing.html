@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bandwolf — Free vs Pro</title>
+<meta name="description" content="Compare Bandwolf Free and Pro plans. One subscription covers your whole band.">
+<link rel="icon" type="image/png" href="./bandwolf-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000000;--surface:#0a0a0a;--surface2:#141414;
+  --accent:#FFC845;--accent-dim:rgba(255,200,69,0.1);
+  --text:#fff;--text-soft:rgba(255,255,255,0.65);--muted:rgba(255,255,255,0.35);
+  --border:rgba(255,255,255,0.06);
+  --font-display:'Manrope',sans-serif;--font-body:'Inter',sans-serif;
+  --fs-xs:0.75rem;--fs-sm:0.8rem;--fs-md:0.9rem;--fs-lg:1rem;--fs-xl:1.25rem;--fs-display:1.5rem;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-md);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:860px;margin:0 auto;padding:0 24px;flex-wrap:wrap;gap:8px}
+.nav-brand{display:flex;align-items:center;gap:0;text-decoration:none}
+.nav-icon{height:44px;width:44px;display:block;object-fit:contain}
+.nav-wordmark{height:36px;display:block;object-fit:contain}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+.lang-btn{background:none;border:none;color:var(--muted);font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.05em;padding:5px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.lang-btn:hover{color:var(--text);background:var(--surface2);}
+.lang-btn.active{color:var(--accent);background:rgba(255,200,69,0.1);}
+.hero{padding:48px 0 32px;text-align:center}
+.divider{height:1px;background:rgba(255,200,69,0.1);margin:0}
+.matrix{width:100%;border-collapse:collapse;margin-bottom:48px}
+.matrix th,.matrix td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.matrix th{font-family:var(--font-display);font-weight:700;font-size:var(--fs-md);vertical-align:bottom}
+.matrix td{font-size:var(--fs-sm);color:var(--text-soft)}
+.matrix thead th{padding-bottom:20px}
+.matrix .col-feature{width:50%}
+.matrix .col-free,.matrix .col-pro{width:25%;text-align:center}
+.matrix thead .col-free{color:var(--text-soft);font-size:var(--fs-md)}
+.matrix thead .col-pro{color:var(--accent);font-size:var(--fs-md)}
+.matrix .section-row td{font-family:var(--font-display);font-weight:800;font-size:var(--fs-md);color:var(--text);padding-top:28px;border-bottom:1px solid rgba(255,200,69,0.15)}
+.matrix .check{color:var(--accent);font-size:var(--fs-lg);font-weight:700}
+.matrix .limit{color:var(--muted);font-size:var(--fs-sm)}
+.matrix .dash{color:rgba(255,255,255,0.15);font-size:var(--fs-lg)}
+.matrix td.col-free,.matrix td.col-pro{text-align:center;vertical-align:middle}
+footer{padding:40px 0;text-align:center;border-top:1px solid var(--border)}
+footer p{font-size:var(--fs-sm);color:var(--muted)}
+footer a{color:var(--accent)}
+.footer-wordmark{height:56px;margin:0 auto 10px;display:block;object-fit:contain;opacity:0.85}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">
+      <img class="nav-icon" src="./bandwolf-icon.png" alt="Bandwolf icon">
+      <img class="nav-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    </a>
+    <div class="nav-links">
+      <a href="index.html#features" data-key="navFeatures">Features</a>
+      <a href="index.html#pro">Pro</a>
+      <a href="index.html#privacy" data-key="navPrivacy">Privacy</a>
+      <a href="faq.html" data-key="navFaq">FAQ</a>
+      <a href="mailto:hello@bandwolf.app" data-key="navContact">Contact</a>
+    </div>
+    <div style="display:flex;gap:2px;align-items:center;">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('pl')">PL</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <img src="./bandwolf-icon.png" alt="Bandwolf" style="width:80px;height:80px;display:block;margin:0 auto 20px;object-fit:contain">
+    <h1 style="font-family:var(--font-display);font-size:var(--fs-display);font-weight:800;margin-bottom:8px;letter-spacing:-0.02em" data-key="pricingH1">Free vs Pro</h1>
+    <p style="font-size:var(--fs-md);color:var(--text-soft);max-width:480px;margin:0 auto" data-key="pricingSub">One Pro subscription from any admin unlocks the full experience for your entire band.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section style="padding:32px 0">
+  <div class="wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th class="col-feature"></th>
+          <th class="col-free" data-key="tierFree">Free</th>
+          <th class="col-pro" data-key="tierPro">Pro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="section-row"><td colspan="3" data-key="sectionLimits">Limits</td></tr>
+        <tr><td data-key="rowBandsAdmin">Bands you admin</td><td class="col-free"><span class="limit">1</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+        <tr><td data-key="rowBandsJoined">Bands joined (total)</td><td class="col-free"><span class="limit">2</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+        <tr><td data-key="rowMembers">Members per band</td><td class="col-free"><span class="limit">3</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+        <tr><td data-key="rowSetlists">Setlists per band</td><td class="col-free"><span class="limit">1</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+        <tr><td data-key="rowSongs">Songs per setlist</td><td class="col-free"><span class="limit">10</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+        <tr><td data-key="rowLinks">Links per band</td><td class="col-free"><span class="limit">3</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+        <tr><td data-key="rowAdmins">Admins per band</td><td class="col-free"><span class="limit">1</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+        <tr><td data-key="rowEvents">Upcoming events</td><td class="col-free"><span class="limit">2</span></td><td class="col-pro"><span class="check" data-key="unlimited">Unlimited</span></td></tr>
+
+        <tr class="section-row"><td colspan="3" data-key="sectionCore">Core features</td></tr>
+        <tr><td data-key="rowSetlistMgmt">Setlists &amp; song management</td><td class="col-free"><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowEventsRsvp">Events &amp; RSVPs</td><td class="col-free"><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowPushNotif">Push notifications</td><td class="col-free"><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowBandNotes">Band notes on songs</td><td class="col-free"><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowRoles">Member &amp; guest roles</td><td class="col-free"><span class="check">✓</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+
+        <tr class="section-row"><td colspan="3" data-key="sectionPro">Pro features</td></tr>
+        <tr><td data-key="rowGigMode">Gig Mode (full-screen stage view)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowCalExport">Calendar export (ICS)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowIdeas">Song suggestions (Ideas tab)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowRecordings">Recordings</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowPersonalNotes">Personal notes on songs</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowAvailability">Availability checker (calendar sync)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowFindTime">Find-a-time picker</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowImport">Setlist import (Spotify, Chosic, CSV, text)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowDuplicate">Setlist duplicate</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowPromote">Promote members to admin</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+      </tbody>
+    </table>
+
+    <div style="text-align:center;font-size:var(--fs-sm);color:var(--text-soft);max-width:520px;margin:0 auto;line-height:1.6">
+      <p style="margin-bottom:12px" data-key="downgradeNote">Your content is never deleted on downgrade. If your band exceeds Free limits after a Pro subscription ends, existing content stays — only new adds are capped.</p>
+      <p data-key="questionsNote">Questions? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <div class="wrap">
+    <img class="footer-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    <p style="margin-bottom:6px" data-key="footerTagline">Less admin. More music.</p>
+    <p><a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a></p>
+    <p style="margin-top:16px;font-size:var(--fs-xs)">© 2026 Bandwolf. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const T = {
+  navFeatures:{en:"Features",fr:"Fonctionnalités",es:"Funciones",de:"Funktionen",it:"Funzionalità",pt:"Recursos",pl:"Funkcje"},
+  navPrivacy:{en:"Privacy",fr:"Confidentialité",es:"Privacidad",de:"Datenschutz",it:"Privacy",pt:"Privacidade",pl:"Prywatność"},
+  navFaq:{en:"FAQ",fr:"FAQ",es:"FAQ",de:"FAQ",it:"FAQ",pt:"FAQ",pl:"FAQ"},
+  navContact:{en:"Contact",fr:"Contact",es:"Contacto",de:"Kontakt",it:"Contatto",pt:"Contato",pl:"Kontakt"},
+  pricingH1:{en:"Free vs Pro",fr:"Gratuit vs Pro",es:"Gratis vs Pro",de:"Kostenlos vs Pro",it:"Gratuito vs Pro",pt:"Gratuito vs Pro",pl:"Bezpłatny vs Pro"},
+  pricingSub:{en:"One Pro subscription from any admin unlocks the full experience for your entire band.",fr:"Un abonnement Pro de n'importe quel admin débloque l'expérience complète pour tout votre groupe.",es:"Una suscripción Pro de cualquier admin desbloquea la experiencia completa para toda tu banda.",de:"Ein Pro-Abonnement von einem beliebigen Admin schaltet das volle Erlebnis für deine gesamte Band frei.",it:"Un abbonamento Pro di qualsiasi amministratore sblocca l'esperienza completa per tutta la tua band.",pt:"Uma assinatura Pro de qualquer admin desbloqueia a experiência completa para toda a tua banda.",pl:"Jedna subskrypcja Pro od dowolnego administratora odblokowuje pełne doświadczenie dla całego twojego zespołu."},
+  tierFree:{en:"Free",fr:"Gratuit",es:"Gratis",de:"Kostenlos",it:"Gratuito",pt:"Gratuito",pl:"Bezpłatny"},
+  tierPro:{en:"Pro",fr:"Pro",es:"Pro",de:"Pro",it:"Pro",pt:"Pro",pl:"Pro"},
+  unlimited:{en:"Unlimited",fr:"Illimité",es:"Ilimitado",de:"Unbegrenzt",it:"Illimitato",pt:"Ilimitado",pl:"Nieograniczony"},
+  sectionLimits:{en:"Limits",fr:"Limites",es:"Límites",de:"Limits",it:"Limiti",pt:"Limites",pl:"Limity"},
+  sectionCore:{en:"Core features",fr:"Fonctionnalités de base",es:"Funciones principales",de:"Kernfunktionen",it:"Funzionalità principali",pt:"Funcionalidades principais",pl:"Podstawowe funkcje"},
+  sectionPro:{en:"Pro features",fr:"Fonctionnalités Pro",es:"Funciones Pro",de:"Pro-Funktionen",it:"Funzionalità Pro",pt:"Funcionalidades Pro",pl:"Funkcje Pro"},
+  rowBandsAdmin:{en:"Bands you admin",fr:"Groupes administrés",es:"Bandas que administras",de:"Verwaltete Bands",it:"Band che amministri",pt:"Bandas que administras",pl:"Zarządzane zespoły"},
+  rowBandsJoined:{en:"Bands joined (total)",fr:"Groupes rejoints (total)",es:"Bandas unidas (total)",de:"Beigetretene Bands (gesamt)",it:"Band a cui appartieni (totale)",pt:"Bandas participantes (total)",pl:"Dołączone zespoły (łącznie)"},
+  rowMembers:{en:"Members per band",fr:"Membres par groupe",es:"Miembros por banda",de:"Mitglieder pro Band",it:"Membri per band",pt:"Membros por banda",pl:"Członkowie na zespół"},
+  rowSetlists:{en:"Setlists per band",fr:"Setlists par groupe",es:"Setlists por banda",de:"Setlists pro Band",it:"Setlist per band",pt:"Setlists por banda",pl:"Setlisty na zespół"},
+  rowSongs:{en:"Songs per setlist",fr:"Chansons par setlist",es:"Canciones por setlist",de:"Songs pro Setlist",it:"Canzoni per setlist",pt:"Músicas por setlist",pl:"Piosenki na setlistę"},
+  rowLinks:{en:"Links per band",fr:"Liens par groupe",es:"Enlaces por banda",de:"Links pro Band",it:"Link per band",pt:"Links por banda",pl:"Linki na zespół"},
+  rowAdmins:{en:"Admins per band",fr:"Admins par groupe",es:"Admins por banda",de:"Admins pro Band",it:"Admin per band",pt:"Admins por banda",pl:"Administratorzy na zespół"},
+  rowEvents:{en:"Upcoming events",fr:"Événements à venir",es:"Eventos próximos",de:"Kommende Events",it:"Eventi imminenti",pt:"Eventos futuros",pl:"Nadchodzące wydarzenia"},
+  rowSetlistMgmt:{en:"Setlists & song management",fr:"Setlists et gestion des chansons",es:"Setlists y gestión de canciones",de:"Setlists & Song-Verwaltung",it:"Setlist e gestione canzoni",pt:"Setlists e gestão de músicas",pl:"Setlisty i zarządzanie piosenkami"},
+  rowEventsRsvp:{en:"Events & RSVPs",fr:"Événements et confirmations",es:"Eventos y confirmaciones",de:"Events & Zusagen",it:"Eventi e RSVP",pt:"Eventos e confirmações",pl:"Wydarzenia i potwierdzenia"},
+  rowPushNotif:{en:"Push notifications",fr:"Notifications push",es:"Notificaciones push",de:"Push-Benachrichtigungen",it:"Notifiche push",pt:"Notificações push",pl:"Powiadomienia push"},
+  rowBandNotes:{en:"Band notes on songs",fr:"Notes de groupe sur les chansons",es:"Notas de banda en canciones",de:"Band-Notizen zu Songs",it:"Note della band sulle canzoni",pt:"Notas da banda nas músicas",pl:"Notatki zespołu do piosenek"},
+  rowRoles:{en:"Member & guest roles",fr:"Rôles membres et invités",es:"Roles de miembro e invitado",de:"Mitglieds- & Gastrollen",it:"Ruoli membro e ospite",pt:"Funções de membro e convidado",pl:"Role członka i gościa"},
+  rowGigMode:{en:"Gig Mode (full-screen stage view)",fr:"Mode Gig (vue scène plein écran)",es:"Modo Concierto (vista escena pantalla completa)",de:"Gig Mode (Vollbild-Bühnenansicht)",it:"Modalità Gig (vista palco a schermo intero)",pt:"Modo Show (vista de palco em ecrã completo)",pl:"Tryb Gig (pełnoekranowy widok sceny)"},
+  rowCalExport:{en:"Calendar export (ICS)",fr:"Export calendrier (ICS)",es:"Exportación de calendario (ICS)",de:"Kalenderexport (ICS)",it:"Esportazione calendario (ICS)",pt:"Exportação de calendário (ICS)",pl:"Eksport kalendarza (ICS)"},
+  rowIdeas:{en:"Song suggestions (Ideas tab)",fr:"Suggestions de chansons (onglet Idées)",es:"Sugerencias de canciones (pestaña Ideas)",de:"Songvorschläge (Ideen-Tab)",it:"Suggerimenti canzoni (scheda Idee)",pt:"Sugestões de músicas (separador Ideias)",pl:"Sugestie piosenek (zakładka Pomysły)"},
+  rowRecordings:{en:"Recordings",fr:"Enregistrements",es:"Grabaciones",de:"Aufnahmen",it:"Registrazioni",pt:"Gravações",pl:"Nagrania"},
+  rowPersonalNotes:{en:"Personal notes on songs",fr:"Notes personnelles sur les chansons",es:"Notas personales en canciones",de:"Persönliche Songnotizen",it:"Note personali sulle canzoni",pt:"Notas pessoais nas músicas",pl:"Osobiste notatki do piosenek"},
+  rowAvailability:{en:"Availability checker (calendar sync)",fr:"Vérificateur de disponibilité (sync calendrier)",es:"Comprobador de disponibilidad (sync calendario)",de:"Verfügbarkeitsprüfer (Kalender-Sync)",it:"Controllo disponibilità (sync calendario)",pt:"Verificador de disponibilidade (sync calendário)",pl:"Sprawdzanie dostępności (sync kalendarza)"},
+  rowFindTime:{en:"Find-a-time picker",fr:"Sélecteur de créneau",es:"Selector de horario",de:"Terminsuche",it:"Selettore di orario",pt:"Seletor de horário",pl:"Wyszukiwarka terminu"},
+  rowImport:{en:"Setlist import (Spotify, Chosic, CSV, text)",fr:"Import setlist (Spotify, Chosic, CSV, texte)",es:"Importación de setlist (Spotify, Chosic, CSV, texto)",de:"Setlist-Import (Spotify, Chosic, CSV, Text)",it:"Importazione setlist (Spotify, Chosic, CSV, testo)",pt:"Importação de setlist (Spotify, Chosic, CSV, texto)",pl:"Import setlisty (Spotify, Chosic, CSV, tekst)"},
+  rowDuplicate:{en:"Setlist duplicate",fr:"Dupliquer une setlist",es:"Duplicar setlist",de:"Setlist duplizieren",it:"Duplica setlist",pt:"Duplicar setlist",pl:"Duplikowanie setlisty"},
+  rowPromote:{en:"Promote members to admin",fr:"Promouvoir des membres en admin",es:"Promover miembros a admin",de:"Mitglieder zu Admins befördern",it:"Promuovi membri ad admin",pt:"Promover membros a admin",pl:"Awansowanie członków na administratora"},
+  downgradeNote:{en:"Your content is never deleted on downgrade. If your band exceeds Free limits after a Pro subscription ends, existing content stays — only new adds are capped.",fr:"Votre contenu n'est jamais supprimé lors d'un retour au Gratuit. Si votre groupe dépasse les limites Gratuites après la fin d'un abonnement Pro, le contenu existant reste — seuls les nouveaux ajouts sont limités.",es:"Tu contenido nunca se elimina al hacer downgrade. Si tu banda supera los límites Gratis tras finalizar una suscripción Pro, el contenido existente permanece — solo los nuevos añadidos están limitados.",de:"Dein Inhalt wird beim Downgrade nie gelöscht. Wenn deine Band die kostenlosen Limits nach einem Pro-Abonnement überschreitet, bleibt der vorhandene Inhalt erhalten — nur neue Hinzufügungen sind begrenzt.",it:"Il tuo contenuto non viene mai eliminato durante il downgrade. Se la tua band supera i limiti Gratuiti dopo la fine di un abbonamento Pro, il contenuto esistente rimane — solo i nuovi aggiunti sono limitati.",pt:"O teu conteúdo nunca é eliminado no downgrade. Se a tua banda ultrapassar os limites Gratuitos após o término de uma assinatura Pro, o conteúdo existente permanece — apenas os novos adds são limitados.",pl:"Twoja zawartość nigdy nie jest usuwana przy przejściu na niższy plan. Jeśli twój zespół przekroczy bezpłatne limity po zakończeniu subskrypcji Pro, istniejąca zawartość pozostaje — ograniczone są tylko nowe dodania."},
+  questionsNote:{en:'Questions? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>',fr:'Des questions ? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>',es:'¿Preguntas? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>',de:'Fragen? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>',it:'Domande? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>',pt:'Perguntas? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>',pl:'Pytania? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>'},
+  footerTagline:{en:"Less admin. More music.",fr:"Moins d'admin. Plus de musique.",es:"Menos gestión. Más música.",de:"Weniger Verwaltung. Mehr Musik.",it:"Meno amministrazione. Più musica.",pt:"Menos gestão. Mais música.",pl:"Mniej administracji. Więcej muzyki."},
+};
+
+let lang = (navigator.language||'en').slice(0,2).toLowerCase();
+const SUPPORTED=['en','fr','es','de','it','pt','pl'];
+if(!SUPPORTED.includes(lang)) lang='en';
+
+function t(key){ return (T[key]&&(T[key][lang]||T[key].en))||key; }
+
+function applyLang(){
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    const key=el.getAttribute('data-key');
+    const v=t(key);
+    if(!v) return;
+    if(key==='questionsNote'){ el.innerHTML=v; return; }
+    el.textContent=v;
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.textContent===lang.toUpperCase());
+  });
+  document.documentElement.lang=lang;
+}
+
+function setLang(l){ lang=l; applyLang(); }
+
+applyLang();
+</script>
+</body>
+</html>
