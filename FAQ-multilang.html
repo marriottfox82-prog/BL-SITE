@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Bandwolf</title>
+<meta name="description" content="Frequently asked questions about Bandwolf — membership, features, billing, and more.">
+<link rel="icon" type="image/png" href="./bandwolf-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000000;--surface:#0a0a0a;--surface2:#141414;
+  --accent:#FFC845;--accent-dim:rgba(255,200,69,0.1);
+  --text:#fff;--text-soft:rgba(255,255,255,0.65);--muted:rgba(255,255,255,0.35);
+  --border:rgba(255,255,255,0.06);
+  --font-display:'Manrope',sans-serif;--font-body:'Inter',sans-serif;
+  --fs-xs:0.75rem;--fs-sm:0.8rem;--fs-md:0.9rem;--fs-lg:1rem;--fs-xl:1.25rem;--fs-display:1.5rem;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-md);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:860px;margin:0 auto;padding:0 24px}
+.nav-brand{display:flex;align-items:center;gap:0;text-decoration:none}
+.nav-icon{height:44px;width:44px;display:block;object-fit:contain}
+.nav-wordmark{height:36px;display:block;object-fit:contain}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+
+/* Hero */
+.hero{padding:80px 0 56px;text-align:center}
+.hero-icon{width:220px;height:220px;margin:0 auto 0;display:block;object-fit:contain}
+.hero-wordmark{height:110px;margin:0 auto 28px;display:block;object-fit:contain}
+.hero h1{font-family:var(--font-display);font-size:var(--fs-xl);font-weight:700;color:var(--text-soft);margin-bottom:14px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.4}
+.hero p{font-size:var(--fs-md);color:var(--muted);max-width:520px;margin:0 auto;line-height:1.6}
+
+/* FAQ layout */
+.faq-page{padding:8px 0 80px}
+
+.section-label{
+  font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);margin:52px 0 16px;padding-bottom:12px;
+  border-bottom:1px solid var(--border);font-family:var(--font-display);
+}
+
+/* FAQ items — card style matching .feature */
+.faq-item{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;margin-bottom:8px;overflow:hidden;
+}
+.faq-q{
+  width:100%;background:none;border:none;color:var(--text);
+  font-family:var(--font-display);font-size:var(--fs-lg);font-weight:700;line-height:1.4;
+  text-align:left;padding:20px 24px;cursor:pointer;
+  display:flex;align-items:flex-start;gap:12px;transition:color 0.15s;
+}
+.faq-q:hover{color:var(--accent)}
+.faq-q .chevron{
+  margin-left:auto;flex-shrink:0;margin-top:2px;
+  width:20px;height:20px;border:1.5px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s,border-color 0.15s;color:var(--muted);font-size:10px;
+}
+.faq-item.open .chevron{transform:rotate(180deg);border-color:var(--accent);color:var(--accent)}
+.faq-a{
+  display:none;padding:0 24px 24px;
+  font-family:var(--font-body);font-size:var(--fs-sm);
+  color:var(--text-soft);line-height:1.75;
+}
+.faq-item.open .faq-a{display:block}
+.faq-a p+p{margin-top:12px}
+.faq-a ul{margin:10px 0 10px 20px}
+.faq-a li{margin-bottom:6px}
+.faq-a strong{color:var(--text);font-weight:600}
+.faq-a .note{
+  margin-top:14px;padding:12px 16px;background:var(--surface2);
+  border-left:2px solid var(--accent);border-radius:0 10px 10px 0;font-size:var(--fs-xs);
+}
+
+/* Tier table */
+.tier-table{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:var(--fs-sm)}
+.tier-table th{text-align:left;padding:10px 14px;font-weight:700;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);font-family:var(--font-display)}
+.tier-table th:not(:first-child){text-align:center}
+.tier-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text-soft);vertical-align:middle}
+.tier-table td:first-child{color:var(--text)}
+.tier-table td:not(:first-child){text-align:center}
+.tier-table tr:last-child td{border-bottom:none}
+.check{color:var(--accent);font-size:var(--fs-md)}
+.cross{color:rgba(255,255,255,0.2);font-size:var(--fs-md)}
+.pro-col{color:var(--accent)!important;font-weight:600}
+
+/* CTA strip */
+.cta-strip{
+  margin-top:64px;padding:32px;background:var(--surface2);
+  border:1px solid rgba(255,200,69,0.12);border-radius:16px;
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.cta-strip-text h3{font-family:var(--font-display);font-size:var(--fs-xl);font-weight:800;color:var(--text);margin-bottom:4px}
+.cta-strip-text p{font-size:var(--fs-sm);color:var(--muted)}
+.cta-btn{
+  margin-left:auto;background:var(--accent);color:#000;
+  font-family:var(--font-display);font-size:var(--fs-md);font-weight:700;
+  padding:11px 24px;border-radius:10px;white-space:nowrap;transition:opacity 0.15s;
+}
+.cta-btn:hover{opacity:0.88;text-decoration:none}
+
+/* Footer */
+footer{padding:40px 0;text-align:center;border-top:1px solid var(--border)}
+footer p{font-size:var(--fs-sm);color:var(--muted)}
+footer a{color:var(--accent)}
+.footer-wordmark{height:56px;margin:0 auto 10px;display:block;object-fit:contain;opacity:0.85}
+
+@media(max-width:600px){
+  .faq-q{padding:18px 20px;font-size:var(--fs-md)}
+  .faq-a{padding:0 20px 20px}
+  .cta-strip{flex-direction:column;align-items:flex-start}
+  .cta-btn{margin-left:0}
+}
+
+.lang-btn{background:none;border:none;color:var(--muted);font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.05em;padding:5px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.lang-btn:hover{color:var(--text);background:var(--surface2);}
+.lang-btn.active{color:var(--accent);background:rgba(255,200,69,0.1);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="./index.html">
+      <img class="nav-icon" src="./bandwolf-icon.png" alt="Bandwolf icon">
+      <img class="nav-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    </a>
+    <div class="nav-links">
+      <a href="./index.html#features">Features</a>
+      <a href="./index.html#pro">Pro</a>
+      <a href="./index.html#privacy">Privacy</a>
+      <a href="mailto:hello@bandwolf.app">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-icon" src="./bandwolf-icon.png" alt="Bandwolf wolf icon">
+    <img class="hero-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    <h1>Frequently asked questions</h1>
+    <p>Everything you need to know about Bandwolf membership, how features work, and what to expect as your band grows.</p>
+  </div>
+</section>
+
+<div class="faq-page">
+
+<!-- ─── Language switcher ─── -->
+<div style="border-bottom:1px solid var(--border);background:var(--surface);">
+  <div class="wrap" style="display:flex;gap:4px;align-items:center;height:40px;overflow-x:auto;scrollbar-width:none;">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('it')">IT</button>
+    <button class="lang-btn" onclick="setLang('pt')">PT</button>
+    <button class="lang-btn" onclick="setLang('pl')">PL</button>
+  </div>
+</div>
+<div class="faq-page">
+<div class="wrap">
+
+  <div class="section-label" data-key="faqSectionMembership">Membership &amp; tiers</div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_tiers">What are the two membership tiers?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_tiers" data-html="tiers"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_free">What do I get on the Free tier?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_free" data-html="free"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_pro">What does Bandwolf Pro add on top of Free?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" id="ans-pro">
+      <table class="tier-table">
+        <thead><tr><th data-key="tierFeature">Feature</th><th>Free</th><th class="pro-col">Pro</th></tr></thead>
+        <tbody>
+          <tr><td data-key="tierSetlists">Setlists per band</td><td>1</td><td class="pro-col" data-key="tierUnlimited">Unlimited</td></tr>
+          <tr><td data-key="tierSongs">Songs per setlist</td><td>10</td><td class="pro-col" data-key="tierUnlimited">Unlimited</td></tr>
+          <tr><td data-key="tierMembers">Members per band</td><td>3</td><td class="pro-col" data-key="tierUnlimited">Unlimited</td></tr>
+          <tr><td data-key="tierEvents">Upcoming events visible</td><td>2</td><td class="pro-col" data-key="tierUnlimited">Unlimited</td></tr>
+          <tr><td data-key="tierLinks">Band links</td><td>3</td><td class="pro-col" data-key="tierUnlimited">Unlimited</td></tr>
+          <tr><td data-key="tierAdminBands">Bands as admin</td><td>1</td><td class="pro-col" data-key="tierUnlimited">Unlimited</td></tr>
+          <tr><td data-key="tierJoinedBands">Bands joined (total)</td><td>2</td><td class="pro-col" data-key="tierUnlimited">Unlimited</td></tr>
+          <tr><td data-key="tierGigMode">Gig Mode (live performance)</td><td><span class="cross">—</span></td><td class="pro-col"><span class="check">✓</span></td></tr>
+          <tr><td data-key="tierCalExport">Calendar export (ICS)</td><td><span class="cross">—</span></td><td class="pro-col"><span class="check">✓</span></td></tr>
+          <tr><td data-key="tierImport">Setlist import</td><td><span class="cross">—</span></td><td class="pro-col"><span class="check">✓</span></td></tr>
+          <tr><td data-key="tierAdmin">Admin privileges</td><td><span class="cross">—</span></td><td class="pro-col"><span class="check">✓</span></td></tr>
+        </tbody>
+      </table>
+      <p data-key="faqA_pro_pricing">Pro is billed monthly (£6.99) or annually (£49.99 — saves around two months). Pricing is shown in your local currency in the App Store.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_everyoneProQ">Does everyone in my band need to be on Pro?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_everyonePro" data-html="everyonePro"></div>
+  </div>
+
+  <div class="section-label" data-key="faqSectionDeps">Deps, front-of-house &amp; guests</div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_deps">I'm a dep (deputy/substitute musician). How does Bandwolf work for me?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_deps" data-html="deps"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_foh">I'm front-of-house / sound / tech crew. Is Bandwolf useful for me?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_foh" data-html="foh"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_guestRole">What's the difference between a regular member and a guest?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_guestRole" data-html="guestRole"></div>
+  </div>
+
+  <div class="section-label" data-key="faqSectionBilling">Subscription &amp; billing</div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_expires">What happens when my Pro subscription ends?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_expires" data-html="expires"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_cancel">How do I cancel or manage my subscription?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_cancel" data-html="cancel"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_restore">I subscribed on a different device. Can I restore my Pro access?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_restore" data-html="restore"></div>
+  </div>
+
+  <div class="section-label" data-key="faqSectionBands">Bands &amp; admin</div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_invite">How do I add someone to my band?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_invite" data-html="invite"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_multiBand">Can I be in more than one band?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_multiBand" data-html="multiBand"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_admin">What can admins do that regular members can't?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_admin" data-html="admin"></div>
+  </div>
+
+  <div class="section-label" data-key="faqSectionFeatures">Features</div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_gigMode">What is Gig Mode?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_gigMode" data-html="gigMode"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_calExport">How does calendar export work?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_calExport" data-html="calExport"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_findATime">How does the &ldquo;Find a time&rdquo; availability checker work?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="avail_q1" data-html="avail_q1"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_calSupport">What calendars does Find a time support?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="avail_q7" data-html="avail_q7"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_personalNotes">What are personal song notes?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_personalNotes" data-html="personalNotes"></div>
+  </div>
+
+  <div class="section-label" data-key="faqSectionContact">Still have questions?</div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_contact">How do I contact Bandwolf support?</span>
+      <span class="chevron">▾</span>
+    </button>
+    <div class="faq-a" data-key="faqA_contact" data-html="contact"></div>
+  </div>
+
+  <div class="cta-strip">
+    <div class="cta-strip-text">
+      <h3 data-key="faqCtaHeading">Ready to get your band organised?</h3>
+      <p data-key="faqCtaSub">Free to start. No credit card needed.</p>
+    </div>
+    <a href="#" class="cta-btn" data-key="faqCtaBtn">Download Bandwolf</a>
+  </div>
+
+</div>
+</div>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <div class="cta-strip-text">
+      <h3>Ready to get your band organised?</h3>
+      <p>Free to start. No credit card needed.</p>
+    </div>
+    <a href="#" class="cta-btn">Download Bandwolf</a>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <img class="footer-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    <p style="margin-bottom:6px">Built by musicians, for musicians.</p>
+    <p><a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a></p>
+    <p style="margin-top:16px;font-size:var(--fs-xs)">© 2026 Bandwolf. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+<script>
+// ─── Translations ──────────────────────────────────────────────────────────
+const T = {
+  faqSectionMembership:{en:"Membership & tiers",fr:"Abonnement et niveaux",es:"Membresía y niveles",de:"Mitgliedschaft & Stufen",it:"Abbonamento e livelli",pt:"Assinatura e planos",pl:"Członkostwo i poziomy"},
+  faqSectionDeps:{en:"Deps, front-of-house & guests",fr:"Remplaçants, régisseurs et invités",es:"Sustitutos, técnicos de sala e invitados",de:"Vertretungen, FOH & Gäste",it:"Sostituti, front-of-house e ospiti",pt:"Substitutos, técnicos de som e convidados",pl:"Zastępcy, obsługa sali i goście"},
+  faqSectionBilling:{en:"Subscription & billing",fr:"Abonnement et facturation",es:"Suscripción y facturación",de:"Abonnement & Abrechnung",it:"Abbonamento e fatturazione",pt:"Assinatura e pagamento",pl:"Subskrypcja i płatności"},
+  faqSectionBands:{en:"Bands & admin",fr:"Groupes et administration",es:"Grupos y administración",de:"Bands & Verwaltung",it:"Band e amministrazione",pt:"Bandas e administração",pl:"Zespoły i administracja"},
+  faqSectionFeatures:{en:"Features",fr:"Fonctionnalités",es:"Funciones",de:"Funktionen",it:"Funzionalità",pt:"Funcionalidades",pl:"Funkcje"},
+  faqSectionContact:{en:"Still have questions?",fr:"Vous avez encore des questions ?",es:"¿Aún tienes preguntas?",de:"Noch Fragen?",it:"Hai ancora domande?",pt:"Ainda tem dúvidas?",pl:"Masz jeszcze pytania?"},
+  faqQ_tiers:{en:"What are the two membership tiers?",fr:"Quels sont les deux niveaux d'adhésion ?",es:"¿Cuáles son los dos niveles de membresía?",de:"Was sind die zwei Mitgliedschaftsstufen?",it:"Quali sono i due livelli di abbonamento?",pt:"Quais são os dois planos de assinatura?",pl:"Jakie są dwa poziomy członkostwa?"},
+  faqQ_free:{en:"What do I get on the Free tier?",fr:"Qu'est-ce que j'obtiens avec le niveau Gratuit ?",es:"¿Qué obtengo con el nivel Gratis?",de:"Was bekomme ich mit der kostenlosen Stufe?",it:"Cosa ottengo con il livello Gratuito?",pt:"O que recebo no plano Gratuito?",pl:"Co otrzymuję w poziomie Bezpłatnym?"},
+  faqQ_pro:{en:"What does Bandwolf Pro add on top of Free?",fr:"Qu'est-ce que Bandwolf Pro ajoute par rapport au Gratuit ?",es:"¿Qué añade Bandwolf Pro sobre el nivel Gratis?",de:"Was fügt Bandwolf Pro zur kostenlosen Stufe hinzu?",it:"Cosa aggiunge Bandwolf Pro rispetto al livello Gratuito?",pt:"O que o Bandwolf Pro adiciona em relação ao Gratuito?",pl:"Co Bandwolf Pro dodaje w stosunku do poziomu Bezpłatnego?"},
+  faqA_pro_pricing:{en:"Pro is billed monthly (£6.99) or annually (£49.99 — saves around two months). Pricing is shown in your local currency in the App Store.",fr:"Pro est facturé mensuellement (6,99 £) ou annuellement (49,99 £ — économisez environ deux mois). Le prix est affiché dans votre devise locale sur l'App Store.",es:"Pro se factura mensualmente (6,99 £) o anualmente (49,99 £ — ahorra alrededor de dos meses). El precio se muestra en tu moneda local en la App Store.",de:"Pro wird monatlich (6,99 £) oder jährlich (49,99 £ — spart ca. zwei Monate) abgerechnet. Der Preis wird in deiner Landeswährung im App Store angezeigt.",it:"Pro viene fatturato mensilmente (£6,99) o annualmente (£49,99 — risparmia circa due mesi). Il prezzo viene mostrato nella tua valuta locale nell'App Store.",pt:"O Pro é cobrado mensalmente (£6,99) ou anualmente (£49,99 — economiza cerca de dois meses). O preço é exibido na sua moeda local na App Store.",pl:"Pro jest rozliczane miesięcznie (£6,99) lub rocznie (£49,99 — oszczędzasz około dwóch miesięcy). Cena jest wyświetlana w Twojej lokalnej walucie w App Store."},
+  faqQ_everyoneProQ:{en:"Does everyone in my band need to be on Pro?",fr:"Est-ce que tout le monde dans mon groupe doit être sur Pro ?",es:"¿Todos en mi banda necesitan ser Pro?",de:"Müssen alle in meiner Band Pro haben?",it:"Tutti nella mia band devono avere Pro?",pt:"Todos na minha banda precisam ser Pro?",pl:"Czy wszyscy w moim zespole muszą mieć Pro?"},
+  faqQ_deps:{en:"I'm a dep (deputy/substitute musician). How does Bandwolf work for me?",fr:"Je suis remplaçant (musicien suppléant). Comment fonctionne Bandwolf pour moi ?",es:"Soy un sustituto (músico suplente). ¿Cómo funciona Bandwolf para mí?",de:"Ich bin eine Vertretung (Ersatzmusiker). Wie funktioniert Bandwolf für mich?",it:"Sono un sostituto (musicista supplente). Come funziona Bandwolf per me?",pt:"Sou um substituto (músico suplente). Como o Bandwolf funciona para mim?",pl:"Jestem zastępcą (muzyk zastępujący). Jak Bandwolf działa dla mnie?"},
+  faqQ_foh:{en:"I'm front-of-house / sound / tech crew. Is Bandwolf useful for me?",fr:"Je suis régisseur / technicien son / équipe technique. Bandwolf est-il utile pour moi ?",es:"Soy técnico de sala / sonido / equipo técnico. ¿Bandwolf es útil para mí?",de:"Ich bin FOH / Tontechniker / technisches Personal. Ist Bandwolf nützlich für mich?",it:"Sono front-of-house / audio / personale tecnico. Bandwolf è utile per me?",pt:"Sou técnico de som / equipe técnica. O Bandwolf é útil para mim?",pl:"Jestem obsługą sali / dźwiękowcem / ekipą techniczną. Czy Bandwolf jest przydatny dla mnie?"},
+  faqQ_guestRole:{en:"What's the difference between a regular member and a guest?",fr:"Quelle est la différence entre un membre régulier et un invité ?",es:"¿Cuál es la diferencia entre un miembro regular y un invitado?",de:"Was ist der Unterschied zwischen einem regulären Mitglied und einem Gast?",it:"Qual è la differenza tra un membro regolare e un ospite?",pt:"Qual é a diferença entre um membro regular e um convidado?",pl:"Jaka jest różnica między zwykłym członkiem a gościem?"},
+  faqQ_expires:{en:"What happens when my Pro subscription ends?",fr:"Que se passe-t-il lorsque mon abonnement Pro se termine ?",es:"¿Qué pasa cuando termina mi suscripción Pro?",de:"Was passiert, wenn mein Pro-Abonnement endet?",it:"Cosa succede quando il mio abbonamento Pro termina?",pt:"O que acontece quando minha assinatura Pro termina?",pl:"Co się dzieje, gdy moja subskrypcja Pro wygasa?"},
+  faqQ_cancel:{en:"How do I cancel or manage my subscription?",fr:"Comment annuler ou gérer mon abonnement ?",es:"¿Cómo cancelo o gestiono mi suscripción?",de:"Wie kündige oder verwalte ich mein Abonnement?",it:"Come posso annullare o gestire il mio abbonamento?",pt:"Como cancelo ou gerencio minha assinatura?",pl:"Jak anulować lub zarządzać subskrypcją?"},
+  faqQ_restore:{en:"I subscribed on a different device. Can I restore my Pro access?",fr:"Je me suis abonné sur un autre appareil. Puis-je restaurer mon accès Pro ?",es:"Me suscribí en un dispositivo diferente. ¿Puedo restaurar mi acceso Pro?",de:"Ich habe mich auf einem anderen Gerät angemeldet. Kann ich meinen Pro-Zugang wiederherstellen?",it:"Mi sono abbonato su un dispositivo diverso. Posso ripristinare il mio accesso Pro?",pt:"Assinei em um dispositivo diferente. Posso restaurar meu acesso Pro?",pl:"Subskrybowałem na innym urządzeniu. Czy mogę przywrócić dostęp Pro?"},
+  faqQ_invite:{en:"How do I add someone to my band?",fr:"Comment ajouter quelqu'un à mon groupe ?",es:"¿Cómo añado a alguien a mi banda?",de:"Wie füge ich jemanden zu meiner Band hinzu?",it:"Come aggiungo qualcuno alla mia band?",pt:"Como adiciono alguém à minha banda?",pl:"Jak dodać kogoś do mojego zespołu?"},
+  faqQ_multiBand:{en:"Can I be in more than one band?",fr:"Puis-je faire partie de plusieurs groupes ?",es:"¿Puedo estar en más de una banda?",de:"Kann ich in mehr als einer Band sein?",it:"Posso far parte di più di una band?",pt:"Posso estar em mais de uma banda?",pl:"Czy mogę być w więcej niż jednym zespole?"},
+  faqQ_admin:{en:"What can admins do that regular members can't?",fr:"Que peuvent faire les administrateurs que les membres réguliers ne peuvent pas faire ?",es:"¿Qué pueden hacer los administradores que los miembros regulares no pueden?",de:"Was können Admins, was reguläre Mitglieder nicht können?",it:"Cosa possono fare gli amministratori che i membri regolari non possono?",pt:"O que os administradores podem fazer que os membros regulares não podem?",pl:"Co mogą robić administratorzy, czego zwykli członkowie nie mogą?"},
+  faqQ_gigMode:{en:"What is Gig Mode?",fr:"Qu'est-ce que le mode Gig ?",es:"¿Qué es el modo Concierto?",de:"Was ist der Gig Mode?",it:"Cos'è la modalità Gig?",pt:"O que é o modo Show?",pl:"Czym jest tryb Gig?"},
+  faqQ_calExport:{en:"How does calendar export work?",fr:"Comment fonctionne l'export de calendrier ?",es:"¿Cómo funciona la exportación de calendario?",de:"Wie funktioniert der Kalenderexport?",it:"Come funziona l'esportazione del calendario?",pt:"Como funciona a exportação de calendário?",pl:"Jak działa eksport kalendarza?"},
+  faqQ_findATime:{en:"How does the \"Find a time\" availability checker work?",fr:"Comment fonctionne le vérificateur de disponibilité « Trouver un créneau » ?",es:"¿Cómo funciona el comprobador de disponibilidad «Encontrar un horario»?",de:"Wie funktioniert der \"Termin finden\"-Verfügbarkeitsprüfer?",it:"Come funziona il controllo disponibilità \"Trova un orario\"?",pt:"Como funciona o verificador de disponibilidade \"Encontrar um horário\"?",pl:"Jak działa sprawdzanie dostępności \"Znajdź termin\"?"},
+  faqQ_calSupport:{en:"What calendars does Find a time support?",fr:"Quels agendas « Trouver un créneau » prend-il en charge ?",es:"¿Qué calendarios admite Encontrar un horario?",de:"Welche Kalender unterstützt \"Termin finden\"?",it:"Quali calendari supporta Trova un orario?",pt:"Quais calendários o Encontrar um horário suporta?",pl:"Jakie kalendarze obsługuje Znajdź termin?"},
+  faqQ_personalNotes:{en:"What are personal song notes?",fr:"Que sont les notes personnelles de chansons ?",es:"¿Qué son las notas personales de canciones?",de:"Was sind persönliche Songnotizen?",it:"Cosa sono le note personali sulle canzoni?",pt:"O que são notas pessoais de músicas?",pl:"Czym są osobiste notatki do piosenek?"},
+  faqQ_contact:{en:"How do I contact Bandwolf support?",fr:"Comment contacter le support Bandwolf ?",es:"¿Cómo contacto con el soporte de Bandwolf?",de:"Wie kontaktiere ich den Bandwolf-Support?",it:"Come contatto il supporto di Bandwolf?",pt:"Como entro em contato com o suporte do Bandwolf?",pl:"Jak skontaktować się z pomocą techniczną Bandwolf?"},
+  faqCtaHeading:{en:"Ready to get your band organised?",fr:"Prêt à organiser votre groupe ?",es:"¿Listo para organizar tu banda?",de:"Bereit, deine Band zu organisieren?",it:"Pronto a organizzare la tua band?",pt:"Pronto para organizar sua banda?",pl:"Gotowy, aby zorganizować swój zespół?"},
+  faqCtaSub:{en:"Free to start. No credit card needed.",fr:"Gratuit pour commencer. Aucune carte de crédit requise.",es:"Gratis para empezar. No se necesita tarjeta de crédito.",de:"Kostenlos starten. Keine Kreditkarte erforderlich.",it:"Gratuito per iniziare. Nessuna carta di credito richiesta.",pt:"Grátis para começar. Sem necessidade de cartão de crédito.",pl:"Bezpłatny start. Bez karty kredytowej."},
+  faqCtaBtn:{en:"Download Bandwolf",fr:"Télécharger Bandwolf",es:"Descargar Bandwolf",de:"Bandwolf herunterladen",it:"Scarica Bandwolf",pt:"Baixar Bandwolf",pl:"Pobierz Bandwolf"},
+  tierFeature:{en:"Feature",fr:"Fonctionnalité",es:"Función",de:"Funktion",it:"Funzionalità",pt:"Funcionalidade",pl:"Funkcja"},
+  tierSetlists:{en:"Setlists per band",fr:"Setlists par groupe",es:"Setlists por banda",de:"Setlists pro Band",it:"Setlist per band",pt:"Setlists por banda",pl:"Setlisty na zespół"},
+  tierSongs:{en:"Songs per setlist",fr:"Chansons par setlist",es:"Canciones por setlist",de:"Songs pro Setlist",it:"Canzoni per setlist",pt:"Músicas por setlist",pl:"Piosenki na setlistę"},
+  tierMembers:{en:"Members per band",fr:"Membres par groupe",es:"Miembros por banda",de:"Mitglieder pro Band",it:"Membri per band",pt:"Membros por banda",pl:"Członkowie na zespół"},
+  tierEvents:{en:"Upcoming events visible",fr:"Événements à venir visibles",es:"Eventos próximos visibles",de:"Sichtbare kommende Events",it:"Eventi imminenti visibili",pt:"Eventos futuros visíveis",pl:"Widoczne nadchodzące wydarzenia"},
+  tierLinks:{en:"Band links",fr:"Liens du groupe",es:"Enlaces de banda",de:"Band-Links",it:"Link della band",pt:"Links da banda",pl:"Linki zespołu"},
+  tierAdminBands:{en:"Bands as admin",fr:"Groupes en tant qu'admin",es:"Bandas como admin",de:"Bands als Admin",it:"Band come amministratore",pt:"Bandas como admin",pl:"Zespoły jako admin"},
+  tierJoinedBands:{en:"Bands joined (total)",fr:"Groupes rejoints (total)",es:"Bandas unidas (total)",de:"Beigetretene Bands (gesamt)",it:"Band a cui si è uniti (totale)",pt:"Bandas participantes (total)",pl:"Dołączone zespoły (łącznie)"},
+  tierGigMode:{en:"Gig Mode (live performance)",fr:"Mode Gig (performance en direct)",es:"Modo Concierto (actuación en vivo)",de:"Gig Mode (Live-Auftritt)",it:"Modalità Gig (esibizione dal vivo)",pt:"Modo Show (apresentação ao vivo)",pl:"Tryb Gig (występ na żywo)"},
+  tierCalExport:{en:"Calendar export (ICS)",fr:"Export calendrier (ICS)",es:"Exportación de calendario (ICS)",de:"Kalenderexport (ICS)",it:"Esportazione calendario (ICS)",pt:"Exportação de calendário (ICS)",pl:"Eksport kalendarza (ICS)"},
+  tierImport:{en:"Setlist import",fr:"Import de setlist",es:"Importación de setlist",de:"Setlist-Import",it:"Importazione setlist",pt:"Importação de setlist",pl:"Import setlisty"},
+  tierAdmin:{en:"Admin privileges",fr:"Privilèges d'administrateur",es:"Privilegios de administrador",de:"Admin-Rechte",it:"Privilegi amministratore",pt:"Privilégios de administrador",pl:"Uprawnienia administratora"},
+  tierUnlimited:{en:"Unlimited",fr:"Illimité",es:"Ilimitado",de:"Unbegrenzt",it:"Illimitato",pt:"Ilimitado",pl:"Nieograniczony"},
+};
+
+// ─── Multi-paragraph answer HTML ──────────────────────────────────────────
+const ANSWERS = {
+  tiers:{
+    en:`<p>Bandwolf has two tiers: <strong>Free</strong> and <strong>Bandwolf Pro</strong>.</p><p><strong>Free</strong> gives every member — including deps and front-of-house — full access to view setlists, RSVP to rehearsals, see band links, suggest songs, and add personal notes to songs. It's genuinely useful, not a stripped-down teaser.</p><p><strong>Bandwolf Pro</strong> unlocks the tools that bands with serious admin needs use most: unlimited setlists, unlimited songs per setlist, Gig Mode for live performance, calendar export, and the ability to manage larger rosters and multiple bands. Pro is a per-person subscription — you pay for your own access, not for the whole band.</p>`,
+    fr:`<p>Bandwolf propose deux niveaux : <strong>Gratuit</strong> et <strong>Bandwolf Pro</strong>.</p><p><strong>Le niveau Gratuit</strong> offre à chaque membre — y compris les remplaçants et les régisseurs — un accès complet pour consulter les setlists, répondre aux répétitions, voir les liens du groupe, suggérer des chansons et ajouter des notes personnelles. C'est vraiment utile, pas une version édulcorée.</p><p><strong>Bandwolf Pro</strong> débloque les outils dont les groupes avec des besoins importants ont le plus besoin : setlists illimitées, chansons illimitées par setlist, mode Gig pour les performances en direct, export de calendrier et gestion de plus grands effectifs et de plusieurs groupes. Pro est un abonnement individuel.</p>`,
+    es:`<p>Bandwolf tiene dos niveles: <strong>Gratis</strong> y <strong>Bandwolf Pro</strong>.</p><p><strong>El nivel Gratis</strong> da a todos los miembros — incluidos sustitutos y técnicos de sala — acceso completo para ver setlists, confirmar asistencia a ensayos, ver los enlaces del grupo, sugerir canciones y añadir notas personales. Es genuinamente útil, no una versión recortada.</p><p><strong>Bandwolf Pro</strong> desbloquea las herramientas que más usan los grupos con necesidades de administración serias: setlists ilimitadas, canciones ilimitadas por setlist, modo Concierto, exportación de calendario y gestión de grupos más grandes. Pro es una suscripción individual.</p>`,
+    de:`<p>Bandwolf hat zwei Stufen: <strong>Kostenlos</strong> und <strong>Bandwolf Pro</strong>.</p><p><strong>Die kostenlose Stufe</strong> gibt jedem Mitglied — einschließlich Vertretungen und FOH-Personal — vollen Zugriff auf Setlists, Proben-Zusagen, Band-Links, Songvorschläge und persönliche Notizen. Es ist wirklich nützlich, kein abgespeckter Teaser.</p><p><strong>Bandwolf Pro</strong> schaltet die Tools frei, die Bands mit ernstem Verwaltungsbedarf am meisten nutzen: unbegrenzte Setlists, unbegrenzte Songs, Gig Mode, Kalenderexport und größere Besetzungen. Pro ist ein Einzelabonnement.</p>`,
+    it:`<p>Bandwolf ha due livelli: <strong>Gratuito</strong> e <strong>Bandwolf Pro</strong>.</p><p><strong>Il livello Gratuito</strong> dà a ogni membro — inclusi i sostituti e il personale FOH — accesso completo per visualizzare le setlist, confermare la presenza alle prove, vedere i link della band, suggerire canzoni e aggiungere note personali. È genuinamente utile, non una versione ridotta.</p><p><strong>Bandwolf Pro</strong> sblocca gli strumenti più usati dalle band: setlist illimitate, canzoni illimitate, modalità Gig, esportazione del calendario e roster illimitati. Pro è un abbonamento individuale.</p>`,
+    pt:`<p>O Bandwolf tem dois planos: <strong>Gratuito</strong> e <strong>Bandwolf Pro</strong>.</p><p><strong>O plano Gratuito</strong> dá a todos os membros — incluindo substitutos e equipe de som — acesso completo para ver setlists, confirmar presença em ensaios, ver os links da banda, sugerir músicas e adicionar notas pessoais. É genuinamente útil, não uma versão básica.</p><p><strong>O Bandwolf Pro</strong> desbloqueia as ferramentas mais usadas pelas bandas: setlists ilimitadas, músicas ilimitadas, modo Show, exportação de calendário e equipes maiores. Pro é uma assinatura individual.</p>`,
+    pl:`<p>Bandwolf ma dwa poziomy: <strong>Bezpłatny</strong> i <strong>Bandwolf Pro</strong>.</p><p><strong>Poziom Bezpłatny</strong> daje każdemu członkowi — w tym zastępcom i obsłudze sali — pełny dostęp do przeglądania setlist, potwierdzania obecności na próbach, linków zespołu, sugerowania piosenek i dodawania notatek osobistych. To naprawdę przydatne narzędzie.</p><p><strong>Bandwolf Pro</strong> odblokowuje najważniejsze narzędzia: nieograniczone setlisty, piosenki, tryb Gig, eksport kalendarza i większe składy. Pro to subskrypcja indywidualna.</p>`,
+  },
+  free:{
+    en:`<p>Quite a lot. Free members can:</p><ul><li>View all setlists, songs, and rehearsals for any band they're in</li><li>RSVP to rehearsals and gigs</li><li>Add personal notes to individual songs (visible only to you)</li><li>Suggest songs to the band's wish list and vote on others' suggestions</li><li>Access band links (Spotify playlists, YouTube references, etc.)</li><li>Receive push notifications for band activity</li><li>Join up to 2 bands in total</li></ul><p>Free tier limits apply to <em>creating and managing</em> content, not to viewing it. If a Pro member creates a setlist with 40 songs, every Free member in that band can see and use it in full.</p>`,
+    fr:`<p>Beaucoup de choses. Les membres Gratuits peuvent :</p><ul><li>Consulter toutes les setlists, chansons et répétitions</li><li>Répondre aux répétitions et concerts</li><li>Ajouter des notes personnelles aux chansons (visibles uniquement par vous)</li><li>Suggérer des chansons et voter pour celles des autres</li><li>Accéder aux liens du groupe</li><li>Recevoir des notifications push</li><li>Rejoindre jusqu'à 2 groupes au total</li></ul><p>Les limites Gratuites s'appliquent à la création et la gestion du contenu, pas à sa consultation.</p>`,
+    es:`<p>Bastante. Los miembros Gratis pueden:</p><ul><li>Ver todas las setlists, canciones y ensayos</li><li>Confirmar asistencia a ensayos y conciertos</li><li>Añadir notas personales a las canciones (visibles solo para ti)</li><li>Sugerir canciones y votar las de otros</li><li>Acceder a los enlaces del grupo</li><li>Recibir notificaciones push</li><li>Unirse a un máximo de 2 bandas en total</li></ul><p>Los límites Gratis se aplican a crear y gestionar contenido, no a verlo.</p>`,
+    de:`<p>Einiges. Kostenlose Mitglieder können:</p><ul><li>Alle Setlists, Songs und Proben ansehen</li><li>Für Proben und Gigs zusagen</li><li>Persönliche Notizen zu Songs hinzufügen (nur für dich sichtbar)</li><li>Songs vorschlagen und abstimmen</li><li>Band-Links aufrufen</li><li>Push-Benachrichtigungen erhalten</li><li>Bis zu 2 Bands beitreten</li></ul><p>Die kostenlosen Limits gelten für das Erstellen und Verwalten von Inhalten, nicht für das Ansehen.</p>`,
+    it:`<p>Parecchie cose. I membri Gratuiti possono:</p><ul><li>Visualizzare tutte le setlist, canzoni e prove</li><li>Confermare la presenza a prove e concerti</li><li>Aggiungere note personali alle canzoni (visibili solo a te)</li><li>Suggerire canzoni e votare</li><li>Accedere ai link della band</li><li>Ricevere notifiche push</li><li>Unirsi a un massimo di 2 band</li></ul><p>I limiti Gratuiti si applicano alla creazione e gestione dei contenuti, non alla visualizzazione.</p>`,
+    pt:`<p>Bastante. Membros Gratuitos podem:</p><ul><li>Ver todas as setlists, músicas e ensaios</li><li>Confirmar presença em ensaios e shows</li><li>Adicionar notas pessoais às músicas (visíveis apenas para você)</li><li>Sugerir músicas e votar</li><li>Acessar links da banda</li><li>Receber notificações push</li><li>Entrar em até 2 bandas no total</li></ul><p>Os limites Gratuitos se aplicam à criação e gestão de conteúdo, não à visualização.</p>`,
+    pl:`<p>Całkiem sporo. Bezpłatni członkowie mogą:</p><ul><li>Przeglądać wszystkie setlisty, piosenki i próby</li><li>Potwierdzać obecność na próbach i koncertach</li><li>Dodawać osobiste notatki do piosenek (widoczne tylko dla ciebie)</li><li>Sugerować piosenki i głosować</li><li>Uzyskiwać dostęp do linków zespołu</li><li>Otrzymywać powiadomienia push</li><li>Dołączać do maksymalnie 2 zespołów</li></ul><p>Limity Bezpłatne dotyczą tworzenia i zarządzania treścią, nie jej przeglądania.</p>`,
+  },
+  everyonePro:{
+    en:`<p>No. Bandwolf is designed so that one or two Pro members — typically the band manager or setlist admin — can run the band, while everyone else participates on Free.</p><p>Free members can see everything and do everything a performer needs: view the setlist before a gig, check their own song notes, RSVP, suggest songs. They just can't create or manage content beyond the Free limits.</p><p>If you're the person who books rehearsals, builds setlists, and manages the roster, Pro is for you. Everyone else is welcome to stay Free.</p>`,
+    fr:`<p>Non. Bandwolf est conçu pour qu'un ou deux membres Pro — généralement le manager ou l'administrateur des setlists — puissent gérer le groupe, tandis que tout le monde participe avec le Gratuit.</p><p>Les membres Gratuits peuvent tout voir et faire tout ce dont un musicien a besoin : consulter la setlist, vérifier leurs notes, répondre aux répétitions, suggérer des chansons.</p><p>Si vous êtes celui qui réserve les répétitions, crée les setlists et gère l'effectif, Pro est fait pour vous.</p>`,
+    es:`<p>No. Bandwolf está diseñado para que uno o dos miembros Pro — normalmente el manager o el administrador de setlists — puedan gestionar la banda, mientras que todos los demás participan con el nivel Gratis.</p><p>Los miembros Gratis pueden ver todo y hacer todo lo que necesita un músico: ver la setlist, revisar sus notas, confirmar asistencia, sugerir canciones.</p><p>Si eres quien reserva los ensayos, crea las setlists y gestiona el grupo, Pro es para ti.</p>`,
+    de:`<p>Nein. Bandwolf ist so konzipiert, dass ein oder zwei Pro-Mitglieder — typischerweise der Bandmanager oder Setlist-Admin — die Band leiten können, während alle anderen kostenlos mitmachen.</p><p>Kostenlose Mitglieder können alles sehen und alles tun, was ein Musiker braucht: die Setlist ansehen, Notizen prüfen, zusagen, Songs vorschlagen.</p><p>Wenn du derjenige bist, der Proben bucht, Setlists erstellt und die Besetzung verwaltet, ist Pro für dich.</p>`,
+    it:`<p>No. Bandwolf è progettato in modo che uno o due membri Pro — di solito il manager o l'amministratore delle setlist — possano gestire la band, mentre tutti gli altri partecipano gratuitamente.</p><p>I membri Gratuiti possono vedere tutto e fare tutto ciò di cui un musicista ha bisogno: visualizzare la setlist, controllare le note, confermare la presenza, suggerire canzoni.</p><p>Se sei tu la persona che prenota le prove, costruisce le setlist e gestisce il roster, Pro è per te.</p>`,
+    pt:`<p>Não. O Bandwolf foi projetado para que um ou dois membros Pro — normalmente o manager ou o administrador de setlists — possam gerenciar a banda, enquanto todos os outros participam no plano Gratuito.</p><p>Membros Gratuitos podem ver tudo e fazer tudo o que um músico precisa: ver a setlist, verificar suas notas, confirmar presença, sugerir músicas.</p><p>Se você é a pessoa que agenda ensaios, monta setlists e gerencia o elenco, o Pro é para você.</p>`,
+    pl:`<p>Nie. Bandwolf jest zaprojektowany tak, aby jeden lub dwóch członków Pro — zazwyczaj menadżer lub administrator setlist — mógł prowadzić zespół, podczas gdy wszyscy pozostali uczestniczą bezpłatnie.</p><p>Bezpłatni członkowie mogą widzieć wszystko i robić wszystko, czego potrzebuje muzyk: przeglądać setlistę, sprawdzać notatki, potwierdzać obecność, sugerować piosenki.</p><p>Jeśli jesteś osobą, która rezerwuje próby, tworzy setlisty i zarządza składem, Pro jest dla ciebie.</p>`,
+  },
+  deps:{
+    en:`<p>Deps are a first-class use case. When a band admin invites you, you join as a regular member and get immediate access to everything you need for the gig: the setlist, song keys and BPM, any band notes, your own personal song notes, and the rehearsal schedule.</p><p>You don't need a Pro subscription to use Bandwolf as a dep. Free membership gives you everything a performer needs to prepare and turn up ready.</p><div class="note">If you're depping across multiple bands, note that the Free tier supports joining up to 2 bands. If you regularly dep for more than two acts, Bandwolf Pro removes that limit.</div>`,
+    fr:`<p>Les remplaçants sont un cas d'utilisation de première importance. Lorsqu'un administrateur du groupe vous invite, vous rejoignez en tant que membre régulier et obtenez un accès immédiat à tout ce dont vous avez besoin : la setlist, les tonalités et le BPM, les notes du groupe, vos notes personnelles et le planning des répétitions.</p><p>Vous n'avez pas besoin d'un abonnement Pro pour utiliser Bandwolf en tant que remplaçant. L'adhésion Gratuite vous donne tout ce dont un musicien a besoin.</p><div class="note">Si vous remplacez régulièrement dans plus de deux groupes, Bandwolf Pro supprime la limite de 2 groupes.</div>`,
+    es:`<p>Los sustitutos son un caso de uso de primera importancia. Cuando un administrador de la banda te invita, te unes como miembro regular y obtienes acceso inmediato a todo lo que necesitas: la setlist, las tonalidades y el BPM, las notas de la banda, tus notas personales y el calendario de ensayos.</p><p>No necesitas una suscripción Pro para usar Bandwolf como sustituto. La membresía Gratis te da todo lo que necesitas.</p><div class="note">Si habitualmente sustituyes en más de dos grupos, Bandwolf Pro elimina el límite de 2 bandas.</div>`,
+    de:`<p>Vertretungen sind ein erstklassiger Anwendungsfall. Wenn ein Band-Admin dich einlädt, trittst du als reguläres Mitglied bei und erhältst sofortigen Zugriff auf alles, was du für den Gig brauchst: die Setlist, Tonarten und BPM, Band-Notizen, deine persönlichen Notizen und den Probenplan.</p><p>Du brauchst kein Pro-Abonnement, um Bandwolf als Vertretung zu nutzen. Die kostenlose Mitgliedschaft gibt dir alles, was ein Musiker braucht.</p><div class="note">Wenn du regelmäßig für mehr als zwei Bands einspringst, hebt Bandwolf Pro das 2-Band-Limit auf.</div>`,
+    it:`<p>I sostituti sono un caso d'uso di prima classe. Quando un amministratore della band ti invita, ti unisci come membro regolare e ottieni accesso immediato a tutto ciò di cui hai bisogno: la setlist, le tonalità e il BPM, le note della band, le tue note personali e il calendario delle prove.</p><p>Non hai bisogno di un abbonamento Pro per usare Bandwolf come sostituto. L'iscrizione Gratuita ti dà tutto ciò di cui hai bisogno.</p><div class="note">Se fai spesso da sostituto per più di due gruppi, Bandwolf Pro rimuove il limite di 2 band.</div>`,
+    pt:`<p>Substitutos são um caso de uso de primeira classe. Quando um administrador da banda te convida, você entra como membro regular e tem acesso imediato a tudo o que precisa: a setlist, tons e BPM, notas da banda, suas notas pessoais e o calendário de ensaios.</p><p>Você não precisa de uma assinatura Pro para usar o Bandwolf como substituto. A assinatura Gratuita fornece tudo o que você precisa.</p><div class="note">Se você frequentemente substitui em mais de dois grupos, o Bandwolf Pro remove o limite de 2 bandas.</div>`,
+    pl:`<p>Zastępcy to pierwszorzędny przypadek użycia. Gdy administrator zespołu cię zaprosi, dołączasz jako zwykły członek i uzyskujesz natychmiastowy dostęp do wszystkiego, czego potrzebujesz: setlistę, tonacje i BPM, notatki zespołu, własne notatki osobiste oraz harmonogram prób.</p><p>Nie potrzebujesz subskrypcji Pro jako zastępca. Bezpłatne członkostwo daje ci wszystko, czego potrzebujesz.</p><div class="note">Jeśli regularnie zastępujesz w więcej niż dwóch grupach, Bandwolf Pro usuwa limit 2 zespołów.</div>`,
+  },
+  foh:{
+    en:`<p>Yes. Bands often add FOH engineers, sound techs, and lighting crew as members so they have access to the setlist and event schedule from their own phone.</p><p>As a Free member you can see the full setlist for any gig, view band notes on individual songs, and check the RSVP list for upcoming events. You don't need to create or manage anything — just read and prepare.</p><p>Your subscription tier doesn't affect what you can view. If the band admin has a Pro account and builds a 30-song setlist, you can see every song on it.</p>`,
+    fr:`<p>Oui. Les groupes ajoutent souvent les ingénieurs FOH, les techniciens son et les éclairagistes comme membres afin qu'ils aient accès à la setlist et au planning depuis leur téléphone.</p><p>En tant que membre Gratuit, vous pouvez voir la setlist complète pour chaque concert, consulter les notes du groupe et vérifier la liste des présences. Votre niveau d'abonnement n'affecte pas ce que vous pouvez voir.</p>`,
+    es:`<p>Sí. Los grupos a menudo añaden ingenieros FOH, técnicos de sonido e iluminadores como miembros para que tengan acceso a la setlist y al calendario desde su teléfono.</p><p>Como miembro Gratis puedes ver la setlist completa para cualquier concierto, ver las notas de la banda y revisar la lista de asistencia. Tu nivel de suscripción no afecta lo que puedes ver.</p>`,
+    de:`<p>Ja. Bands fügen oft FOH-Ingenieure, Tontechniker und Lichttechniker als Mitglieder hinzu, damit sie Zugriff auf die Setlist und den Veranstaltungsplan haben.</p><p>Als kostenloses Mitglied kannst du die vollständige Setlist sehen, Band-Notizen ansehen und die Zusagenliste prüfen. Deine Abonnementstufe beeinflusst nicht, was du ansehen kannst.</p>`,
+    it:`<p>Sì. Le band spesso aggiungono ingegneri FOH, tecnici del suono e addetti alle luci come membri in modo che abbiano accesso alla setlist e al calendario degli eventi dal loro telefono.</p><p>Come membro Gratuito puoi vedere la setlist completa, visualizzare le note della band e controllare l'elenco delle presenze. Il tuo livello di abbonamento non influisce su ciò che puoi visualizzare.</p>`,
+    pt:`<p>Sim. Bandas frequentemente adicionam engenheiros de FOH, técnicos de som e equipe de iluminação como membros para que tenham acesso à setlist e ao cronograma de eventos.</p><p>Como membro Gratuito você pode ver a setlist completa, visualizar as notas da banda e verificar a lista de presença. Seu nível de assinatura não afeta o que você pode ver.</p>`,
+    pl:`<p>Tak. Zespoły często dodają inżynierów FOH, techników dźwięku i oświetleniowców jako członków, aby mieli dostęp do setlisty i harmonogramu wydarzeń.</p><p>Jako bezpłatny członek możesz zobaczyć pełną setlistę, przeglądać notatki zespołu i sprawdzać listę potwierdzeń. Twój poziom subskrypcji nie wpływa na to, co możesz przeglądać.</p>`,
+  },
+  guestRole:{
+    en:`<p>Guests are a read-only role, useful for deps or crew who need setlist access but shouldn't be able to edit anything — even by accident. Guests can view all band content but cannot add songs, create setlists, or change any band data.</p><p>Regular members (both Free and Pro) can add their personal song notes, suggest songs, and RSVP. If they're on Pro, they can also create and manage content up to their tier limits.</p><p>Band admins assign roles when generating or sending an invite link.</p>`,
+    fr:`<p>Les invités ont un rôle en lecture seule, utile pour les remplaçants ou l'équipe technique. Les invités peuvent consulter tout le contenu du groupe mais ne peuvent pas ajouter des chansons, créer des setlists ou modifier des données.</p><p>Les membres réguliers peuvent ajouter des notes personnelles, suggérer des chansons et répondre aux répétitions. Les administrateurs attribuent les rôles lors de l'envoi d'une invitation.</p>`,
+    es:`<p>Los invitados tienen un rol de solo lectura, útil para sustitutos o equipo técnico. Los invitados pueden ver todo el contenido de la banda pero no pueden añadir canciones, crear setlists ni cambiar datos.</p><p>Los miembros regulares pueden añadir notas personales, sugerir canciones y confirmar asistencia. Los administradores asignan roles al generar invitaciones.</p>`,
+    de:`<p>Gäste haben eine schreibgeschützte Rolle, nützlich für Vertretungen oder technisches Personal. Gäste können alle Band-Inhalte sehen, aber keine Songs hinzufügen, Setlists erstellen oder Band-Daten ändern.</p><p>Reguläre Mitglieder können persönliche Notizen hinzufügen, Songs vorschlagen und zusagen. Band-Admins weisen Rollen beim Erstellen von Einladungslinks zu.</p>`,
+    it:`<p>Gli ospiti hanno un ruolo di sola lettura, utile per i sostituti o il personale tecnico. Gli ospiti possono visualizzare tutti i contenuti della band ma non aggiungere canzoni, creare setlist o modificare dati.</p><p>I membri regolari possono aggiungere note personali, suggerire canzoni e confermare la presenza. Gli amministratori assegnano i ruoli quando inviano inviti.</p>`,
+    pt:`<p>Convidados têm um papel somente leitura, útil para substitutos ou equipe técnica. Convidados podem ver todo o conteúdo da banda, mas não podem adicionar músicas, criar setlists ou alterar dados.</p><p>Membros regulares podem adicionar notas pessoais, sugerir músicas e confirmar presença. Os administradores atribuem funções ao enviar convites.</p>`,
+    pl:`<p>Goście mają rolę tylko do odczytu, przydatną dla zastępców lub ekipy technicznej. Goście mogą przeglądać całą zawartość zespołu, ale nie mogą dodawać piosenek, tworzyć setlist ani zmieniać danych.</p><p>Zwykli członkowie mogą dodawać notatki osobiste, sugerować piosenki i potwierdzać obecność. Administratorzy przypisują role przy wysyłaniu zaproszeń.</p>`,
+  },
+  expires:{
+    en:`<p>Your account drops to Free tier. Everything you created while on Pro is still there — no data is deleted. The limits just snap back to Free levels:</p><ul><li>You can still view all your setlists and songs, but won't be able to create new ones beyond the Free limits</li><li>Gig Mode and calendar export become unavailable until you resubscribe</li><li>If you were a band admin, you temporarily lose admin privileges. Your admin status is preserved in the background — it restores automatically the moment you resubscribe, with no action needed</li></ul><p>Nothing is deleted. Resubscribing instantly restores full access, admin rights included.</p>`,
+    fr:`<p>Votre compte passe au niveau Gratuit. Tout ce que vous avez créé pendant la période Pro est toujours là — aucune donnée n'est supprimée. Les limites reviennent aux niveaux Gratuits :</p><ul><li>Vous pouvez toujours voir toutes vos setlists et chansons, mais ne pourrez pas en créer de nouvelles au-delà des limites</li><li>Le mode Gig et l'export de calendrier deviennent indisponibles</li><li>Si vous étiez administrateur, vous perdez temporairement les privilèges, qui se rétablissent automatiquement lors du réabonnement</li></ul><p>Rien n'est supprimé. Vous réabonner restaure instantanément l'accès complet.</p>`,
+    es:`<p>Tu cuenta pasa al nivel Gratis. Todo lo que creaste mientras estabas en Pro sigue ahí — no se elimina ningún dato. Los límites vuelven a los niveles Gratis:</p><ul><li>Puedes seguir viendo todas tus setlists y canciones, pero no podrás crear nuevas más allá de los límites</li><li>El modo Concierto y la exportación de calendario dejan de estar disponibles</li><li>Si eras administrador, pierdes temporalmente los privilegios, que se restauran automáticamente al reuscribirte</li></ul><p>No se elimina nada. Volver a suscribirte restaura instantáneamente el acceso completo.</p>`,
+    de:`<p>Dein Konto fällt auf die kostenlose Stufe zurück. Alles, was du erstellt hast, ist noch da — keine Daten werden gelöscht. Die Limits fallen auf die kostenlosen Niveaus zurück:</p><ul><li>Du kannst alle Setlists und Songs ansehen, aber keine neuen über die kostenlosen Limits hinaus erstellen</li><li>Gig Mode und Kalenderexport werden nicht verfügbar</li><li>Wenn du Band-Admin warst, verlierst du vorübergehend die Admin-Rechte, die sich automatisch wiederherstellen</li></ul><p>Nichts wird gelöscht. Das erneute Abonnieren stellt sofort den vollen Zugang wieder her.</p>`,
+    it:`<p>Il tuo account scende al livello Gratuito. Tutto ciò che hai creato durante il periodo Pro è ancora lì — nessun dato viene eliminato. I limiti tornano ai livelli Gratuiti:</p><ul><li>Puoi ancora visualizzare tutte le tue setlist e canzoni, ma non potrai crearne di nuove oltre i limiti</li><li>La modalità Gig e l'esportazione del calendario diventano non disponibili</li><li>Se eri amministratore, perdi temporaneamente i privilegi, che si ripristinano automaticamente al riabbonamento</li></ul><p>Niente viene eliminato. Riabbonarsi ripristina istantaneamente l'accesso completo.</p>`,
+    pt:`<p>Sua conta cai para o plano Gratuito. Tudo o que você criou enquanto estava no Pro ainda está lá — nenhum dado é excluído. Os limites voltam para os níveis Gratuitos:</p><ul><li>Você ainda pode ver todas as suas setlists e músicas, mas não poderá criar novas além dos limites</li><li>O modo Show e a exportação de calendário ficam indisponíveis</li><li>Se você era administrador, perde temporariamente os privilégios, que se restauram automaticamente ao se reinscrever</li></ul><p>Nada é excluído. Reinscrever-se restaura instantaneamente o acesso completo.</p>`,
+    pl:`<p>Twoje konto spada do poziomu Bezpłatnego. Wszystko, co stworzyłeś, nadal tam jest — żadne dane nie są usuwane. Limity wracają do poziomów Bezpłatnych:</p><ul><li>Nadal możesz przeglądać swoje setlisty i piosenki, ale nie będziesz mógł tworzyć nowych poza bezpłatnymi limitami</li><li>Tryb Gig i eksport kalendarza stają się niedostępne</li><li>Jeśli byłeś administratorem, tymczasowo tracisz uprawnienia, które przywracają się automatycznie po ponownym zasubskrybowaniu</li></ul><p>Nic nie jest usuwane. Ponowne zasubskrybowanie natychmiast przywraca pełny dostęp.</p>`,
+  },
+  cancel:{
+    en:`<p>Bandwolf subscriptions are managed through the App Store. You can cancel, pause, or change your plan in <strong>Settings → Apple ID → Subscriptions</strong> on your iPhone, or directly at <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</p><p>You can also tap <strong>Manage subscription</strong> inside the Bandwolf app from your profile settings.</p><p>Cancelling takes effect at the end of your current billing period — you keep Pro access until then.</p>`,
+    fr:`<p>Les abonnements Bandwolf sont gérés via l'App Store. Vous pouvez annuler, mettre en pause ou modifier votre plan dans <strong>Réglages → Identifiant Apple → Abonnements</strong> sur votre iPhone, ou sur <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</p><p>Vous pouvez également appuyer sur <strong>Gérer l'abonnement</strong> dans l'application Bandwolf. L'annulation prend effet à la fin de votre période de facturation en cours.</p>`,
+    es:`<p>Las suscripciones de Bandwolf se gestionan a través de la App Store. Puedes cancelar, pausar o cambiar tu plan en <strong>Ajustes → ID de Apple → Suscripciones</strong> en tu iPhone, o en <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</p><p>También puedes pulsar <strong>Gestionar suscripción</strong> dentro de la app Bandwolf. La cancelación surte efecto al final de tu período de facturación actual.</p>`,
+    de:`<p>Bandwolf-Abonnements werden über den App Store verwaltet. Du kannst dein Abo unter <strong>Einstellungen → Apple-ID → Abonnements</strong> auf deinem iPhone kündigen, oder unter <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</p><p>Du kannst auch in der Bandwolf-App auf <strong>Abonnement verwalten</strong> tippen. Die Kündigung tritt am Ende deines aktuellen Abrechnungszeitraums in Kraft.</p>`,
+    it:`<p>Gli abbonamenti Bandwolf sono gestiti tramite l'App Store. Puoi annullare, mettere in pausa o modificare il tuo piano in <strong>Impostazioni → ID Apple → Abbonamenti</strong> sul tuo iPhone, o su <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</p><p>Puoi anche toccare <strong>Gestisci abbonamento</strong> nell'app Bandwolf. L'annullamento ha effetto alla fine del periodo di fatturazione corrente.</p>`,
+    pt:`<p>As assinaturas do Bandwolf são gerenciadas pela App Store. Você pode cancelar, pausar ou alterar seu plano em <strong>Ajustes → ID Apple → Assinaturas</strong> no seu iPhone, ou em <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</p><p>Você também pode tocar em <strong>Gerenciar assinatura</strong> dentro do aplicativo Bandwolf. O cancelamento entra em vigor no final do período de cobrança atual.</p>`,
+    pl:`<p>Subskrypcje Bandwolf są zarządzane przez App Store. Możesz anulować, wstrzymać lub zmienić plan w <strong>Ustawienia → Apple ID → Subskrypcje</strong> na iPhonie lub na <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>.</p><p>Możesz również dotknąć <strong>Zarządzaj subskrypcją</strong> w aplikacji Bandwolf. Anulowanie wchodzi w życie na końcu bieżącego okresu rozliczeniowego.</p>`,
+  },
+  restore:{
+    en:`<p>Yes. Open Bandwolf and go to your profile, then tap <strong>Restore purchases</strong>. As long as you're signed in with the same Apple ID that made the original purchase, your Pro status will restore immediately.</p>`,
+    fr:`<p>Oui. Ouvrez Bandwolf, allez dans votre profil et appuyez sur <strong>Restaurer les achats</strong>. Tant que vous êtes connecté avec le même identifiant Apple, votre statut Pro sera restauré immédiatement.</p>`,
+    es:`<p>Sí. Abre Bandwolf, ve a tu perfil y pulsa <strong>Restaurar compras</strong>. Siempre que estés conectado con el mismo ID de Apple, tu estado Pro se restaurará de inmediato.</p>`,
+    de:`<p>Ja. Öffne Bandwolf, gehe zu deinem Profil und tippe auf <strong>Käufe wiederherstellen</strong>. Solange du mit derselben Apple-ID angemeldet bist, wird dein Pro-Status sofort wiederhergestellt.</p>`,
+    it:`<p>Sì. Apri Bandwolf, vai al tuo profilo e tocca <strong>Ripristina acquisti</strong>. Finché sei connesso con lo stesso ID Apple, il tuo stato Pro verrà ripristinato immediatamente.</p>`,
+    pt:`<p>Sim. Abra o Bandwolf, vá ao seu perfil e toque em <strong>Restaurar compras</strong>. Desde que você esteja conectado com o mesmo ID Apple, seu status Pro será restaurado imediatamente.</p>`,
+    pl:`<p>Tak. Otwórz Bandwolf, przejdź do swojego profilu i dotknij <strong>Przywróć zakupy</strong>. Dopóki jesteś zalogowany tym samym Apple ID, twój status Pro zostanie natychmiast przywrócony.</p>`,
+  },
+  invite:{
+    en:`<p>Go to your band's Members tab and tap <strong>Invite</strong>. You'll get a unique invite code and a shareable link. Send either to the person you're inviting — they sign up (or log in) and join your band directly.</p><p>You can set whether they join as a regular member or a guest, and whether they get admin privileges, before you share the link.</p><p>Invite links can be set to expire or limited to a set number of uses, so you can safely share them in a group chat without worrying about unexpected joiners.</p>`,
+    fr:`<p>Allez dans l'onglet Membres de votre groupe et appuyez sur <strong>Inviter</strong>. Vous obtiendrez un code d'invitation unique et un lien à partager. Envoyez-le à la personne que vous invitez.</p><p>Vous pouvez définir s'ils rejoignent en tant que membre régulier ou invité, et s'ils obtiennent des privilèges d'administrateur, avant de partager le lien.</p><p>Les liens d'invitation peuvent être configurés pour expirer ou limités à un certain nombre d'utilisations.</p>`,
+    es:`<p>Ve a la pestaña Miembros de tu banda y pulsa <strong>Invitar</strong>. Obtendrás un código de invitación único y un enlace compartible. Envía cualquiera de los dos a la persona que estás invitando.</p><p>Puedes configurar si se unen como miembro regular o invitado, y si obtienen privilegios de administrador, antes de compartir el enlace.</p><p>Los enlaces de invitación se pueden configurar para que caduquen o limitarse a un número determinado de usos.</p>`,
+    de:`<p>Gehe in der Registerkarte Mitglieder deiner Band und tippe auf <strong>Einladen</strong>. Du erhältst einen eindeutigen Einladungscode und einen teilbaren Link. Sende ihn an die Person, die du einlädst.</p><p>Du kannst festlegen, ob sie als reguläres Mitglied oder als Gast beitreten und ob sie Admin-Rechte erhalten.</p><p>Einladungslinks können so eingestellt werden, dass sie ablaufen oder auf eine bestimmte Anzahl von Verwendungen begrenzt sind.</p>`,
+    it:`<p>Vai alla scheda Membri della tua band e tocca <strong>Invita</strong>. Riceverai un codice di invito univoco e un link condivisibile. Invialo alla persona che stai invitando.</p><p>Puoi impostare se si uniscono come membro regolare o come ospite, e se ottengono privilegi di amministratore.</p><p>I link di invito possono essere impostati per scadere o limitati a un numero determinato di utilizzi.</p>`,
+    pt:`<p>Vá para a aba Membros da sua banda e toque em <strong>Convidar</strong>. Você receberá um código de convite único e um link compartilhável. Envie qualquer um para a pessoa que está convidando.</p><p>Você pode definir se ela entra como membro regular ou convidado, e se recebe privilégios de administrador.</p><p>Os links de convite podem ser configurados para expirar ou limitados a um número definido de usos.</p>`,
+    pl:`<p>Przejdź do zakładki Członkowie swojego zespołu i dotknij <strong>Zaproś</strong>. Otrzymasz unikalny kod zaproszenia i udostępnialny link. Wyślij jeden z nich osobie, którą zapraszasz.</p><p>Możesz ustawić, czy dołączą jako zwykły członek czy gość, oraz czy otrzymają uprawnienia administratora.</p><p>Linki zaproszenia można ustawić tak, aby wygasały lub były ograniczone do określonej liczby użyć.</p>`,
+  },
+  multiBand:{
+    en:`<p>Yes. Free members can be in up to 2 bands in total. Pro members can join and manage an unlimited number of bands.</p><p>Switch between bands using the band selector at the top of the app. Each band has completely separate setlists, members, rehearsals, and settings.</p>`,
+    fr:`<p>Oui. Les membres Gratuits peuvent faire partie de 2 groupes au maximum. Les membres Pro peuvent rejoindre et gérer un nombre illimité de groupes.</p><p>Passez d'un groupe à l'autre en utilisant le sélecteur de groupe en haut de l'application.</p>`,
+    es:`<p>Sí. Los miembros Gratis pueden estar en un máximo de 2 bandas en total. Los miembros Pro pueden unirse y gestionar un número ilimitado de bandas.</p><p>Cambia entre bandas usando el selector de banda en la parte superior de la app.</p>`,
+    de:`<p>Ja. Kostenlose Mitglieder können insgesamt bis zu 2 Bands angehören. Pro-Mitglieder können einer unbegrenzten Anzahl von Bands beitreten.</p><p>Wechsle zwischen Bands mit dem Band-Auswähler oben in der App.</p>`,
+    it:`<p>Sì. I membri Gratuiti possono far parte di un massimo di 2 band in totale. I membri Pro possono unirsi e gestire un numero illimitato di band.</p><p>Passa da una band all'altra usando il selettore di band nella parte superiore dell'app.</p>`,
+    pt:`<p>Sim. Membros Gratuitos podem estar em até 2 bandas no total. Membros Pro podem entrar e gerenciar um número ilimitado de bandas.</p><p>Alterne entre bandas usando o seletor de banda no topo do aplicativo.</p>`,
+    pl:`<p>Tak. Bezpłatni członkowie mogą należeć do maksymalnie 2 zespołów łącznie. Członkowie Pro mogą dołączać do nieograniczonej liczby zespołów.</p><p>Przełączaj się między zespołami za pomocą selektora zespołu na górze aplikacji.</p>`,
+  },
+  admin:{
+    en:`<p>Admins can manage the band: add and remove members, edit band details, create and reorder setlists, add and delete songs, manage rehearsals and gigs, and handle invites. Admin status requires an active Pro subscription.</p><p>Regular members (Free or Pro) can view everything, add personal song notes, suggest songs, and RSVP. Pro members can additionally create content up to their tier's limits.</p>`,
+    fr:`<p>Les administrateurs peuvent gérer le groupe : ajouter et supprimer des membres, modifier les détails, créer et réorganiser des setlists, ajouter et supprimer des chansons, gérer les répétitions et les concerts. Le statut d'administrateur nécessite un abonnement Pro actif.</p><p>Les membres réguliers peuvent tout voir, ajouter des notes personnelles, suggérer des chansons et répondre aux répétitions.</p>`,
+    es:`<p>Los administradores pueden gestionar la banda: añadir y eliminar miembros, editar los detalles, crear y reordenar setlists, añadir y eliminar canciones, gestionar ensayos y conciertos. El estado de administrador requiere una suscripción Pro activa.</p><p>Los miembros regulares pueden ver todo, añadir notas personales, sugerir canciones y confirmar asistencia.</p>`,
+    de:`<p>Admins können die Band verwalten: Mitglieder hinzufügen und entfernen, Banddetails bearbeiten, Setlists erstellen, Songs hinzufügen und löschen, Proben und Gigs verwalten. Der Admin-Status erfordert ein aktives Pro-Abonnement.</p><p>Reguläre Mitglieder können alles sehen, persönliche Notizen hinzufügen, Songs vorschlagen und zusagen.</p>`,
+    it:`<p>Gli amministratori possono gestire la band: aggiungere e rimuovere membri, modificare i dettagli, creare e riordinare setlist, aggiungere ed eliminare canzoni, gestire prove e concerti. Lo stato di amministratore richiede un abbonamento Pro attivo.</p><p>I membri regolari possono vedere tutto, aggiungere note personali, suggerire canzoni e confermare la presenza.</p>`,
+    pt:`<p>Administradores podem gerenciar a banda: adicionar e remover membros, editar detalhes, criar e reordenar setlists, adicionar e excluir músicas, gerenciar ensaios e shows. O status de administrador requer uma assinatura Pro ativa.</p><p>Membros regulares podem ver tudo, adicionar notas pessoais, sugerir músicas e confirmar presença.</p>`,
+    pl:`<p>Administratorzy mogą zarządzać zespołem: dodawać i usuwać członków, edytować szczegóły, tworzyć i zmieniać kolejność setlist, dodawać i usuwać piosenki, zarządzać próbami i koncertami. Status administratora wymaga aktywnej subskrypcji Pro.</p><p>Zwykli członkowie mogą przeglądać wszystko, dodawać notatki osobiste, sugerować piosenki i potwierdzać obecność.</p>`,
+  },
+  gigMode:{
+    en:`<p>Gig Mode turns Bandwolf into a live performance tool. It gives you a clean, distraction-free view of your setlist during a show — large text, dark background, tap to advance songs. It's designed to work in low-light environments and to be read at a glance from a music stand or monitor.</p><p>Gig Mode is a Pro-only feature. Any band member can view Gig Mode if the Pro member running the session shares their screen — they don't all need to be on Pro themselves.</p>`,
+    fr:`<p>Le mode Gig transforme Bandwolf en outil de performance en direct. Il vous offre une vue claire et sans distraction de votre setlist pendant un concert — grand texte, fond sombre, appuyez pour passer à la chanson suivante.</p><p>Le mode Gig est une fonctionnalité Pro uniquement. Tout membre du groupe peut le voir si le membre Pro partage son écran.</p>`,
+    es:`<p>El modo Concierto convierte Bandwolf en una herramienta de actuación en vivo. Te ofrece una vista limpia y sin distracciones de tu setlist durante un show — texto grande, fondo oscuro, toca para avanzar las canciones.</p><p>El modo Concierto es una función solo para Pro. Cualquier miembro de la banda puede verlo si el miembro Pro comparte su pantalla.</p>`,
+    de:`<p>Der Gig Mode verwandelt Bandwolf in ein Live-Performance-Tool. Er gibt dir während einer Show eine klare, ablenkungsfreie Ansicht deiner Setlist — großer Text, dunkler Hintergrund, tippe, um Songs weiterzuschalten.</p><p>Der Gig Mode ist eine reine Pro-Funktion. Jedes Bandmitglied kann ihn ansehen, wenn das Pro-Mitglied seinen Bildschirm teilt.</p>`,
+    it:`<p>La modalità Gig trasforma Bandwolf in uno strumento per le esibizioni dal vivo. Ti offre una visualizzazione pulita e senza distrazioni della tua setlist durante uno spettacolo — testo grande, sfondo scuro, tocca per passare alle canzoni.</p><p>La modalità Gig è una funzione solo Pro. Qualsiasi membro della band può vederla se il membro Pro condivide il proprio schermo.</p>`,
+    pt:`<p>O modo Show transforma o Bandwolf em uma ferramenta de performance ao vivo. Ele oferece uma visão limpa e sem distrações da sua setlist durante um show — texto grande, fundo escuro, toque para avançar as músicas.</p><p>O modo Show é uma funcionalidade exclusiva do Pro. Qualquer membro da banda pode vê-lo se o membro Pro compartilhar a tela.</p>`,
+    pl:`<p>Tryb Gig zamienia Bandwolf w narzędzie do występów na żywo. Daje ci przejrzysty, wolny od rozpraszaczy widok setlisty podczas show — duży tekst, ciemne tło, dotknij, aby przejść do następnej piosenki.</p><p>Tryb Gig to funkcja wyłącznie dla Pro. Każdy członek zespołu może go przeglądać, jeśli członek Pro udostępni swój ekran.</p>`,
+  },
+  calExport:{
+    en:`<p>Pro members can export their band's rehearsal and gig schedule as an ICS file, which can be added to Apple Calendar, Google Calendar, or any calendar app that supports the standard format.</p><p>You can export a single band's events or all your bands' events together. The calendar stays up to date — you can re-export any time to pull in new dates.</p><div class="note">Adding a single rehearsal to your personal calendar from the rehearsal detail screen is free for all members — that's just a convenience link, not the full ICS export.</div>`,
+    fr:`<p>Les membres Pro peuvent exporter le planning des répétitions et des concerts de leur groupe sous forme de fichier ICS, compatible avec Apple Calendrier, Google Agenda ou toute application de calendrier standard.</p><p>Vous pouvez exporter les événements d'un seul groupe ou de tous vos groupes ensemble. Réexportez à tout moment pour intégrer de nouvelles dates.</p><div class="note">Ajouter une seule répétition à votre calendrier personnel depuis le détail d'un événement est gratuit pour tous les membres.</div>`,
+    es:`<p>Los miembros Pro pueden exportar el calendario de ensayos y conciertos de su banda como un archivo ICS, compatible con Apple Calendar, Google Calendar o cualquier aplicación de calendario estándar.</p><p>Puedes exportar los eventos de una sola banda o todos los eventos juntos. Vuelve a exportar en cualquier momento para incluir nuevas fechas.</p><div class="note">Añadir un ensayo individual a tu calendario personal es gratuito para todos los miembros.</div>`,
+    de:`<p>Pro-Mitglieder können den Probe- und Gig-Plan ihrer Band als ICS-Datei exportieren, die zu Apple Kalender, Google Kalender oder jeder anderen Kalender-App hinzugefügt werden kann.</p><p>Du kannst die Ereignisse einer einzelnen Band oder aller Bands zusammen exportieren. Exportiere jederzeit erneut, um neue Termine einzubeziehen.</p><div class="note">Das Hinzufügen einer einzelnen Probe zu deinem Kalender ist für alle Mitglieder kostenlos.</div>`,
+    it:`<p>I membri Pro possono esportare il calendario delle prove e dei concerti della loro band come file ICS, compatibile con Apple Calendario, Google Calendar o qualsiasi app standard.</p><p>Puoi esportare gli eventi di una singola band o di tutte le tue band insieme. Riesporta in qualsiasi momento per includere nuove date.</p><div class="note">Aggiungere una singola prova al tuo calendario personale è gratuito per tutti i membri.</div>`,
+    pt:`<p>Membros Pro podem exportar o calendário de ensaios e shows da sua banda como um arquivo ICS, compatível com Apple Calendar, Google Calendar ou qualquer aplicativo de calendário padrão.</p><p>Você pode exportar os eventos de uma única banda ou de todas as suas bandas juntos. Reexporte a qualquer momento para incluir novas datas.</p><div class="note">Adicionar um ensaio individual ao seu calendário pessoal é gratuito para todos os membros.</div>`,
+    pl:`<p>Członkowie Pro mogą eksportować harmonogram prób i koncertów swojego zespołu jako plik ICS, kompatybilny z Apple Calendar, Google Calendar lub dowolną aplikacją kalendarza.</p><p>Możesz eksportować wydarzenia jednego zespołu lub wszystkich swoich zespołów razem. Eksportuj ponownie w dowolnym momencie.</p><div class="note">Dodanie pojedynczej próby do osobistego kalendarza jest bezpłatne dla wszystkich członków.</div>`,
+  },
+  avail_q1:{
+    en:`<p>Find a time scans every band member's connected calendar and colour-codes each suggested slot by how clear it is. <strong>Green</strong> means everyone is free. <strong>Amber</strong> means there's a minor clash only — one or two members have a marginal calendar overlap; the slot is still worth considering and the affected members are listed underneath. <strong>Red</strong> means at least one member has a real conflict for most or all of the slot.</p><p>To stop tiny calendar entries from blocking otherwise free evenings, Bandwolf applies a <strong>15-minute grace period</strong> at each end of every slot: an event that finishes within 15 minutes of a slot starting (or starts within 15 minutes of it ending) is treated as a minor clash rather than a hard conflict.</p><p>Members who haven't connected a calendar are assumed available — the checker can only see what it's been given access to.</p>`,
+    fr:`<p>« Trouver un créneau » scanne les agendas connectés de chaque membre du groupe et code chaque créneau proposé par couleur. <strong>Vert</strong> signifie que tout le monde est libre. <strong>Ambre</strong> indique un léger chevauchement. <strong>Rouge</strong> signifie qu'au moins un membre a un vrai conflit.</p><p>Bandwolf applique une <strong>marge de tolérance de 15 minutes</strong> aux limites des créneaux pour éviter que de petits événements ne bloquent des soirées autrement libres.</p><p>Les membres sans agenda connecté sont considérés disponibles.</p>`,
+    es:`<p>«Encontrar un horario» escanea los calendarios conectados de cada miembro del grupo y codifica por colores cada franja horaria sugerida. <strong>Verde</strong> significa que todos están libres. <strong>Ámbar</strong> indica un choque menor. <strong>Rojo</strong> significa que al menos un miembro tiene un conflicto real.</p><p>Bandwolf aplica un <strong>período de gracia de 15 minutos</strong> en cada extremo de cada franja para evitar que pequeñas entradas bloqueen franjas por lo demás libres.</p><p>Los miembros sin calendario conectado se consideran disponibles.</p>`,
+    de:`<p>„Termin finden" scannt die verbundenen Kalender aller Bandmitglieder und farbkodiert jeden vorgeschlagenen Zeitraum. <strong>Grün</strong> bedeutet, alle sind frei. <strong>Amber</strong> bedeutet einen geringen Konflikt. <strong>Rot</strong> bedeutet, mindestens ein Mitglied hat einen echten Konflikt.</p><p>Bandwolf wendet einen <strong>15-minütigen Puffer</strong> an, um zu verhindern, dass kleine Kalendereinträge sonst freie Abende blockieren.</p><p>Mitglieder ohne verbundenen Kalender gelten als verfügbar.</p>`,
+    it:`<p>«Trova un orario» analizza i calendari connessi di ogni membro della band e codifica a colori ogni slot suggerito. <strong>Verde</strong> significa che tutti sono liberi. <strong>Ambra</strong> indica un lieve sovrapposizione. <strong>Rosso</strong> significa che almeno un membro ha un vero conflitto.</p><p>Bandwolf applica un <strong>periodo di grazia di 15 minuti</strong> per evitare che piccole voci blocchino serate altrimenti libere.</p><p>I membri senza calendario connesso sono considerati disponibili.</p>`,
+    pt:`<p>«Encontrar um horário» verifica os calendários conectados de cada membro da banda e codifica por cor cada intervalo sugerido. <strong>Verde</strong> significa que todos estão livres. <strong>Âmbar</strong> indica um conflito menor. <strong>Vermelho</strong> significa que pelo menos um membro tem um conflito real.</p><p>O Bandwolf aplica um <strong>período de carência de 15 minutos</strong> para evitar que pequenas entradas bloqueiem horários livres.</p><p>Membros sem calendário conectado são considerados disponíveis.</p>`,
+    pl:`<p>„Znajdź termin" skanuje połączone kalendarze każdego członka zespołu i koduje kolorem każdy proponowany slot. <strong>Zielony</strong> oznacza, że wszyscy są wolni. <strong>Bursztynowy</strong> wskazuje na mniejszy konflikt. <strong>Czerwony</strong> oznacza, że co najmniej jeden członek ma prawdziwy konflikt.</p><p>Bandwolf stosuje <strong>15-minutowy bufor</strong>, aby małe wpisy nie blokowały wolnych wieczorów.</p><p>Członkowie bez połączonego kalendarza są uważani za dostępnych.</p>`,
+  },
+  avail_q7:{
+    en:`<p>Google Calendar, Apple iCloud Calendar, and any iCal/ICS feed — which covers Outlook, most work calendars, and most other calendar systems. Connect each calendar once in Settings and Bandwolf re-reads it automatically.</p><p>Bandwolf never reads or stores event titles, locations, descriptions, or attendees from your calendar. It only sees whether a time slot is marked busy or free.</p>`,
+    fr:`<p>Google Agenda, Apple iCloud Calendrier et tout flux iCal/ICS — ce qui couvre Outlook, la plupart des agendas professionnels et la plupart des autres systèmes. Connectez chaque agenda une fois dans les Paramètres et Bandwolf le relit automatiquement.</p><p>Bandwolf ne lit ni ne stocke jamais les titres, lieux, descriptions ou participants de vos événements. Il voit uniquement si un créneau est marqué occupé ou libre.</p>`,
+    es:`<p>Google Calendar, Apple iCloud Calendar y cualquier fuente iCal/ICS — lo que cubre Outlook, la mayoría de calendarios de trabajo y la mayoría de otros sistemas. Conecta cada calendario una vez en Configuración y Bandwolf lo relee automáticamente.</p><p>Bandwolf nunca lee ni almacena títulos de eventos, ubicaciones, descripciones o asistentes de tu calendario. Solo ve si un horario está marcado como ocupado o libre.</p>`,
+    de:`<p>Google Kalender, Apple iCloud Kalender und jeder iCal/ICS-Feed — was Outlook, die meisten Arbeitskalender und die meisten anderen Systeme abdeckt. Verbinde jeden Kalender einmal in den Einstellungen und Bandwolf liest ihn automatisch neu.</p><p>Bandwolf liest oder speichert niemals Ereignistitel, Orte, Beschreibungen oder Teilnehmer aus deinem Kalender. Es sieht nur, ob ein Zeitraum als belegt oder frei markiert ist.</p>`,
+    it:`<p>Google Calendar, Apple iCloud Calendario e qualsiasi feed iCal/ICS — che copre Outlook, la maggior parte dei calendari di lavoro e la maggior parte degli altri sistemi. Connetti ogni calendario una volta nelle Impostazioni e Bandwolf lo rilegge automaticamente.</p><p>Bandwolf non legge né archivia mai titoli di eventi, luoghi, descrizioni o partecipanti dal tuo calendario. Vede solo se un orario è contrassegnato come occupato o libero.</p>`,
+    pt:`<p>Google Calendar, Apple iCloud Calendar e qualquer feed iCal/ICS — o que cobre Outlook, a maioria dos calendários de trabalho e a maioria dos outros sistemas. Conecte cada calendário uma vez nas Configurações e o Bandwolf o relê automaticamente.</p><p>O Bandwolf nunca lê nem armazena títulos de eventos, locais, descrições ou participantes do seu calendário. Ele apenas vê se um horário está marcado como ocupado ou livre.</p>`,
+    pl:`<p>Google Calendar, Apple iCloud Calendar i dowolny kanał iCal/ICS — co obejmuje Outlook, większość kalendarzy służbowych i większość innych systemów. Połącz każdy kalendarz raz w Ustawieniach, a Bandwolf automatycznie go odczyta.</p><p>Bandwolf nigdy nie odczytuje ani nie przechowuje tytułów wydarzeń, lokalizacji, opisów ani uczestników z twojego kalendarza. Widzi tylko, czy dany slot jest oznaczony jako zajęty lub wolny.</p>`,
+  },
+  personalNotes:{
+    en:`<p>Every song in a setlist has two layers of notes: band notes (visible to everyone, set by admins) and your own personal notes, which only you can see.</p><p>Personal notes are the place to put your own reminders: your capo position, a tricky transition you always forget, a cue from the singer. They travel with you across setlists and devices, and they're free for all members — no Pro subscription needed.</p>`,
+    fr:`<p>Chaque chanson d'une setlist a deux niveaux de notes : les notes du groupe (visibles par tous, définies par les administrateurs) et vos propres notes personnelles, que vous seul pouvez voir.</p><p>Les notes personnelles sont l'endroit où mettre vos propres rappels : votre position de capo, une transition délicate, un signal du chanteur. Elles vous suivent sur toutes les setlists et tous les appareils, et elles sont gratuites pour tous.</p>`,
+    es:`<p>Cada canción de una setlist tiene dos capas de notas: notas de la banda (visibles para todos, establecidas por los administradores) y tus propias notas personales, que solo tú puedes ver.</p><p>Las notas personales son el lugar para poner tus propios recordatorios: tu posición de cejilla, una transición difícil, una señal del cantante. Te acompañan en todas las setlists y dispositivos, y son gratuitas para todos.</p>`,
+    de:`<p>Jeder Song in einer Setlist hat zwei Ebenen von Notizen: Band-Notizen (für alle sichtbar, von Admins festgelegt) und deine eigenen persönlichen Notizen, die nur du sehen kannst.</p><p>Persönliche Notizen sind der Ort für deine eigenen Erinnerungen: deine Capo-Position, ein kniffliger Übergang, ein Stichwort vom Sänger. Sie begleiten dich über alle Setlists und Geräte hinweg und sind kostenlos.</p>`,
+    it:`<p>Ogni canzone in una setlist ha due livelli di note: note della band (visibili a tutti, impostate dagli amministratori) e le tue note personali, che solo tu puoi vedere.</p><p>Le note personali sono il posto dove mettere i tuoi promemoria: la posizione del capotasto, una transizione difficile, un segnale dal cantante. Ti accompagnano in tutte le setlist e su tutti i dispositivi, e sono gratuite per tutti.</p>`,
+    pt:`<p>Cada música em uma setlist tem duas camadas de notas: notas da banda (visíveis a todos, definidas pelos administradores) e suas próprias notas pessoais, que só você pode ver.</p><p>Notas pessoais são o lugar para colocar seus próprios lembretes: sua posição de capo, uma transição difícil, uma deixa do vocalista. Elas acompanham você em todas as setlists e dispositivos, e são gratuitas para todos.</p>`,
+    pl:`<p>Każda piosenka na setliście ma dwie warstwy notatek: notatki zespołu (widoczne dla wszystkich, ustawiane przez administratorów) i twoje własne notatki osobiste, które tylko ty możesz zobaczyć.</p><p>Notatki osobiste to miejsce na własne przypomnienia: pozycja kapodastru, trudne przejście, sygnał od wokalisty. Towarzyszą ci we wszystkich setlistach i urządzeniach, i są bezpłatne dla wszystkich.</p>`,
+  },
+  contact:{
+    en:`<p>Email us at <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. We read everything and aim to reply within one working day.</p>`,
+    fr:`<p>Envoyez-nous un e-mail à <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Nous lisons tout et visons à répondre dans un jour ouvrable.</p>`,
+    es:`<p>Envíanos un correo electrónico a <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Leemos todo y nos comprometemos a responder en un día hábil.</p>`,
+    de:`<p>Schreib uns eine E-Mail an <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Wir lesen alles und antworten in der Regel innerhalb eines Werktages.</p>`,
+    it:`<p>Scrivici a <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Leggiamo tutto e miriamo a rispondere entro un giorno lavorativo.</p>`,
+    pt:`<p>Envie um e-mail para <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Lemos tudo e buscamos responder em até um dia útil.</p>`,
+    pl:`<p>Wyślij e-mail na adres <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Czytamy wszystko i staramy się odpowiadać w ciągu jednego dnia roboczego.</p>`,
+  },
+};
+
+// ─── Lang engine ──────────────────────────────────────────────────────────
+let lang = (navigator.language || 'en').slice(0,2).toLowerCase();
+const SUPPORTED = ['en','fr','es','de','it','pt','pl'];
+if (!SUPPORTED.includes(lang)) lang = 'en';
+
+function t(key) {
+  return (T[key] && (T[key][lang] || T[key].en)) || key;
+}
+
+function applyLang() {
+  // Simple text keys
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (ANSWERS[key.replace('faqA_','').replace('avail_','avail_')] !== undefined) return; // handled separately
+    const val = t(key);
+    if (val && val !== key) el.textContent = val;
+  });
+
+  // Rich HTML answer blocks
+  document.querySelectorAll('[data-html]').forEach(el => {
+    const key = el.getAttribute('data-html');
+    const block = ANSWERS[key];
+    if (block) el.innerHTML = block[lang] || block.en;
+  });
+
+  // Lang buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
+  });
+
+  document.documentElement.lang = lang;
+}
+
+function setLang(l) {
+  lang = l;
+  applyLang();
+}
+
+// Run on load
+applyLang();
+
+// Existing toggle
+function toggle(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

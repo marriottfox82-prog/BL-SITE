@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bandwolf — Band management for working musicians</title>
+<meta name="description" content="Bandwolf keeps your band organised. Setlists, rehearsals, availability, song suggestions — one app, everyone in sync.">
+<link rel="icon" type="image/png" href="./bandwolf-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#000000;--surface:#0a0a0a;--surface2:#141414;
+  --accent:#FFC845;--accent-dim:rgba(255,200,69,0.1);
+  --text:#fff;--text-soft:rgba(255,255,255,0.65);--muted:rgba(255,255,255,0.35);
+  --border:rgba(255,255,255,0.06);
+  --font-display:'Manrope',sans-serif;--font-body:'Inter',sans-serif;
+  --fs-xs:0.75rem;--fs-sm:0.8rem;--fs-md:0.9rem;--fs-lg:1rem;--fs-xl:1.25rem;--fs-display:1.5rem;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-md);line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:860px;margin:0 auto;padding:0 24px}
+.nav-brand{display:flex;align-items:center;gap:0;text-decoration:none}
+.nav-icon{height:44px;width:44px;display:block;object-fit:contain}
+.nav-wordmark{height:36px;display:block;object-fit:contain}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+
+/* Hero */
+.hero{padding:80px 0 64px;text-align:center}
+.hero-icon{width:220px;height:220px;margin:0 auto 0;display:block;object-fit:contain}
+.hero-wordmark{height:110px;margin:0 auto 28px;display:block;object-fit:contain}
+.hero h1{font-family:var(--font-display);font-size:var(--fs-xl);font-weight:700;color:var(--text-soft);margin-bottom:14px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.4}
+.hero p{font-size:var(--fs-md);color:var(--muted);max-width:460px;margin:0 auto 32px;line-height:1.6}
+.hero-sub{font-size:var(--fs-sm);color:var(--muted);margin-top:12px}
+
+/* Sections */
+.section{padding:56px 0}
+.section-title{font-family:var(--font-display);font-size:var(--fs-display);font-weight:800;margin-bottom:6px;letter-spacing:-0.02em}
+.section-sub{font-size:var(--fs-md);color:var(--text-soft);margin-bottom:36px}
+.divider{height:1px;background:rgba(255,200,69,0.1);margin:0}
+
+/* Features */
+.features{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.features{grid-template-columns:1fr}}
+.feature{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px}
+.feature-icon{font-size:1.4rem;margin-bottom:10px}
+.feature h3{font-family:var(--font-display);font-size:var(--fs-lg);font-weight:700;margin-bottom:4px}
+.feature p{font-size:var(--fs-sm);color:var(--text-soft);line-height:1.55}
+
+/* Pro */
+.pro-section{background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%);border-radius:20px;padding:40px 32px;border:1px solid rgba(255,200,69,0.12)}
+@media(max-width:600px){.pro-section{padding:28px 20px}}
+.pro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+@media(max-width:600px){.pro-grid{grid-template-columns:1fr}}
+.pro-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0}
+.pro-check{color:var(--accent);font-size:var(--fs-lg);flex-shrink:0;margin-top:1px}
+.pro-item h4{font-family:var(--font-display);font-size:var(--fs-md);font-weight:700;margin-bottom:2px}
+.pro-item p{font-size:var(--fs-sm);color:var(--muted);line-height:1.4}
+
+/* Privacy */
+.privacy{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:32px 28px}
+@media(max-width:600px){.privacy{padding:24px 20px}}
+.privacy h2{font-family:var(--font-display);font-size:var(--fs-xl);font-weight:800;margin-bottom:14px}
+.privacy p{font-size:var(--fs-sm);color:var(--text-soft);line-height:1.65;margin-bottom:10px}
+.privacy ul{list-style:none;padding:0}
+.privacy li{font-size:var(--fs-sm);color:var(--text-soft);padding:5px 0 5px 18px;position:relative;line-height:1.5}
+.privacy li::before{content:"";position:absolute;left:0;top:12px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+
+/* Footer */
+footer{padding:40px 0;text-align:center;border-top:1px solid var(--border)}
+footer p{font-size:var(--fs-sm);color:var(--muted)}
+footer a{color:var(--accent)}
+.footer-wordmark{height:56px;margin:0 auto 10px;display:block;object-fit:contain;opacity:0.85}
+
+.lang-btn{background:none;border:none;color:var(--muted);font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.05em;padding:5px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;}
+.lang-btn:hover{color:var(--text);background:var(--surface2);}
+.lang-btn.active{color:var(--accent);background:rgba(255,200,69,0.1);}
+</style>
+</head>
+<!-- Place bandwolf-icon.png and bandwolf-wordmark.png alongside this index.html file when deploying. -->
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">
+      <img class="nav-icon" src="./bandwolf-icon.png" alt="Bandwolf icon">
+      <img class="nav-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    </a>
+    <div class="nav-links">
+      <a href="#features" data-key="navFeatures">Features</a>
+      <a href="#pro">Pro</a>
+      <a href="#privacy" data-key="navPrivacy">Privacy</a>
+      <a href="./faq.html" data-key="navFaq">FAQ</a>
+      <a href="mailto:hello@bandwolf.app" data-key="navContact">Contact</a>
+    </div>
+    <div style="display:flex;gap:2px;align-items:center;margin-left:16px;">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('it')">IT</button>
+      <button class="lang-btn" onclick="setLang('pt')">PT</button>
+      <button class="lang-btn" onclick="setLang('pl')">PL</button>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-icon" src="./bandwolf-icon.png" alt="Bandwolf wolf icon">
+    <img class="hero-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    <div style="font-family:var(--font-display);font-size:clamp(2rem,6vw,3.2rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;margin-bottom:18px;color:var(--text)">Plan.<span style="color:var(--accent)"> Rehearse.</span> Perform.</div>
+    <p data-key="heroP" style="font-size:var(--fs-lg);color:var(--text-soft);max-width:480px;margin:0 auto 32px;line-height:1.6">Everything your band needs — setlists, scheduling, availability, song ideas — in one app. Less admin. More music.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px">
+      <div style="display:flex;align-items:center;gap:8px;color:var(--text-soft);font-size:var(--fs-md)">
+        <svg width="18" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <span style="font-family:var(--font-display);font-weight:700">App Store</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;color:var(--text-soft);font-size:var(--fs-md)">
+        <svg width="20" height="22" viewBox="0 0 512 512" fill="currentColor"><path d="M48 16.2C48 9.7 50.4 4.3 55.3 1.6l229.6 230.4L55.3 462.4C50.4 459.7 48 454.3 48 447.8V16.2zM102.1 475.6l196.8-113.6 54.3-31.3-60.5-60.5L102.1 475.6zM371.9 249.6L438.4 288c12.8 7.4 12.8 26.2 0 33.6l-66.5 38.4-67.2-67.2L371.9 249.6zM102.1 36.4l190.6 190.6 60.5-60.5-54.3-31.3L102.1 36.4z"/></svg>
+        <span style="font-family:var(--font-display);font-weight:700">Google Play</span>
+      </div>
+    </div>
+    <div style="font-family:var(--font-display);font-size:var(--fs-xl);font-weight:800;color:var(--accent);margin-bottom:8px" data-key="comingSoon">Coming soon</div>
+    <div class="hero-sub" data-key="heroSub">Free to start. 30-day Pro trial included.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-title" data-key="featTitle">Everything your band needs</div>
+    <div class="section-sub" data-key="featSub">One app for setlists, rehearsals, scheduling, and song ideas. Everyone stays in sync — without the group chat chaos.</div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">📋</div>
+        <h3 data-key="f1Title">Setlists</h3>
+        <p data-key="f1Body">Build, reorder, and share setlists. Add band notes and personal notes per song. Import from Spotify, Chosic, CSV, or plain text. Export as PDF.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📅</div>
+        <h3 data-key="f2Title">Events &amp; RSVPs</h3>
+        <p data-key="f2Body">Schedule rehearsals and gigs. One-tap RSVP so everyone knows who's coming. Export to Google Calendar or Apple Calendar.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💡</div>
+        <h3 data-key="f3Title">Song suggestions</h3>
+        <p data-key="f3Body">Any member can suggest songs. The whole band votes and comments. Convert winners straight into a setlist.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📆</div>
+        <h3 data-key="f4Title">Availability checker</h3>
+        <p data-key="f4Body">Sync calendars from Google, iCloud, or Outlook. See when everyone's free at a glance. Find the best time for your next rehearsal.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎤</div>
+        <h3 data-key="f5Title">Gig Mode</h3>
+        <p data-key="f5Body">Full-screen setlist view with large type and wake-lock. Swipe through songs on stage. See your personal notes front and centre.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎙️</div>
+        <h3 data-key="f6Title">Recordings</h3>
+        <p data-key="f6Body">Attach rehearsal recordings to setlists. Review performances and track progress over time.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">👥</div>
+        <h3 data-key="f7Title">Multi-band</h3>
+        <p data-key="f7Body">In multiple bands? Switch between them instantly. Each band has its own setlists, events, and members.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔔</div>
+        <h3 data-key="f8Title">Push notifications</h3>
+        <p data-key="f8Body">Know immediately when a rehearsal is added, a setlist changes, or someone suggests a new song. Customisable per category.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="pro">
+  <div class="wrap">
+    <div class="pro-section">
+      <div style="text-align:center">
+        <div style="font-size:var(--fs-xs);color:var(--accent);text-transform:uppercase;letter-spacing:0.12em;font-weight:700;margin-bottom:6px">Bandwolf Pro</div>
+        <div class="section-title" style="margin-bottom:6px" data-key="proTitle">Unlock your band's full potential</div>
+        <div class="section-sub" style="margin:0 auto 10px;text-align:center" data-key="proSub">Everything in Free, plus the tools that make organising effortless. One subscription covers your whole band.</div>
+        <div style="font-size:var(--fs-xs);color:var(--text-soft);margin-top:4px" data-key="proTrial">30-day free trial included. Cancel any time.</div>
+      </div>
+      <div class="pro-grid">
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Unlimited setlists &amp; songs</h4><p>Free: 1 setlist, 10 songs</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Unlimited band members</h4><p>Free: up to 3 per band</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Unlimited events</h4><p>Free: up to 2 upcoming</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Gig Mode</h4><p>Full-screen setlist view for the stage</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Ideas tab</h4><p>Suggest, vote, comment, convert</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Availability checker</h4><p>Calendar sync &amp; find-a-time picker</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Recordings</h4><p>Attach audio to any setlist</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Personal notes</h4><p>Private per-song notes only you can see</p></div></div>
+        <div class="pro-item"><div class="pro-check">✓</div><div><h4>Setlist import</h4><p>Import from Spotify, Chosic, CSV, or text</p></div></div>
+      </div>
+      <div style="text-align:center;margin-top:24px">
+        <a href="pricing.html" style="font-family:var(--font-display);font-size:var(--fs-md);font-weight:700;color:var(--accent)"><span data-key="proCompare">See full Free vs Pro comparison →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="privacy">
+      <h2 data-key="privTitle">Privacy &amp; data</h2>
+      <p data-key="privP1">Bandwolf stores your name, instrument role, optional email and phone number. This information is shared only with members of your band — it is never sold, used for advertising, or shared with third parties.</p>
+      <p data-key="privP2">Email and phone are used solely for band contact and account recovery. You can remove your data at any time by leaving all bands and asking your admin to delete your profile.</p>
+      <p style="font-weight:600;margin-top:16px;margin-bottom:10px" data-key="privCollectTitle">What we collect and why:</p>
+      <ul id="priv-list"></ul>
+      <p style="margin-top:16px" data-key="privP3">We do not use analytics tracking, advertising SDKs, or any form of data monetisation. Your band data stays between you and your bandmates.</p>
+      <p data-key="privContact">For questions about your data, contact <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <div class="wrap">
+    <img class="footer-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+    <p style="margin-bottom:6px" data-key="footerTagline">Less admin. More music.</p>
+    <p><a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a></p>
+    <p style="margin-top:16px;font-size:var(--fs-xs)">© 2026 Bandwolf. All rights reserved.</p>
+  </div>
+</footer>
+
+
+<script>
+const T = {
+  navFeatures:{en:"Features",fr:"Fonctionnalités",es:"Funciones",de:"Funktionen",it:"Funzionalità",pt:"Recursos",pl:"Funkcje"},
+  navPrivacy:{en:"Privacy",fr:"Confidentialité",es:"Privacidad",de:"Datenschutz",it:"Privacy",pt:"Privacidade",pl:"Prywatność"},
+  navFaq:{en:"FAQ",fr:"FAQ",es:"FAQ",de:"FAQ",it:"FAQ",pt:"FAQ",pl:"FAQ"},
+  navContact:{en:"Contact",fr:"Contact",es:"Contacto",de:"Kontakt",it:"Contatto",pt:"Contato",pl:"Kontakt"},
+  heroP:{en:"Everything your band needs — setlists, scheduling, availability, song ideas — in one app. Less admin. More music.",fr:"Tout ce dont votre groupe a besoin — setlists, planning, disponibilités, idées de chansons — dans une seule app. Moins d'admin. Plus de musique.",es:"Todo lo que necesita tu banda — setlists, agenda, disponibilidad, ideas de canciones — en una sola app. Menos gestión. Más música.",de:"Alles, was deine Band braucht — Setlists, Planung, Verfügbarkeit, Songideen — in einer App. Weniger Verwaltung. Mehr Musik.",it:"Tutto ciò di cui ha bisogno la tua band — setlist, programmazione, disponibilità, idee di canzoni — in un'unica app. Meno amministrazione. Più musica.",pt:"Tudo o que a tua banda precisa — setlists, agenda, disponibilidade, ideias de músicas — numa só app. Menos gestão. Mais música.",pl:"Wszystko czego potrzebuje twój zespół — setlisty, planowanie, dostępność, pomysły na piosenki — w jednej aplikacji. Mniej administracji. Więcej muzyki."},
+  comingSoon:{en:"Coming soon",fr:"Bientôt disponible",es:"Próximamente",de:"Demnächst",it:"Prossimamente",pt:"Em breve",pl:"Wkrótce"},
+  heroSub:{en:"Free to start. 30-day Pro trial included.",fr:"Gratuit pour commencer. Essai Pro de 30 jours inclus.",es:"Gratis para empezar. Prueba Pro de 30 días incluida.",de:"Kostenlos starten. 30-tägige Pro-Testversion inklusive.",it:"Gratis per iniziare. Prova Pro di 30 giorni inclusa.",pt:"Grátis para começar. Teste Pro de 30 dias incluído.",pl:"Bezpłatny start. 30-dniowy okres próbny Pro w zestawie."},
+  featTitle:{en:"Everything your band needs",fr:"Tout ce dont votre groupe a besoin",es:"Todo lo que tu banda necesita",de:"Alles, was deine Band braucht",it:"Tutto ciò di cui ha bisogno la tua band",pt:"Tudo que sua banda precisa",pl:"Wszystko czego potrzebuje twój zespół"},
+  featSub:{en:"One app for setlists, rehearsals, scheduling, and song ideas. Everyone stays in sync — without the group chat chaos.",fr:"Une seule app pour les setlists, répétitions, planning et idées de chansons. Tout le monde reste synchronisé — sans le chaos des groupes de discussion.",es:"Una sola app para setlists, ensayos, agenda e ideas de canciones. Todos se mantienen sincronizados — sin el caos de los grupos de chat.",de:"Eine App für Setlists, Proben, Planung und Songideen. Alle bleiben synchronisiert — ohne das Chaos der Gruppenchats.",it:"Un'unica app per setlist, prove, programmazione e idee di canzoni. Tutti rimangono sincronizzati — senza il caos delle chat di gruppo.",pt:"Uma só app para setlists, ensaios, agenda e ideias de músicas. Toda a banda fica sincronizada — sem o caos dos grupos de chat.",pl:"Jedna aplikacja na setlisty, próby, planowanie i pomysły na piosenki. Wszyscy zostają zsynchronizowani — bez chaosu czatów grupowych."},
+  f1Title:{en:"Setlists",fr:"Setlists",es:"Setlists",de:"Setlists",it:"Setlist",pt:"Setlists",pl:"Setlisty"},
+  f1Body:{en:"Build, reorder, and share setlists. Add band notes and personal notes per song. Import from Spotify, Chosic, CSV, or plain text. Export as PDF.",fr:"Créez, réorganisez et partagez des setlists. Ajoutez des notes de groupe et des notes personnelles par chanson. Importez depuis Spotify, Chosic, CSV ou texte brut. Exportez en PDF.",es:"Crea, reordena y comparte setlists. Añade notas de banda y notas personales por canción. Importa desde Spotify, Chosic, CSV o texto plano. Exporta como PDF.",de:"Erstelle, ordne und teile Setlists. Füge Band-Notizen und persönliche Notizen pro Song hinzu. Importiere von Spotify, Chosic, CSV oder Text. Exportiere als PDF.",it:"Crea, riordina e condividi setlist. Aggiungi note della band e note personali per canzone. Importa da Spotify, Chosic, CSV o testo. Esporta come PDF.",pt:"Crie, reordene e compartilhe setlists. Adicione notas da banda e notas pessoais por música. Importe do Spotify, Chosic, CSV ou texto. Exporte como PDF.",pl:"Twórz, zmieniaj kolejność i udostępniaj setlisty. Dodawaj notatki zespołu i osobiste do każdej piosenki. Importuj ze Spotify, Chosic, CSV lub tekstu. Eksportuj jako PDF."},
+  f2Title:{en:"Events & RSVPs",fr:"Événements et confirmations",es:"Eventos y confirmaciones",de:"Events & Zusagen",it:"Eventi e RSVP",pt:"Eventos e confirmações",pl:"Wydarzenia i potwierdzenia"},
+  f2Body:{en:"Schedule rehearsals and gigs. One-tap RSVP so everyone knows who's coming. Export to Google Calendar or Apple Calendar.",fr:"Planifiez répétitions et concerts. RSVP en un tap pour que tout le monde sache qui vient. Exportez vers Google Agenda ou Apple Calendrier.",es:"Programa ensayos y conciertos. RSVP con un toque para que todos sepan quién viene. Exporta a Google Calendar o Apple Calendar.",de:"Plane Proben und Gigs. Eintippen-RSVP, damit jeder weiß, wer kommt. Exportiere zu Google Kalender oder Apple Kalender.",it:"Programma prove e concerti. RSVP con un tocco per sapere chi viene. Esporta su Google Calendar o Apple Calendario.",pt:"Agende ensaios e shows. RSVP com um toque para todos saberem quem vem. Exporte para Google Calendar ou Apple Calendar.",pl:"Planuj próby i koncerty. RSVP jednym kliknięciem, żeby wszyscy wiedzieli kto przychodzi. Eksportuj do Google Calendar lub Apple Calendar."},
+  f3Title:{en:"Song suggestions",fr:"Suggestions de chansons",es:"Sugerencias de canciones",de:"Songvorschläge",it:"Suggerimenti canzoni",pt:"Sugestões de músicas",pl:"Sugestie piosenek"},
+  f3Body:{en:"Any member can suggest songs. The whole band votes and comments. Convert winners straight into a setlist.",fr:"N'importe quel membre peut suggérer des chansons. Tout le groupe vote et commente. Convertissez les gagnants directement en setlist.",es:"Cualquier miembro puede sugerir canciones. Toda la banda vota y comenta. Convierte los ganadores directamente en una setlist.",de:"Jedes Mitglied kann Songs vorschlagen. Die ganze Band stimmt ab und kommentiert. Wandle Gewinner direkt in eine Setlist um.",it:"Qualsiasi membro può suggerire canzoni. Tutta la band vota e commenta. Converti i vincitori direttamente in una setlist.",pt:"Qualquer membro pode sugerir músicas. Toda a banda vota e comenta. Converta os vencedores diretamente em uma setlist.",pl:"Każdy członek może sugerować piosenki. Cały zespół głosuje i komentuje. Zamień zwycięzców bezpośrednio w setlistę."},
+  f4Title:{en:"Availability checker",fr:"Vérificateur de disponibilité",es:"Comprobador de disponibilidad",de:"Verfügbarkeitsprüfer",it:"Controllo disponibilità",pt:"Verificador de disponibilidade",pl:"Sprawdzanie dostępności"},
+  f4Body:{en:"Sync calendars from Google, iCloud, or Outlook. See when everyone's free at a glance. Find the best time for your next rehearsal.",fr:"Synchronisez vos agendas depuis Google, iCloud ou Outlook. Voyez d'un coup d'œil quand tout le monde est libre. Trouvez le meilleur moment pour votre prochaine répétition.",es:"Sincroniza calendarios desde Google, iCloud u Outlook. Ve cuándo todos están libres de un vistazo. Encuentra el mejor momento para tu próximo ensayo.",de:"Synchronisiere Kalender von Google, iCloud oder Outlook. Sieh auf einen Blick, wann alle frei sind. Finde den besten Zeitpunkt für deine nächste Probe.",it:"Sincronizza calendari da Google, iCloud o Outlook. Vedi subito quando tutti sono liberi. Trova il momento migliore per la prossima prova.",pt:"Sincronize calendários do Google, iCloud ou Outlook. Veja quando todos estão livres de relance. Encontre o melhor horário para o próximo ensaio.",pl:"Synchronizuj kalendarze z Google, iCloud lub Outlook. Zobacz jednym rzutem oka kiedy wszyscy są wolni. Znajdź najlepszy czas na następną próbę."},
+  f5Title:{en:"Gig Mode",fr:"Mode Gig",es:"Modo Concierto",de:"Gig Mode",it:"Modalità Gig",pt:"Modo Show",pl:"Tryb Gig"},
+  f5Body:{en:"Full-screen setlist view with large type and wake-lock. Swipe through songs on stage. See your personal notes front and centre.",fr:"Vue setlist plein écran avec grand texte et verrouillage d'écran. Faites défiler les chansons sur scène. Voyez vos notes personnelles au premier plan.",es:"Vista de setlist a pantalla completa con texto grande y bloqueo de pantalla. Desliza por las canciones en el escenario. Ve tus notas personales al frente.",de:"Vollbild-Setlist mit großem Text und Wake-Lock. Wische durch Songs auf der Bühne. Sieh deine persönlichen Notizen im Vordergrund.",it:"Vista setlist a schermo intero con testo grande e wake-lock. Scorri le canzoni sul palco. Vedi le tue note personali in primo piano.",pt:"Visualização de setlist em tela cheia com texto grande e wake-lock. Deslize pelas músicas no palco. Veja suas notas pessoais em destaque.",pl:"Pełnoekranowy widok setlisty z dużą czcionką i blokadą wygaszacza. Przesuń przez piosenki na scenie. Widź swoje osobiste notatki na pierwszym planie."},
+  f6Title:{en:"Recordings",fr:"Enregistrements",es:"Grabaciones",de:"Aufnahmen",it:"Registrazioni",pt:"Gravações",pl:"Nagrania"},
+  f6Body:{en:"Attach rehearsal recordings to setlists. Review performances and track progress over time.",fr:"Attachez des enregistrements de répétitions aux setlists. Révisez les performances et suivez les progrès dans le temps.",es:"Adjunta grabaciones de ensayos a las setlists. Revisa las actuaciones y sigue el progreso con el tiempo.",de:"Hänge Probenaufnahmen an Setlists an. Überprüfe Auftritte und verfolge den Fortschritt im Laufe der Zeit.",it:"Allega registrazioni delle prove alle setlist. Rivedi le performance e tieni traccia dei progressi nel tempo.",pt:"Anexe gravações de ensaios às setlists. Revise as performances e acompanhe o progresso ao longo do tempo.",pl:"Dołącz nagrania z prób do setlist. Przeglądaj występy i śledź postępy w czasie."},
+  f7Title:{en:"Multi-band",fr:"Multi-groupe",es:"Multi-banda",de:"Mehrere Bands",it:"Multi-band",pt:"Multi-banda",pl:"Wiele zespołów"},
+  f7Body:{en:"In multiple bands? Switch between them instantly. Each band has its own setlists, events, and members.",fr:"Dans plusieurs groupes ? Passez de l'un à l'autre instantanément. Chaque groupe a ses propres setlists, événements et membres.",es:"¿En varias bandas? Cambia entre ellas al instante. Cada banda tiene sus propias setlists, eventos y miembros.",de:"In mehreren Bands? Wechsle sofort zwischen ihnen. Jede Band hat ihre eigenen Setlists, Events und Mitglieder.",it:"In più band? Passa da una all'altra istantaneamente. Ogni band ha le proprie setlist, eventi e membri.",pt:"Em várias bandas? Alterne entre elas instantaneamente. Cada banda tem suas próprias setlists, eventos e membros.",pl:"W kilku zespołach? Przełączaj się między nimi natychmiast. Każdy zespół ma swoje własne setlisty, wydarzenia i członków."},
+  f8Title:{en:"Push notifications",fr:"Notifications push",es:"Notificaciones push",de:"Push-Benachrichtigungen",it:"Notifiche push",pt:"Notificações push",pl:"Powiadomienia push"},
+  f8Body:{en:"Know immediately when a rehearsal is added, a setlist changes, or someone suggests a new song. Customisable per category.",fr:"Sachez immédiatement quand une répétition est ajoutée, une setlist change, ou quelqu'un suggère une nouvelle chanson. Personnalisable par catégorie.",es:"Sabe inmediatamente cuando se añade un ensayo, cambia una setlist, o alguien sugiere una canción nueva. Personalizable por categoría.",de:"Erfahre sofort, wenn eine Probe hinzugefügt wird, sich eine Setlist ändert oder jemand einen neuen Song vorschlägt. Anpassbar pro Kategorie.",it:"Sappi immediatamente quando viene aggiunta una prova, cambia una setlist, o qualcuno suggerisce una nuova canzone. Personalizzabile per categoria.",pt:"Saiba imediatamente quando um ensaio é adicionado, uma setlist muda, ou alguém sugere uma nova música. Personalizável por categoria.",pl:"Dowiedz się natychmiast gdy dodano próbę, setlista się zmienia, lub ktoś sugeruje nową piosenkę. Konfigurowalne według kategorii."},
+  proTitle:{en:"Unlock your band's full potential",fr:"Libérez le plein potentiel de votre groupe",es:"Desbloquea el pleno potencial de tu banda",de:"Entfalte das volle Potenzial deiner Band",it:"Sblocca il pieno potenziale della tua band",pt:"Desbloqueie o potencial total da sua banda",pl:"Odblokuj pełny potencjał swojego zespołu"},
+  proSub:{en:"Everything in Free, plus the tools that make organising effortless. One subscription covers your whole band.",fr:"Tout ce qui est dans Gratuit, plus les outils qui rendent l'organisation facile. Un abonnement couvre tout votre groupe.",es:"Todo lo que hay en Gratis, más las herramientas que hacen que organizar sea sencillo. Una suscripción cubre toda tu banda.",de:"Alles aus Kostenlos, plus die Tools, die die Organisation mühelos machen. Ein Abonnement für deine ganze Band.",it:"Tutto ciò che è nel Gratuito, più gli strumenti che rendono l'organizzazione senza sforzo. Un abbonamento copre tutta la tua band.",pt:"Tudo no Gratuito, mais as ferramentas que tornam a organização sem esforço. Uma assinatura cobre toda a sua banda.",pl:"Wszystko z Bezpłatnego, plus narzędzia które sprawiają że organizacja jest łatwa. Jedna subskrypcja obejmuje cały twój zespół."},
+  proTrial:{en:"30-day free trial included. Cancel any time.",fr:"Essai gratuit de 30 jours inclus. Annulez à tout moment.",es:"Prueba gratuita de 30 días incluida. Cancela en cualquier momento.",de:"30-tägige kostenlose Testversion inklusive. Jederzeit kündbar.",it:"Prova gratuita di 30 giorni inclusa. Cancella in qualsiasi momento.",pt:"Teste gratuito de 30 dias incluído. Cancele a qualquer momento.",pl:"30-dniowy bezpłatny okres próbny w zestawie. Anuluj w dowolnym momencie."},
+  proCompare:{en:"See full Free vs Pro comparison →",fr:"Voir la comparaison complète Gratuit vs Pro →",es:"Ver comparación completa Gratis vs Pro →",de:"Vollständigen Free vs. Pro Vergleich ansehen →",it:"Vedi il confronto completo Gratuito vs Pro →",pt:"Ver comparação completa Gratuito vs Pro →",pl:"Zobacz pełne porównanie Bezpłatny vs Pro →"},
+  privTitle:{en:"Privacy & data",fr:"Confidentialité et données",es:"Privacidad y datos",de:"Datenschutz & Daten",it:"Privacy e dati",pt:"Privacidade e dados",pl:"Prywatność i dane"},
+  privP1:{en:"Bandwolf stores your name, instrument role, optional email and phone number. This information is shared only with members of your band — it is never sold, used for advertising, or shared with third parties.",fr:"Bandwolf enregistre votre nom, votre instrument, votre email et téléphone optionnels. Ces informations sont partagées uniquement avec les membres de votre groupe — elles ne sont jamais vendues, utilisées à des fins publicitaires ni transmises à des tiers.",es:"Bandwolf almacena tu nombre, instrumento, email y teléfono opcionales. Esta información se comparte únicamente con los miembros de tu banda — nunca se vende, usa para publicidad ni se comparte con terceros.",de:"Bandwolf speichert deinen Namen, dein Instrument, optionale E-Mail und Telefonnummer. Diese Informationen werden nur mit deinen Bandmitgliedern geteilt — sie werden niemals verkauft, für Werbung verwendet oder an Dritte weitergegeben.",it:"Bandwolf memorizza il tuo nome, strumento, email e telefono opzionali. Queste informazioni sono condivise solo con i membri della tua band — non vengono mai vendute, usate per pubblicità o condivise con terzi.",pt:"O Bandwolf guarda o teu nome, instrumento, email e telefone opcionais. Esta informação é partilhada apenas com os membros da tua banda — nunca é vendida, usada para publicidade ou partilhada com terceiros.",pl:"Bandwolf przechowuje twoje imię, instrument, opcjonalny email i telefon. Te informacje są udostępniane tylko członkom twojego zespołu — nigdy nie są sprzedawane, wykorzystywane do reklam ani udostępniane osobom trzecim."},
+  privP2:{en:"Email and phone are used solely for band contact and account recovery. You can remove your data at any time by leaving all bands and asking your admin to delete your profile.",fr:"Email et téléphone sont utilisés uniquement pour le contact au sein du groupe et la récupération de compte. Vous pouvez supprimer vos données à tout moment en quittant tous les groupes et en demandant à votre admin de supprimer votre profil.",es:"El email y teléfono se usan solo para contacto en la banda y recuperación de cuenta. Puedes eliminar tus datos en cualquier momento abandonando todas las bandas y pidiendo a tu admin que elimine tu perfil.",de:"E-Mail und Telefon dienen ausschließlich dem Bandkontakt und der Kontowiederherstellung. Du kannst deine Daten jederzeit löschen, indem du alle Bands verlässt und deinen Admin bittest, dein Profil zu löschen.",it:"Email e telefono sono usati solo per i contatti della band e il recupero account. Puoi rimuovere i tuoi dati in qualsiasi momento uscendo da tutte le band e chiedendo al tuo admin di eliminare il tuo profilo.",pt:"Email e telefone são usados apenas para contacto da banda e recuperação de conta. Podes remover os teus dados a qualquer momento saindo de todas as bandas e pedindo ao teu admin para apagar o teu perfil.",pl:"Email i telefon służą wyłącznie do kontaktu w zespole i odzyskiwania konta. Możesz usunąć swoje dane w dowolnym momencie, opuszczając wszystkie zespoły i prosząc admina o usunięcie twojego profilu."},
+  privCollectTitle:{en:"What we collect and why:",fr:"Ce que nous collectons et pourquoi :",es:"Qué recopilamos y por qué:",de:"Was wir sammeln und warum:",it:"Cosa raccogliamo e perché:",pt:"O que recolhemos e porquê:",pl:"Co zbieramy i dlaczego:"},
+  privItems:{
+    en:["Name and instrument role — so your bandmates know who's who","Email — for account login and password recovery only","Phone number (optional) — displayed to your bandmates for contact","Calendar availability (optional) — busy/free times only, never event titles or details","Push notification tokens — to deliver notifications you've opted into"],
+    fr:["Nom et instrument — pour que vos collègues sachent qui est qui","Email — uniquement pour la connexion et la récupération de compte","Numéro de téléphone (optionnel) — visible par vos collègues pour vous contacter","Disponibilités calendrier (optionnel) — créneaux libres/occupés uniquement, jamais les titres des événements","Tokens de notification push — pour envoyer les notifications auxquelles vous avez souscrit"],
+    es:["Nombre e instrumento — para que tus compañeros sepan quién es quién","Email — solo para inicio de sesión y recuperación de cuenta","Número de teléfono (opcional) — visible para tus compañeros de banda","Disponibilidad de calendario (opcional) — solo franjas libres/ocupadas, nunca títulos de eventos","Tokens de notificación push — para enviarte las notificaciones a las que te has suscrito"],
+    de:["Name und Instrument — damit deine Bandmitglieder wissen, wer wer ist","E-Mail — nur für Anmeldung und Kontowiederherstellung","Telefonnummer (optional) — für deine Bandmitglieder sichtbar","Kalenderverfügbarkeit (optional) — nur frei/belegt-Zeiten, niemals Ereignistitel","Push-Benachrichtigungs-Tokens — um dir abonnierte Benachrichtigungen zu senden"],
+    it:["Nome e strumento — perché i tuoi colleghi sappiano chi è chi","Email — solo per accesso e recupero account","Numero di telefono (opzionale) — visibile ai tuoi colleghi di band","Disponibilità calendario (opzionale) — solo orari liberi/occupati, mai titoli degli eventi","Token di notifica push — per inviarti le notifiche a cui ti sei iscritto"],
+    pt:["Nome e instrumento — para que os teus colegas saibam quem é quem","Email — apenas para login e recuperação de conta","Número de telefone (opcional) — visível para os teus colegas de banda","Disponibilidade de calendário (opcional) — apenas horários livres/ocupados, nunca títulos de eventos","Tokens de notificação push — para enviar as notificações a que subscreveste"],
+    pl:["Imię i instrument — żeby twoi koledzy wiedzieli kto jest kim","Email — tylko do logowania i odzyskiwania konta","Numer telefonu (opcjonalny) — widoczny dla twoich kolegów z zespołu","Dostępność kalendarza (opcjonalna) — tylko wolne/zajęte terminy, nigdy tytuły wydarzeń","Tokeny powiadomień push — do dostarczania powiadomień, na które się zdecydowałeś"]
+  },
+  privP3:{en:"We do not use analytics tracking, advertising SDKs, or any form of data monetisation. Your band data stays between you and your bandmates.",fr:"Nous n'utilisons pas de suivi analytique, de SDK publicitaires ni aucune forme de monétisation des données. Les données de votre groupe restent entre vous et vos membres.",es:"No utilizamos rastreo analítico, SDK publicitarios ni ninguna forma de monetización de datos. Los datos de tu banda permanecen entre tú y tus compañeros.",de:"Wir verwenden kein Analytics-Tracking, keine Werbe-SDKs oder irgendeine Form der Datenverwertung. Deine Banddaten bleiben zwischen dir und deinen Bandmitgliedern.",it:"Non utilizziamo tracking analitico, SDK pubblicitari o alcuna forma di monetizzazione dei dati. I dati della tua band restano tra te e i tuoi colleghi.",pt:"Não utilizamos rastreamento analítico, SDKs publicitários ou qualquer forma de monetização de dados. Os dados da tua banda ficam entre ti e os teus colegas.",pl:"Nie używamy śledzenia analitycznego, reklamowych SDK ani żadnej formy monetyzacji danych. Dane twojego zespołu pozostają między tobą a twoimi kolegami."},
+  privContact:{en:'For questions about your data, contact <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',fr:'Pour toute question sur vos données, contactez <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',es:'Para preguntas sobre tus datos, contacta con <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',de:'Für Fragen zu deinen Daten wende dich an <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',it:'Per domande sui tuoi dati, contatta <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',pt:'Para questões sobre os teus dados, contacta <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',pl:'W sprawie pytań dotyczących twoich danych skontaktuj się z <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.'},
+  footerTagline:{en:"Less admin. More music.",fr:"Moins d'admin. Plus de musique.",es:"Menos gestión. Más música.",de:"Weniger Verwaltung. Mehr Musik.",it:"Meno amministrazione. Più musica.",pt:"Menos gestão. Mais música.",pl:"Mniej administracji. Więcej muzyki."},
+};
+
+let lang = (navigator.language||'en').slice(0,2).toLowerCase();
+const SUPPORTED=['en','fr','es','de','it','pt','pl'];
+if(!SUPPORTED.includes(lang)) lang='en';
+
+function t(key){ return (T[key]&&(T[key][lang]||T[key].en))||key; }
+
+function applyLang(){
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    const key=el.getAttribute('data-key');
+    const v=t(key);
+    if(!v) return;
+    // privContact contains an <a> tag — use innerHTML
+    if(key==='privContact') { el.innerHTML=v; return; }
+    el.textContent=v;
+  });
+  // Privacy bullet list — rendered dynamically from array
+  const privList=document.getElementById('priv-list');
+  if(privList){
+    const items=(T.privItems&&(T.privItems[lang]||T.privItems.en))||[];
+    privList.innerHTML=items.map(item=>`<li>${item}</li>`).join('');
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.textContent===lang.toUpperCase());
+  });
+  document.documentElement.lang=lang;
+}
+
+function setLang(l){ lang=l; applyLang(); }
+
+applyLang();
+</script>
+
+</body>
+</html>
