@@ -142,6 +142,11 @@ footer a{color:var(--accent)}
     <div class="section-title" data-key="featTitle">Everything your band needs</div>
     <div class="section-sub" data-key="featSub">One app for setlists, rehearsals, scheduling, and song ideas. Everyone stays in sync — without the group chat chaos.</div>
     <div class="features">
+      <div class="feature" style="border-color:rgba(255,200,69,0.25);background:linear-gradient(135deg,var(--surface) 0%,rgba(255,200,69,0.04) 100%)">
+        <div class="feature-icon">🎤</div>
+        <h3 data-key="f5Title">Gig Mode</h3>
+        <p data-key="f5Body">Your setlist on stage, exactly how you need it. Full-screen view, large type, screen stays on. Tap to advance songs, see your personal notes alongside each one. No squinting, no fumbling — just play.</p>
+      </div>
       <div class="feature">
         <div class="feature-icon">📋</div>
         <h3 data-key="f1Title">Setlists</h3>
@@ -161,11 +166,6 @@ footer a{color:var(--accent)}
         <div class="feature-icon">📆</div>
         <h3 data-key="f4Title">Availability checker</h3>
         <p data-key="f4Body">Sync calendars from Google, iCloud, or Outlook. See when everyone's free at a glance. Find the best time for your next rehearsal.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🎤</div>
-        <h3 data-key="f5Title">Gig Mode</h3>
-        <p data-key="f5Body">Full-screen setlist view with large type and wake-lock. Swipe through songs on stage. See your personal notes front and centre.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🎙️</div>
@@ -272,7 +272,7 @@ const T = {
   f4Title:{en:"Availability checker",fr:"Vérificateur de disponibilité",es:"Comprobador de disponibilidad",de:"Verfügbarkeitsprüfer",it:"Controllo disponibilità",pt:"Verificador de disponibilidade",pl:"Sprawdzanie dostępności"},
   f4Body:{en:"Sync calendars from Google, iCloud, or Outlook. See when everyone's free at a glance. Find the best time for your next rehearsal.",fr:"Synchronisez vos agendas depuis Google, iCloud ou Outlook. Voyez d'un coup d'œil quand tout le monde est libre. Trouvez le meilleur moment pour votre prochaine répétition.",es:"Sincroniza calendarios desde Google, iCloud u Outlook. Ve cuándo todos están libres de un vistazo. Encuentra el mejor momento para tu próximo ensayo.",de:"Synchronisiere Kalender von Google, iCloud oder Outlook. Sieh auf einen Blick, wann alle frei sind. Finde den besten Zeitpunkt für deine nächste Probe.",it:"Sincronizza calendari da Google, iCloud o Outlook. Vedi subito quando tutti sono liberi. Trova il momento migliore per la prossima prova.",pt:"Sincronize calendários do Google, iCloud ou Outlook. Veja quando todos estão livres de relance. Encontre o melhor horário para o próximo ensaio.",pl:"Synchronizuj kalendarze z Google, iCloud lub Outlook. Zobacz jednym rzutem oka kiedy wszyscy są wolni. Znajdź najlepszy czas na następną próbę."},
   f5Title:{en:"Gig Mode",fr:"Mode Gig",es:"Modo Concierto",de:"Gig Mode",it:"Modalità Gig",pt:"Modo Show",pl:"Tryb Gig"},
-  f5Body:{en:"Full-screen setlist view with large type and wake-lock. Swipe through songs on stage. See your personal notes front and centre.",fr:"Vue setlist plein écran avec grand texte et verrouillage d'écran. Faites défiler les chansons sur scène. Voyez vos notes personnelles au premier plan.",es:"Vista de setlist a pantalla completa con texto grande y bloqueo de pantalla. Desliza por las canciones en el escenario. Ve tus notas personales al frente.",de:"Vollbild-Setlist mit großem Text und Wake-Lock. Wische durch Songs auf der Bühne. Sieh deine persönlichen Notizen im Vordergrund.",it:"Vista setlist a schermo intero con testo grande e wake-lock. Scorri le canzoni sul palco. Vedi le tue note personali in primo piano.",pt:"Visualização de setlist em tela cheia com texto grande e wake-lock. Deslize pelas músicas no palco. Veja suas notas pessoais em destaque.",pl:"Pełnoekranowy widok setlisty z dużą czcionką i blokadą wygaszacza. Przesuń przez piosenki na scenie. Widź swoje osobiste notatki na pierwszym planie."},
+  f5Body:{en:"Your setlist on stage, exactly how you need it. Full-screen view, large type, screen stays on. Tap to advance songs, see your personal notes alongside each one. No squinting, no fumbling — just play.",fr:"Votre setlist sur scène, exactement comme vous en avez besoin. Affichage plein écran, grand texte, l'écran reste allumé. Appuyez pour passer à la chanson suivante, voyez vos notes personnelles à côté de chaque chanson.",es:"Tu setlist en el escenario, exactamente como la necesitas. Vista a pantalla completa, texto grande, la pantalla permanece encendida. Toca para avanzar canciones, ve tus notas personales junto a cada una.",de:"Deine Setlist auf der Bühne, genau wie du es brauchst. Vollbild, große Schrift, Display bleibt an. Tippe, um Songs weiterzuschalten, sieh deine persönlichen Notizen neben jedem Song.",it:"La tua setlist sul palco, esattamente come ti serve. Schermo intero, testo grande, lo schermo rimane acceso. Tocca per avanzare tra le canzoni, vedi le tue note personali accanto a ciascuna.",pt:"A tua setlist no palco, exatamente como precisas. Ecrã completo, texto grande, o ecrã fica ligado. Toca para avançar as músicas, vê as tuas notas pessoais junto a cada uma.",pl:"Twoja setlista na scenie, dokładnie tak jak potrzebujesz. Pełny ekran, duży tekst, ekran pozostaje włączony. Dotknij, aby przejść do następnej piosenki, widź swoje osobiste notatki obok każdej z nich."},
   f6Title:{en:"Recordings",fr:"Enregistrements",es:"Grabaciones",de:"Aufnahmen",it:"Registrazioni",pt:"Gravações",pl:"Nagrania"},
   f6Body:{en:"Attach rehearsal recordings to setlists. Review performances and track progress over time.",fr:"Attachez des enregistrements de répétitions aux setlists. Révisez les performances et suivez les progrès dans le temps.",es:"Adjunta grabaciones de ensayos a las setlists. Revisa las actuaciones y sigue el progreso con el tiempo.",de:"Hänge Probenaufnahmen an Setlists an. Überprüfe Auftritte und verfolge den Fortschritt im Laufe der Zeit.",it:"Allega registrazioni delle prove alle setlist. Rivedi le performance e tieni traccia dei progressi nel tempo.",pt:"Anexe gravações de ensaios às setlists. Revise as performances e acompanhe o progresso ao longo do tempo.",pl:"Dołącz nagrania z prób do setlist. Przeglądaj występy i śledź postępy w czasie."},
   f7Title:{en:"Multi-band",fr:"Multi-groupe",es:"Multi-banda",de:"Mehrere Bands",it:"Multi-band",pt:"Multi-banda",pl:"Wiele zespołów"},
