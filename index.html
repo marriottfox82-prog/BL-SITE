@@ -241,11 +241,11 @@ footer a{color:var(--accent)}
       <h2 data-key="termsTitle" style="white-space:nowrap;">Terms of Use</h2>
 
       <p style="margin-bottom:12px">
-        Bandwolf uses Apple's Standard End User License Agreement (EULA).
+        <span data-key="termsAppleIntro">Bandwolf uses Apple's Standard End User License Agreement (EULA).</span>
       </p>
 
       <p>
-        You can read the full Terms of Use here:
+        <span data-key="termsAppleLinkIntro">You can read the full Terms of Use here:</span>
       </p>
 
       <p style="margin-top:10px">
@@ -255,7 +255,7 @@ footer a{color:var(--accent)}
           rel="noopener noreferrer"
           style="word-break:break-word"
         >
-          Apple Standard EULA
+          <span data-key="termsAppleLink">Apple Standard EULA</span>
         </a>
       </p>
 
@@ -312,6 +312,35 @@ const T = {
   terms9B:{en:"We may update these terms from time to time. Continued use of the app after changes are posted constitutes acceptance of the revised terms. We will notify users of material changes via the app or email.",fr:"Nous pouvons mettre à jour ces conditions de temps en temps. L'utilisation continue de l'app après la publication des modifications constitue une acceptation des conditions révisées. Nous informerons les utilisateurs des changements importants via l'app ou par email.",es:"Podemos actualizar estos términos de vez en cuando. El uso continuado de la app tras la publicación de cambios constituye la aceptación de los términos revisados. Notificaremos a los usuarios los cambios importantes a través de la app o por email.",de:"Wir können diese Bedingungen von Zeit zu Zeit aktualisieren. Die weitere Nutzung der App nach der Veröffentlichung von Änderungen gilt als Akzeptanz der überarbeiteten Bedingungen. Wir werden Nutzer über wesentliche Änderungen über die App oder per E-Mail informieren.",it:"Potremmo aggiornare questi termini di tanto in tanto. L'uso continuato dell'app dopo la pubblicazione delle modifiche costituisce accettazione dei termini rivisti. Notificheremo agli utenti le modifiche sostanziali tramite l'app o email.",pt:"Podemos atualizar estes termos de vez em quando. O uso continuado da app após a publicação de alterações constitui aceitação dos termos revisados. Notificaremos os utilizadores de alterações materiais através da app ou email.",pl:"Możemy od czasu do czasu aktualizować te warunki. Dalsze korzystanie z aplikacji po opublikowaniu zmian stanowi akceptację zaktualizowanych warunków. Poinformujemy użytkowników o istotnych zmianach przez aplikację lub email."},
   terms10H:{en:"10. Governing law",fr:"10. Droit applicable",es:"10. Ley aplicable",de:"10. Anwendbares Recht",it:"10. Legge applicabile",pt:"10. Lei aplicável",pl:"10. Prawo właściwe"},
   terms10B:{en:"These terms are governed by the laws of Ireland. Any disputes shall be subject to the exclusive jurisdiction of the Irish courts.",fr:"Ces conditions sont régies par le droit irlandais. Tout litige sera soumis à la compétence exclusive des tribunaux irlandais.",es:"Estos términos se rigen por las leyes de Irlanda. Cualquier disputa estará sujeta a la jurisdicción exclusiva de los tribunales irlandeses.",de:"Diese Bedingungen unterliegen dem irischen Recht. Alle Streitigkeiten unterliegen der ausschließlichen Zuständigkeit der irischen Gerichte.",it:"Questi termini sono regolati dalla legge irlandese. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali irlandesi.",pt:"Estes termos são regidos pelas leis da Irlanda. Quaisquer disputas estarão sujeitas à jurisdição exclusiva dos tribunais irlandeses.",pl:"Te warunki podlegają prawu irlandzkiemu. Wszelkie spory podlegają wyłącznej jurysdykcji sądów irlandzkich."},
+
+  termsAppleIntro:{
+    en:"Bandwolf uses Apple's Standard End User License Agreement (EULA).",
+    fr:"Bandwolf utilise le contrat de licence utilisateur final (EULA) standard d’Apple.",
+    es:"Bandwolf utiliza el Acuerdo de Licencia de Usuario Final (EULA) estándar de Apple.",
+    de:"Bandwolf verwendet die standardmäßige Apple-Endbenutzer-Lizenzvereinbarung (EULA).",
+    it:"Bandwolf utilizza il Contratto di Licenza con l’Utente Finale (EULA) standard di Apple.",
+    pt:"O Bandwolf utiliza o Contrato de Licença de Utilizador Final (EULA) padrão da Apple.",
+    pl:"Bandwolf korzysta ze standardowej umowy licencyjnej użytkownika końcowego Apple (EULA)."
+  },
+  termsAppleLinkIntro:{
+    en:"You can read the full Terms of Use here:",
+    fr:"Vous pouvez lire les conditions complètes ici :",
+    es:"Puedes leer los Términos de uso completos aquí:",
+    de:"Hier kannst du die vollständigen Nutzungsbedingungen lesen:",
+    it:"Puoi leggere i Termini di utilizzo completi qui:",
+    pt:"Podes ler os Termos de Utilização completos aqui:",
+    pl:"Pełny Regulamin możesz przeczytać tutaj:"
+  },
+  termsAppleLink:{
+    en:"Apple Standard EULA",
+    fr:"EULA standard Apple",
+    es:"EULA estándar de Apple",
+    de:"Apple Standard-EULA",
+    it:"EULA standard Apple",
+    pt:"EULA padrão da Apple",
+    pl:"Standardowa umowa EULA Apple"
+  },
+
   termsContact:{en:'Questions? Contact us at <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',fr:'Des questions ? Contactez-nous à <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',es:'¿Preguntas? Contáctanos en <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',de:'Fragen? Kontaktiere uns unter <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',it:'Domande? Contattaci a <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',pt:'Perguntas? Contacta-nos em <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.',pl:'Pytania? Skontaktuj się z nami pod adresem <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.'},
   termsDate:{en:"Last updated: May 2026",fr:"Dernière mise à jour : mai 2026",es:"Última actualización: mayo 2026",de:"Letzte Aktualisierung: Mai 2026",it:"Ultimo aggiornamento: maggio 2026",pt:"Última atualização: maio de 2026",pl:"Ostatnia aktualizacja: maj 2026"},
   navFeatures:{en:"Features",fr:"Fonctionnalités",es:"Funciones",de:"Funktionen",it:"Funzionalità",pt:"Recursos",pl:"Funkcje"},
