@@ -31,7 +31,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);backdrop-filte
 .nav-icon{height:44px;width:44px;display:block;object-fit:contain}
 .nav-wordmark{height:36px;display:block;object-fit:contain;margin-left:-8px}
 .nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500}
+.nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500;white-space:nowrap}
 .nav-links a:hover{color:var(--accent);text-decoration:none}
 
 /* Hero */
@@ -234,47 +234,46 @@ footer a{color:var(--accent)}
 
 <div class="divider"></div>
 
+
 <section class="section" id="terms">
   <div class="wrap">
     <div class="privacy">
-      <h2 data-key="termsTitle">Terms of Use</h2>
-      <p data-key="termsIntro">By downloading or using Bandwolf, you agree to these terms. Please read them carefully.</p>
+      <h2 data-key="termsTitle" style="white-space:nowrap;">Terms of Use</h2>
 
-      <p style="font-weight:600;margin-top:20px;margin-bottom:6px" data-key="terms1H">1. Eligibility</p>
-      <p data-key="terms1B">You must be at least 13 years old to use Bandwolf. By using the app you confirm that you meet this requirement.</p>
+      <p style="margin-bottom:12px">
+        Bandwolf uses Apple's Standard End User License Agreement (EULA).
+      </p>
 
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms2H">2. Your account</p>
-      <p data-key="terms2B">You are responsible for keeping your login credentials secure. You are responsible for all activity that occurs under your account. Notify us immediately at hello@bandwolf.app if you suspect unauthorised access.</p>
+      <p>
+        You can read the full Terms of Use here:
+      </p>
 
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms3H">3. Subscriptions and billing</p>
-      <p data-key="terms3B">Bandwolf Pro is available as a monthly or annual auto-renewing subscription purchased through the Apple App Store. Payment is charged to your Apple ID at confirmation of purchase. Subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. You can manage or cancel your subscription in your Apple ID account settings. No refunds are provided for unused portions of a subscription period except where required by law.</p>
+      <p style="margin-top:10px">
+        <a 
+          href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style="word-break:break-word"
+        >
+          Apple Standard EULA
+        </a>
+      </p>
 
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms4H">4. Acceptable use</p>
-      <p data-key="terms4B">You agree not to misuse Bandwolf. This includes: attempting to access another user's account without permission; uploading content that infringes third-party rights; using the app for any unlawful purpose; or attempting to reverse-engineer, scrape, or interfere with the service.</p>
+      <p style="margin-top:20px" data-key="termsContact">
+        Questions? Contact us at 
+        <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.
+      </p>
 
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms5H">5. Your content</p>
-      <p data-key="terms5B">You retain ownership of any content you add to Bandwolf (setlists, notes, recordings, etc.). By adding content you grant Bandwolf a limited licence to store and display it solely for the purpose of providing the service to you and your bandmates.</p>
-
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms6H">6. Account deletion</p>
-      <p data-key="terms6B">You can permanently delete your account and all associated data from within the app at any time via Settings → Delete account. Deletion is irreversible.</p>
-
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms7H">7. Disclaimer of warranties</p>
-      <p data-key="terms7B">Bandwolf is provided "as is" without warranties of any kind. We do not guarantee that the service will be uninterrupted, error-free, or meet your specific requirements.</p>
-
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms8H">8. Limitation of liability</p>
-      <p data-key="terms8B">To the maximum extent permitted by law, Bandwolf shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app.</p>
-
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms9H">9. Changes to these terms</p>
-      <p data-key="terms9B">We may update these terms from time to time. Continued use of the app after changes are posted constitutes acceptance of the revised terms. We will notify users of material changes via the app or email.</p>
-
-      <p style="font-weight:600;margin-top:16px;margin-bottom:6px" data-key="terms10H">10. Governing law</p>
-      <p data-key="terms10B">These terms are governed by the laws of Ireland. Any disputes shall be subject to the exclusive jurisdiction of the Irish courts.</p>
-
-      <p style="margin-top:20px" data-key="termsContact">Questions? Contact us at <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>.</p>
-      <p style="margin-top:8px;font-size:0.75rem;color:rgba(255,255,255,0.25)" data-key="termsDate">Last updated: May 2026</p>
+      <p 
+        style="margin-top:8px;font-size:0.75rem;color:rgba(255,255,255,0.25)" 
+        data-key="termsDate"
+      >
+        Last updated: May 2026
+      </p>
     </div>
   </div>
 </section>
+
 
 <div class="divider"></div>
 
@@ -290,7 +289,7 @@ footer a{color:var(--accent)}
 
 <script>
 const T = {
-  navTerms:{en:"Terms of Use",fr:"Conditions",es:"Términos",de:"Nutzungsbedingungen",it:"Termini",pt:"Termos",pl:"Regulamin"},
+  navTerms:{en:"Terms of Use",fr:"Conditions",es:"Términos",de:"Nutzung",it:"Termini",pt:"Termos",pl:"Regulamin"},
   termsTitle:{en:"Terms of Use",fr:"Conditions d'utilisation",es:"Términos de uso",de:"Nutzungsbedingungen",it:"Termini di utilizzo",pt:"Termos de utilização",pl:"Regulamin użytkowania"},
   termsIntro:{en:"By downloading or using Bandwolf, you agree to these terms. Please read them carefully.",fr:"En téléchargeant ou en utilisant Bandwolf, vous acceptez ces conditions. Veuillez les lire attentivement.",es:"Al descargar o usar Bandwolf, aceptas estos términos. Por favor léelos con atención.",de:"Durch das Herunterladen oder Verwenden von Bandwolf stimmst du diesen Bedingungen zu. Bitte lies sie sorgfältig.",it:"Scaricando o usando Bandwolf, accetti questi termini. Si prega di leggerli attentamente.",pt:"Ao descarregar ou usar o Bandwolf, concordas com estes termos. Por favor lê-os com atenção.",pl:"Pobierając lub używając Bandwolf, zgadzasz się z tymi warunkami. Prosimy o ich uważne przeczytanie."},
   terms1H:{en:"1. Eligibility",fr:"1. Conditions d'accès",es:"1. Elegibilidad",de:"1. Berechtigung",it:"1. Idoneità",pt:"1. Elegibilidade",pl:"1. Uprawnienia"},
