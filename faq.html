@@ -212,6 +212,7 @@ footer a{color:var(--accent)}
           <tr><td data-key="tierAdmin">Admin privileges</td><td><span class="cross">—</span></td><td class="pro-col"><span class="check">✓</span></td></tr>
         </tbody>
       </table>
+      <p data-key="faqA_pro_pricing">Pro is billed monthly (£6.99) or annually (£49.99 — saves around two months). Pricing is shown in your local currency in the App Store.</p>
     </div>
   </div>
 
@@ -343,6 +344,88 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-key="faqA_personalNotes" data-html="personalNotes"></div>
   </div>
 
+  <div class="section-label" data-key="faqSectionNotifications">Notifications</div>
+
+  <!-- Comparison table — orientation content, not collapsible -->
+  <div style="overflow-x:auto;margin-bottom:8px">
+    <table class="tier-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th data-key="notifColPush">Push notification</th>
+          <th data-key="notifColBell">In-app bell</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td data-key="notifRowWhen">When it arrives</td><td data-key="notifPushWhen">When the app is closed or in the background</td><td data-key="notifBellWhen">While you're actively using the app</td></tr>
+        <tr><td data-key="notifRowHow">How it's delivered</td><td data-key="notifPushHow">Sent from Apple's servers to your phone</td><td data-key="notifBellHow">Picked up live while the app is open</td></tr>
+        <tr><td data-key="notifRowWho">Who receives it</td><td data-key="notifPushWho">Controlled by your personal notification settings</td><td data-key="notifBellWho">Whoever has the app open at that moment</td></tr>
+        <tr><td data-key="notifRowIos">Turning off in iOS Settings</td><td data-key="notifPushIos">Yes — blocked before it reaches you</td><td data-key="notifBellIos">No — still appears inside the app</td></tr>
+        <tr><td data-key="notifRowInApp">Turning off in Bandwolf Settings</td><td data-key="notifPushInApp">Yes — never sent in the first place</td><td data-key="notifBellInApp">No — no separate toggle for the bell</td></tr>
+        <tr><td data-key="notifRowBatch">Multiple changes at once</td><td data-key="notifPushBatch">One push per event</td><td data-key="notifBellBatch">Up to 5 minutes of changes combined into one</td></tr>
+        <tr><td data-key="notifRowDevices">Multiple devices</td><td data-key="notifPushDevices">Yes — arrives on all your devices</td><td data-key="notifBellDevices">No — only the device you're currently using</td></tr>
+        <tr><td data-key="notifRowOwn">Your own actions</td><td data-key="notifPushOwn">Never notified about changes you made yourself</td><td data-key="notifBellOwn">Changes you make yourself are ignored</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:var(--fs-xs);color:var(--muted);margin-bottom:24px;padding:0 2px" data-key="notifTableNote">If you've turned off a notification type and it still appears in the bell, that's expected — the bell and your push settings are independent.</p>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_notifStillGot">I turned off notifications for rehearsals, but I still got one. Why?</span>
+      <span class="chevron">&#9662;</span>
+    </button>
+    <div class="faq-a" data-html="notifStillGot"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_notifBurst">Why did I get several notifications at once after opening the app?</span>
+      <span class="chevron">&#9662;</span>
+    </button>
+    <div class="faq-a" data-html="notifBurst"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_notifTap">Why did I get a notification but nothing looked different when I opened the app?</span>
+      <span class="chevron">&#9662;</span>
+    </button>
+    <div class="faq-a" data-html="notifTap"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_notifOwnAction">Will I be notified about changes I make myself?</span>
+      <span class="chevron">&#9662;</span>
+    </button>
+    <div class="faq-a" data-html="notifOwnAction"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_notifAdmins">Do admins get more notifications than regular members?</span>
+      <span class="chevron">&#9662;</span>
+    </button>
+    <div class="faq-a" data-html="notifAdmins"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_notifBandmate">My bandmate got a notification but I didn't. Why?</span>
+      <span class="chevron">&#9662;</span>
+    </button>
+    <div class="faq-a" data-html="notifBandmate"></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggle(this)">
+      <span data-key="faqQ_notifSongs">Will I get notified if someone edits a song, or only when songs are added?</span>
+      <span class="chevron">&#9662;</span>
+    </button>
+    <div class="faq-a" data-html="notifSongs"></div>
+  </div>
+
   <div class="section-label" data-key="faqSectionContact">Still have questions?</div>
 
   <div class="faq-item">
@@ -356,6 +439,7 @@ footer a{color:var(--accent)}
   <div class="cta-strip">
     <div class="cta-strip-text">
       <h3 data-key="faqCtaHeading">Ready to get your band organised?</h3>
+      <p data-key="faqCtaSub">Free to start. No credit card needed.</p>
     </div>
     <a href="#" class="cta-btn" data-key="faqCtaBtn">Download Bandwolf</a>
   </div>
@@ -368,6 +452,7 @@ footer a{color:var(--accent)}
   <div class="cta-strip">
     <div class="cta-strip-text">
       <h3>Ready to get your band organised?</h3>
+      <p>Free to start. No credit card needed.</p>
     </div>
     <a href="#" class="cta-btn">Download Bandwolf</a>
   </div>
@@ -424,7 +509,43 @@ const T = {
   faqQ_personalNotes:{en:"What are personal song notes?",fr:"Que sont les notes personnelles de chansons ?",es:"¿Qué son las notas personales de canciones?",de:"Was sind persönliche Songnotizen?",it:"Cosa sono le note personali sulle canzoni?",pt:"O que são notas pessoais de músicas?",pl:"Czym są osobiste notatki do piosenek?"},
   faqQ_contact:{en:"How do I contact Bandwolf support?",fr:"Comment contacter le support Bandwolf ?",es:"¿Cómo contacto con el soporte de Bandwolf?",de:"Wie kontaktiere ich den Bandwolf-Support?",it:"Come contatto il supporto di Bandwolf?",pt:"Como entro em contato com o suporte do Bandwolf?",pl:"Jak skontaktować się z pomocą techniczną Bandwolf?"},
   faqCtaHeading:{en:"Ready to get your band organised?",fr:"Prêt à organiser votre groupe ?",es:"¿Listo para organizar tu banda?",de:"Bereit, deine Band zu organisieren?",it:"Pronto a organizzare la tua band?",pt:"Pronto para organizar sua banda?",pl:"Gotowy, aby zorganizować swój zespół?"},
-  faqCtaBtn:{en:"Download Bandwolf",fr:"Télécharger Bandwolf",es:"Descargar Bandwolf",de:"Bandwolf herunterladen",it:"Scarica Bandwolf",pt:"Baixar Bandwolf",pl:"Pobierz Bandwolf"},
+  faqCtaSub:{en:"Free to start. No credit card needed.",fr:"Gratuit pour commencer. Aucune carte de crédit requise.",es:"Gratis para empezar. No se necesita tarjeta de crédito.",de:"Kostenlos starten. Keine Kreditkarte erforderlich.",it:"Gratuito per iniziare. Nessuna carta di credito richiesta.",pt:"Grátis para começar. Sem necessidade de cartão de crédito.",pl:"Bezpłatny start. Bez karty kredytowej."},
+  faqSectionNotifications:{en:"Notifications",fr:"Notifications",es:"Notificaciones",de:"Benachrichtigungen",it:"Notifiche",pt:"Notificações",pl:"Powiadomienia"},
+  notifColPush:{en:"Push notification",fr:"Notification push",es:"Notificación push",de:"Push-Benachrichtigung",it:"Notifica push",pt:"Notificação push",pl:"Powiadomienie push"},
+  notifColBell:{en:"In-app bell",fr:"Cloche intégrée",es:"Campana en la app",de:"In-App-Glocke",it:"Campanella in-app",pt:"Sino no app",pl:"Dzwonek w aplikacji"},
+  notifRowWhen:{en:"When it arrives",fr:"Quand elle arrive",es:"Cuándo llega",de:"Wann es ankommt",it:"Quando arriva",pt:"Quando chega",pl:"Kiedy dociera"},
+  notifPushWhen:{en:"When the app is closed or in the background",fr:"Quand l'appli est fermée ou en arrière-plan",es:"Cuando la app está cerrada o en segundo plano",de:"Wenn die App geschlossen oder im Hintergrund ist",it:"Quando l'app è chiusa o in background",pt:"Quando o app está fechado ou em segundo plano",pl:"Gdy aplikacja jest zamknięta lub w tle"},
+  notifBellWhen:{en:"While you're actively using the app",fr:"Pendant que vous utilisez activement l'appli",es:"Mientras usas activamente la app",de:"Während du die App aktiv verwendest",it:"Mentre stai usando attivamente l'app",pt:"Enquanto você está usando o app ativamente",pl:"Gdy aktywnie korzystasz z aplikacji"},
+  notifRowHow:{en:"How it's delivered",fr:"Comment elle est envoyée",es:"Cómo se entrega",de:"Wie es zugestellt wird",it:"Come viene recapitata",pt:"Como é entregue",pl:"Jak jest dostarczane"},
+  notifPushHow:{en:"Sent from Apple's servers to your phone",fr:"Envoyée depuis les serveurs Apple vers votre téléphone",es:"Enviada desde los servidores de Apple a tu teléfono",de:"Wird von Apples Servern an dein Telefon gesendet",it:"Inviata dai server Apple al tuo telefono",pt:"Enviada dos servidores da Apple para o seu telefone",pl:"Wysyłane z serwerów Apple na twój telefon"},
+  notifBellHow:{en:"Picked up live while the app is open",fr:"Reçue en direct pendant que l'appli est ouverte",es:"Recibida en tiempo real mientras la app está abierta",de:"Live empfangen, während die App geöffnet ist",it:"Ricevuta in tempo reale mentre l'app è aperta",pt:"Recebida ao vivo enquanto o app está aberto",pl:"Odbierane na żywo gdy aplikacja jest otwarta"},
+  notifRowWho:{en:"Who receives it",fr:"Qui la reçoit",es:"Quién la recibe",de:"Wer sie empfängt",it:"Chi la riceve",pt:"Quem recebe",pl:"Kto ją otrzymuje"},
+  notifPushWho:{en:"Controlled by your personal notification settings",fr:"Contrôlé par vos paramètres personnels",es:"Controlado por tu configuración personal de notificaciones",de:"Gesteuert durch deine persönlichen Benachrichtigungseinstellungen",it:"Controllato dalle tue impostazioni personali",pt:"Controlado pelas suas configurações pessoais",pl:"Kontrolowane przez twoje osobiste ustawienia powiadomień"},
+  notifBellWho:{en:"Whoever has the app open at that moment",fr:"Quiconque a l'appli ouverte à ce moment",es:"Quien tenga la app abierta en ese momento",de:"Wer die App in diesem Moment geöffnet hat",it:"Chiunque abbia l'app aperta in quel momento",pt:"Quem tiver o app aberto naquele momento",pl:"Ktokolwiek ma otwartą aplikację w tym momencie"},
+  notifRowIos:{en:"Turning off in iOS Settings",fr:"Désactivation dans les réglages iOS",es:"Desactivar en Ajustes de iOS",de:"Deaktivieren in iOS-Einstellungen",it:"Disattivazione nelle Impostazioni iOS",pt:"Desativar nas Configurações do iOS",pl:"Wyłączanie w Ustawieniach iOS"},
+  notifPushIos:{en:"Yes — blocked before it reaches you",fr:"Oui — bloquée avant de vous parvenir",es:"Sí — bloqueada antes de llegar a ti",de:"Ja — blockiert, bevor es dich erreicht",it:"Sì — bloccata prima di raggiungerti",pt:"Sim — bloqueada antes de chegar até você",pl:"Tak — zablokowane zanim dotrze do ciebie"},
+  notifBellIos:{en:"No — still appears inside the app",fr:"Non — apparaît quand même dans l'appli",es:"No — sigue apareciendo dentro de la app",de:"Nein — erscheint trotzdem in der App",it:"No — appare comunque nell'app",pt:"Não — ainda aparece dentro do app",pl:"Nie — nadal pojawia się w aplikacji"},
+  notifRowInApp:{en:"Turning off in Bandwolf Settings",fr:"Désactivation dans les réglages Bandwolf",es:"Desactivar en Ajustes de Bandwolf",de:"Deaktivieren in Bandwolf-Einstellungen",it:"Disattivazione nelle Impostazioni Bandwolf",pt:"Desativar nas Configurações do Bandwolf",pl:"Wyłączanie w Ustawieniach Bandwolf"},
+  notifPushInApp:{en:"Yes — never sent in the first place",fr:"Oui — jamais envoyée",es:"Sí — nunca se envía",de:"Ja — wird gar nicht erst gesendet",it:"Sì — non viene mai inviata",pt:"Sim — nunca enviada",pl:"Tak — nigdy nie wysyłane"},
+  notifBellInApp:{en:"No — no separate toggle for the bell",fr:"Non — pas de réglage séparé pour la cloche",es:"No — no hay interruptor separado para la campana",de:"Nein — kein separater Schalter für die Glocke",it:"No — nessun toggle separato per la campanella",pt:"Não — sem toggle separado para o sino",pl:"Nie — brak oddzielnego przełącznika dla dzwonka"},
+  notifRowBatch:{en:"Multiple changes at once",fr:"Plusieurs modifications à la fois",es:"Varios cambios a la vez",de:"Mehrere Änderungen auf einmal",it:"Più modifiche in una volta",pt:"Múltiplas alterações de uma vez",pl:"Wiele zmian naraz"},
+  notifPushBatch:{en:"One push per event",fr:"Une notification par événement",es:"Una notificación por evento",de:"Eine Push-Nachricht pro Ereignis",it:"Una notifica per evento",pt:"Uma notificação por evento",pl:"Jedno powiadomienie na zdarzenie"},
+  notifBellBatch:{en:"Up to 5 minutes of changes combined into one",fr:"Jusqu'à 5 minutes de modifications regroupées",es:"Hasta 5 minutos de cambios agrupados en uno",de:"Bis zu 5 Minuten Änderungen zusammengefasst",it:"Fino a 5 minuti di modifiche combinate in una",pt:"Até 5 minutos de alterações combinadas em uma",pl:"Do 5 minut zmian połączonych w jedno"},
+  notifRowDevices:{en:"Multiple devices",fr:"Plusieurs appareils",es:"Varios dispositivos",de:"Mehrere Geräte",it:"Più dispositivi",pt:"Múltiplos dispositivos",pl:"Wiele urządzeń"},
+  notifPushDevices:{en:"Yes — arrives on all your devices",fr:"Oui — arrive sur tous vos appareils",es:"Sí — llega a todos tus dispositivos",de:"Ja — kommt auf allen deinen Geräten an",it:"Sì — arriva su tutti i tuoi dispositivi",pt:"Sim — chega em todos os seus dispositivos",pl:"Tak — dociera do wszystkich twoich urządzeń"},
+  notifBellDevices:{en:"No — only the device you're currently using",fr:"Non — uniquement l'appareil que vous utilisez",es:"No — solo el dispositivo que estás usando",de:"Nein — nur das Gerät, das du gerade verwendest",it:"No — solo il dispositivo che stai usando",pt:"Não — apenas o dispositivo que você está usando",pl:"Nie — tylko urządzenie, którego aktualnie używasz"},
+  notifRowOwn:{en:"Your own actions",fr:"Vos propres actions",es:"Tus propias acciones",de:"Deine eigenen Aktionen",it:"Le tue azioni",pt:"Suas próprias ações",pl:"Twoje własne działania"},
+  notifPushOwn:{en:"Never notified about changes you made yourself",fr:"Jamais notifié de vos propres modifications",es:"Nunca notificado de cambios que hiciste tú mismo",de:"Nie über eigene Änderungen benachrichtigt",it:"Mai notificato delle modifiche che hai apportato tu stesso",pt:"Nunca notificado sobre alterações que você mesmo fez",pl:"Nigdy nie powiadamiany o zmianach, które sam wykonałeś"},
+  notifBellOwn:{en:"Changes you make yourself are ignored",fr:"Les modifications que vous faites sont ignorées",es:"Los cambios que haces tú mismo se ignoran",de:"Eigene Änderungen werden ignoriert",it:"Le modifiche che apporti tu stesso vengono ignorate",pt:"Alterações que você mesmo faz são ignoradas",pl:"Zmiany, które sam wprowadzasz, są ignorowane"},
+  notifTableNote:{en:"If you've turned off a notification type and it still appears in the bell, that's expected — the bell and your push settings are independent.",fr:"Si vous avez désactivé un type de notification et qu'il apparaît encore dans la cloche, c'est normal — la cloche et vos réglages push sont indépendants.",es:"Si has desactivado un tipo de notificación y sigue apareciendo en la campana, es lo esperado — la campana y tus ajustes push son independientes.",de:"Wenn du einen Benachrichtigungstyp deaktiviert hast und er trotzdem in der Glocke erscheint, ist das normal — Glocke und Push-Einstellungen sind unabhängig.",it:"Se hai disattivato un tipo di notifica e appare ancora nella campanella, è normale — la campanella e le impostazioni push sono indipendenti.",pt:"Se você desativou um tipo de notificação e ele ainda aparece no sino, isso é esperado — o sino e suas configurações push são independentes.",pl:"Jeśli wyłączyłeś typ powiadomienia i nadal pojawia się w dzwonku, to jest normalne — dzwonek i ustawienia push są niezależne."},
+  faqQ_notifStillGot:{en:"I turned off notifications for rehearsals, but I still got one. Why?",fr:"J'ai désactivé les notifications pour les répétitions, mais j'en ai quand même reçu une. Pourquoi ?",es:"Desactivé las notificaciones para los ensayos, pero seguí recibiendo una. ¿Por qué?",de:"Ich habe Benachrichtigungen für Proben deaktiviert, aber trotzdem eine erhalten. Warum?",it:"Ho disattivato le notifiche per le prove, ma ne ho ricevuta una lo stesso. Perché?",pt:"Desativei as notificações de ensaios, mas ainda recebi uma. Por quê?",pl:"Wyłączyłem powiadomienia o próbach, ale nadal je otrzymuję. Dlaczego?"},
+  faqQ_notifBurst:{en:"Why did I get several notifications at once after opening the app?",fr:"Pourquoi ai-je reçu plusieurs notifications d'un coup en ouvrant l'appli ?",es:"¿Por qué recibí varias notificaciones a la vez al abrir la app?",de:"Warum habe ich beim Öffnen der App mehrere Benachrichtigungen auf einmal erhalten?",it:"Perché ho ricevuto più notifiche tutte in una volta aprendo l'app?",pt:"Por que recebi várias notificações de uma vez ao abrir o app?",pl:"Dlaczego po otwarciu aplikacji otrzymałem kilka powiadomień naraz?"},
+  faqQ_notifTap:{en:"Why did I get a notification but nothing looked different when I opened the app?",fr:"Pourquoi ai-je reçu une notification mais rien ne semblait différent à l'ouverture de l'appli ?",es:"¿Por qué recibí una notificación pero nada parecía diferente al abrir la app?",de:"Warum habe ich eine Benachrichtigung erhalten, aber beim Öffnen der App sah nichts anders aus?",it:"Perché ho ricevuto una notifica ma nulla sembrava diverso all'apertura dell'app?",pt:"Por que recebi uma notificação mas nada parecia diferente ao abrir o app?",pl:"Dlaczego otrzymałem powiadomienie, ale po otwarciu aplikacji nic nie wyglądało inaczej?"},
+  faqQ_notifOwnAction:{en:"Will I be notified about changes I make myself?",fr:"Serai-je notifié des modifications que je fais moi-même ?",es:"¿Recibiré notificaciones sobre los cambios que hago yo mismo?",de:"Werde ich über Änderungen benachrichtigt, die ich selbst vornehme?",it:"Riceverò notifiche per le modifiche che apporto io stesso?",pt:"Serei notificado sobre alterações que eu mesmo fizer?",pl:"Czy zostanę powiadomiony o zmianach, które sam wprowadzam?"},
+  faqQ_notifAdmins:{en:"Do admins get more notifications than regular members?",fr:"Les administrateurs reçoivent-ils plus de notifications que les membres ordinaires ?",es:"¿Los administradores reciben más notificaciones que los miembros regulares?",de:"Erhalten Admins mehr Benachrichtigungen als reguläre Mitglieder?",it:"Gli amministratori ricevono più notifiche dei membri regolari?",pt:"Os administradores recebem mais notificações do que os membros regulares?",pl:"Czy administratorzy otrzymują więcej powiadomień niż zwykli członkowie?"},
+  faqQ_notifBandmate:{en:"My bandmate got a notification but I didn't. Why?",fr:"Mon collègue a reçu une notification mais pas moi. Pourquoi ?",es:"Mi compañero de banda recibió una notificación pero yo no. ¿Por qué?",de:"Mein Bandmitglied hat eine Benachrichtigung bekommen, ich aber nicht. Warum?",it:"Il mio collega ha ricevuto una notifica ma io no. Perché?",pt:"Meu colega de banda recebeu uma notificação, mas eu não. Por quê?",pl:"Mój kolega z zespołu dostał powiadomienie, ale ja nie. Dlaczego?"},
+  faqQ_notifSongs:{en:"Will I get notified if someone edits a song, or only when songs are added?",fr:"Serai-je notifié si quelqu'un modifie une chanson, ou seulement quand des chansons sont ajoutées ?",es:"¿Recibiré una notificación si alguien edita una canción, o solo cuando se añaden canciones?",de:"Werde ich benachrichtigt, wenn jemand einen Song bearbeitet, oder nur wenn Songs hinzugefügt werden?",it:"Riceverò una notifica se qualcuno modifica una canzone, o solo quando vengono aggiunte?",pt:"Serei notificado se alguém editar uma música, ou apenas quando músicas forem adicionadas?",pl:"Czy zostanę powiadomiony gdy ktoś edytuje piosenkę, czy tylko gdy piosenki są dodawane?"},
+    faqCtaBtn:{en:"Download Bandwolf",fr:"Télécharger Bandwolf",es:"Descargar Bandwolf",de:"Bandwolf herunterladen",it:"Scarica Bandwolf",pt:"Baixar Bandwolf",pl:"Pobierz Bandwolf"},
   tierFeature:{en:"Feature",fr:"Fonctionnalité",es:"Función",de:"Funktion",it:"Funzionalità",pt:"Funcionalidade",pl:"Funkcja"},
   tierSetlists:{en:"Setlists per band",fr:"Setlists par groupe",es:"Setlists por banda",de:"Setlists pro Band",it:"Setlist per band",pt:"Setlists por banda",pl:"Setlisty na zespół"},
   tierSongs:{en:"Songs per setlist",fr:"Chansons par setlist",es:"Canciones por setlist",de:"Songs pro Setlist",it:"Canzoni per setlist",pt:"Músicas por setlist",pl:"Piosenki na setlistę"},
@@ -595,7 +716,70 @@ const ANSWERS = {
     pt:`<p>Cada música em uma setlist tem duas camadas de notas: notas da banda (visíveis a todos, definidas pelos administradores) e suas próprias notas pessoais, que só você pode ver.</p><p>Notas pessoais são o lugar para colocar seus próprios lembretes: sua posição de capo, uma transição difícil, uma deixa do vocalista. Elas acompanham você em todas as setlists e dispositivos, e são gratuitas para todos.</p>`,
     pl:`<p>Każda piosenka na setliście ma dwie warstwy notatek: notatki zespołu (widoczne dla wszystkich, ustawiane przez administratorów) i twoje własne notatki osobiste, które tylko ty możesz zobaczyć.</p><p>Notatki osobiste to miejsce na własne przypomnienia: pozycja kapodastru, trudne przejście, sygnał od wokalisty. Towarzyszą ci we wszystkich setlistach i urządzeniach, i są bezpłatne dla wszystkich.</p>`,
   },
-  contact:{
+  notifStillGot:{
+    en:`<p>There are two separate notification toggles worth checking: the per-type toggles inside Bandwolf (Settings → Notifications) and the system-level permission in iOS Settings → Bandwolf → Notifications. Turning off rehearsal notifications inside Bandwolf stops that type from being sent — but if you only turned off the iOS system permission, Bandwolf still generates the notification, it just gets blocked at the last moment. Next time you open the app, it'll appear as an unread notification in the in-app bell instead. To stop rehearsal notifications entirely, make sure the toggle is off inside Bandwolf itself, not just in iOS Settings.</p>`,
+    fr:`<p>Deux réglages distincts contrôlent les notifications : les interrupteurs par type dans Bandwolf (Réglages → Notifications) et l'autorisation système dans Réglages iOS → Bandwolf → Notifications. Désactiver les notifications de répétition dans Bandwolf empêche leur envoi. Si vous avez seulement désactivé l'autorisation iOS, Bandwolf génère quand même la notification — elle est bloquée au dernier moment et apparaît dans la cloche intégrée à la prochaine ouverture de l'appli. Pour arrêter complètement les notifications de répétition, désactivez-les dans Bandwolf lui-même.</p>`,
+    es:`<p>Hay dos ajustes separados que vale la pena revisar: los interruptores por tipo dentro de Bandwolf (Ajustes → Notificaciones) y el permiso del sistema en Ajustes de iOS → Bandwolf → Notificaciones. Desactivar las notificaciones de ensayos en Bandwolf evita que se envíen. Si solo desactivaste el permiso de iOS, Bandwolf sigue generando la notificación — se bloquea en el último momento y aparece en la campana la próxima vez que abras la app. Para detener las notificaciones de ensayos por completo, asegúrate de desactivar el interruptor dentro de Bandwolf.</p>`,
+    de:`<p>Es gibt zwei separate Einstellungen: die typspezifischen Schalter in Bandwolf (Einstellungen → Benachrichtigungen) und die Systemberechtigung in iOS-Einstellungen → Bandwolf → Mitteilungen. Das Deaktivieren in Bandwolf verhindert das Senden. Wenn du nur die iOS-Berechtigung deaktiviert hast, generiert Bandwolf die Benachrichtigung trotzdem — sie wird im letzten Moment blockiert und erscheint beim nächsten App-Öffnen in der In-App-Glocke. Um Probenbenachrichtigungen vollständig zu stoppen, deaktiviere den Schalter in Bandwolf selbst.</p>`,
+    it:`<p>Ci sono due impostazioni separate: i toggle per tipo all'interno di Bandwolf (Impostazioni → Notifiche) e il permesso di sistema in Impostazioni iOS → Bandwolf → Notifiche. Disattivare le notifiche delle prove in Bandwolf impedisce che vengano inviate. Se hai solo disattivato il permesso iOS, Bandwolf genera comunque la notifica — viene bloccata all'ultimo momento e appare nella campanella alla prossima apertura dell'app. Per fermare completamente le notifiche delle prove, assicurati di disattivare il toggle in Bandwolf stesso.</p>`,
+    pt:`<p>Há duas configurações separadas: os toggles por tipo dentro do Bandwolf (Configurações → Notificações) e a permissão do sistema em Configurações iOS → Bandwolf → Notificações. Desativar notificações de ensaios no Bandwolf impede que sejam enviadas. Se você apenas desativou a permissão do iOS, o Bandwolf ainda gera a notificação — ela é bloqueada no último momento e aparece no sino na próxima vez que você abrir o app. Para parar completamente as notificações de ensaios, certifique-se de desativar o toggle dentro do próprio Bandwolf.</p>`,
+    pl:`<p>Istnieją dwa osobne ustawienia: przełączniki według typu w Bandwolf (Ustawienia → Powiadomienia) oraz uprawnienie systemowe w Ustawienia iOS → Bandwolf → Powiadomienia. Wyłączenie powiadomień o próbach w Bandwolf zapobiega ich wysyłaniu. Jeśli wyłączyłeś tylko uprawnienie iOS, Bandwolf nadal generuje powiadomienie — jest ono blokowane w ostatniej chwili i pojawia się w dzwonku przy następnym otwarciu aplikacji. Aby całkowicie zatrzymać powiadomienia o próbach, wyłącz przełącznik wewnątrz samego Bandwolf.</p>`,
+  },
+  notifBurst:{
+    en:`<p>Bandwolf groups activity from the same band that happens while you're offline, combining updates that arrive within a 5-minute window into a single notification. If several things changed — a rehearsal was edited, a song was added, a member joined — you'll see "3 updates — Rehearsal on 14 Jun updated + 2 more" rather than three separate buzzes. If changes are spread further apart than 5 minutes they'll arrive as separate notifications.</p>`,
+    fr:`<p>Bandwolf regroupe les activités du même groupe qui se produisent pendant que vous êtes hors ligne, combinant les mises à jour arrivant dans une fenêtre de 5 minutes en une seule notification. Si plusieurs choses ont changé, vous verrez « 3 mises à jour — Répétition du 14 juin modifiée + 2 autres » plutôt que trois alertes séparées. Si les changements sont espacés de plus de 5 minutes, ils arriveront séparément.</p>`,
+    es:`<p>Bandwolf agrupa la actividad de la misma banda que ocurre mientras estás sin conexión, combinando las actualizaciones que llegan en una ventana de 5 minutos en una sola notificación. Si varias cosas cambiaron, verás "3 actualizaciones — Ensayo del 14 jun. actualizado + 2 más" en lugar de tres alertas separadas. Si los cambios están espaciados más de 5 minutos, llegarán por separado.</p>`,
+    de:`<p>Bandwolf gruppiert Aktivitäten derselben Band, die auftreten, während du offline bist, und fasst Updates innerhalb von 5 Minuten in einer einzigen Benachrichtigung zusammen. Wenn mehrere Dinge geändert wurden, siehst du "3 Updates — Probe am 14. Jun. aktualisiert + 2 weitere" statt drei separater Alarme. Wenn Änderungen weiter als 5 Minuten auseinanderliegen, kommen sie als separate Benachrichtigungen.</p>`,
+    it:`<p>Bandwolf raggruppa l'attività della stessa band che avviene mentre sei offline, combinando gli aggiornamenti che arrivano entro una finestra di 5 minuti in un'unica notifica. Se più cose sono cambiate, vedrai "3 aggiornamenti — Prova del 14 giu. aggiornata + 2 altri" invece di tre avvisi separati. Se le modifiche sono distanziate di più di 5 minuti, arriveranno come notifiche separate.</p>`,
+    pt:`<p>O Bandwolf agrupa a atividade da mesma banda que ocorre enquanto você está offline, combinando atualizações que chegam dentro de uma janela de 5 minutos em uma única notificação. Se várias coisas mudaram, você verá "3 atualizações — Ensaio de 14 jun. atualizado + 2 mais" em vez de três alertas separados. Se as alterações estiverem espaçadas por mais de 5 minutos, chegarão como notificações separadas.</p>`,
+    pl:`<p>Bandwolf grupuje aktywność tego samego zespołu, która ma miejsce gdy jesteś offline, łącząc aktualizacje przychodzące w oknie 5 minut w jedno powiadomienie. Jeśli kilka rzeczy się zmieniło, zobaczysz "3 aktualizacje — Próba 14 cze. zaktualizowana + 2 więcej" zamiast trzech osobnych alertów. Jeśli zmiany są oddalone od siebie o więcej niż 5 minut, przyjdą jako osobne powiadomienia.</p>`,
+  },
+  notifTap:{
+    en:`<p>Tap the notification rather than just dismissing it — it deep-links directly to the relevant rehearsal, setlist, or song. If you dismiss the notification and open the app normally, you land wherever you were before, which can make the change hard to spot. The unread count on the bell icon will show something is waiting.</p>`,
+    fr:`<p>Appuyez sur la notification plutôt que de simplement la rejeter — elle vous amène directement à la répétition, la setlist ou la chanson concernée. Si vous rejetez la notification et ouvrez l'appli normalement, vous atterrissez là où vous étiez avant, ce qui peut rendre le changement difficile à repérer. Le compteur de non-lus sur l'icône de la cloche indiquera qu'il y a quelque chose en attente.</p>`,
+    es:`<p>Toca la notificación en lugar de descartarla — te lleva directamente al ensayo, setlist o canción relevante. Si descartas la notificación y abres la app normalmente, llegas donde estabas antes, lo que puede dificultar detectar el cambio. El contador de no leídos en el icono de la campana mostrará que hay algo esperando.</p>`,
+    de:`<p>Tippe auf die Benachrichtigung anstatt sie nur wegzuwischen — sie verlinkt direkt zur betreffenden Probe, Setlist oder dem Song. Wenn du die Benachrichtigung wegwischst und die App normal öffnest, landest du dort, wo du vorher warst, was die Änderung schwer zu erkennen macht. Der ungelesene Zähler am Glocken-Symbol zeigt, dass etwas wartet.</p>`,
+    it:`<p>Tocca la notifica invece di ignorarla — ti porta direttamente alla prova, alla setlist o alla canzone pertinente. Se ignori la notifica e apri l'app normalmente, atterri dove eri prima, il che può rendere difficile individuare il cambiamento. Il contatore dei non letti sull'icona della campanella mostrerà che c'è qualcosa in attesa.</p>`,
+    pt:`<p>Toque na notificação em vez de apenas descartá-la — ela leva diretamente ao ensaio, setlist ou música relevante. Se você descartar a notificação e abrir o app normalmente, voltará para onde estava antes, o que pode dificultar a identificação da alteração. O contador de não lidos no ícone do sino mostrará que há algo esperando.</p>`,
+    pl:`<p>Dotknij powiadomienia zamiast je tylko odrzucać — prowadzi ono bezpośrednio do odpowiedniej próby, setlisty lub piosenki. Jeśli odrzucisz powiadomienie i otworzysz aplikację normalnie, wrócisz tam gdzie byłeś wcześniej, co może utrudnić zauważenie zmiany. Licznik nieprzeczytanych na ikonie dzwonka pokaże, że coś czeka.</p>`,
+  },
+  notifOwnAction:{
+    en:`<p>No. Bandwolf checks whether you're the person who made the change and skips the notification if so — for both push and the in-app bell. If you ever do receive a notification about something you just did, it's likely because you're signed into the same device under a different profile. Signing out and back in resolves it.</p>`,
+    fr:`<p>Non. Bandwolf vérifie si vous êtes la personne qui a effectué le changement et ignore la notification dans ce cas — aussi bien pour le push que pour la cloche intégrée. Si vous recevez une notification pour quelque chose que vous venez de faire, c'est probablement parce que vous êtes connecté sur le même appareil avec un profil différent. Se déconnecter et se reconnecter résout le problème.</p>`,
+    es:`<p>No. Bandwolf comprueba si eres la persona que realizó el cambio y omite la notificación en ese caso — tanto para el push como para la campana en la app. Si alguna vez recibes una notificación sobre algo que acabas de hacer, probablemente sea porque estás conectado en el mismo dispositivo con un perfil diferente. Cerrar sesión y volver a iniciarla lo resuelve.</p>`,
+    de:`<p>Nein. Bandwolf prüft, ob du die Person bist, die die Änderung vorgenommen hat, und überspringt die Benachrichtigung in diesem Fall — sowohl für Push als auch für die In-App-Glocke. Wenn du je eine Benachrichtigung über etwas erhältst, das du gerade getan hast, liegt es wahrscheinlich daran, dass du auf demselben Gerät unter einem anderen Profil angemeldet bist. Aus- und erneutes Einloggen behebt das Problem.</p>`,
+    it:`<p>No. Bandwolf verifica se sei tu la persona che ha apportato la modifica e salta la notifica in quel caso — sia per il push che per la campanella in-app. Se ricevi mai una notifica per qualcosa che hai appena fatto, probabilmente sei connesso sullo stesso dispositivo con un profilo diverso. Disconnettersi e riconnettersi risolve il problema.</p>`,
+    pt:`<p>Não. O Bandwolf verifica se você é a pessoa que fez a alteração e ignora a notificação nesse caso — tanto para push quanto para o sino no app. Se você receber uma notificação sobre algo que acabou de fazer, provavelmente é porque está conectado no mesmo dispositivo com um perfil diferente. Sair e fazer login novamente resolve o problema.</p>`,
+    pl:`<p>Nie. Bandwolf sprawdza, czy jesteś osobą, która dokonała zmiany i pomija powiadomienie w takim przypadku — zarówno dla push jak i dzwonka w aplikacji. Jeśli kiedykolwiek otrzymasz powiadomienie o czymś, co właśnie zrobiłeś, prawdopodobnie jesteś zalogowany na tym samym urządzeniu pod innym profilem. Wylogowanie i ponowne zalogowanie rozwiązuje problem.</p>`,
+  },
+  notifAdmins:{
+    en:`<p>Yes, for RSVPs. When a member responds to a rehearsal, the notification goes to the event creator and all band admins — not to everyone. Everything else (rehearsal changes, new songs, new members, setlist changes) goes to all members.</p>`,
+    fr:`<p>Oui, pour les réponses aux répétitions. Quand un membre répond à une répétition, la notification va au créateur de l'événement et à tous les administrateurs — pas à tout le monde. Tout le reste (modifications de répétitions, nouvelles chansons, nouveaux membres, modifications de setlists) est envoyé à tous les membres.</p>`,
+    es:`<p>Sí, para las confirmaciones de asistencia. Cuando un miembro responde a un ensayo, la notificación va al creador del evento y a todos los administradores — no a todos. Todo lo demás (cambios en ensayos, nuevas canciones, nuevos miembros, cambios en setlists) llega a todos los miembros.</p>`,
+    de:`<p>Ja, für Zu-/Absagen. Wenn ein Mitglied auf eine Probe antwortet, geht die Benachrichtigung an den Ersteller des Termins und alle Band-Admins — nicht an alle. Alles andere (Probenänderungen, neue Songs, neue Mitglieder, Setlist-Änderungen) geht an alle Mitglieder.</p>`,
+    it:`<p>Sì, per le risposte alle prove. Quando un membro risponde a una prova, la notifica va al creatore dell'evento e a tutti gli amministratori — non a tutti. Tutto il resto (modifiche alle prove, nuove canzoni, nuovi membri, modifiche alle setlist) va a tutti i membri.</p>`,
+    pt:`<p>Sim, para as confirmações de presença. Quando um membro responde a um ensaio, a notificação vai para o criador do evento e todos os administradores — não para todos. Tudo o mais (mudanças de ensaios, novas músicas, novos membros, mudanças de setlist) vai para todos os membros.</p>`,
+    pl:`<p>Tak, w przypadku potwierdzeń obecności. Gdy członek odpowiada na próbę, powiadomienie trafia do twórcy wydarzenia i wszystkich administratorów — nie do wszystkich. Wszystko inne (zmiany prób, nowe piosenki, nowi członkowie, zmiany setlist) trafia do wszystkich członków.</p>`,
+  },
+  notifBandmate:{
+    en:`<p>Each member controls their own notification settings independently, and iOS permission is per-device. If a bandmate has rehearsal notifications on and you have them off, they'll get it and you won't. Admins cannot override individual members' notification preferences.</p><p>If you're both sure your settings match and the difference persists, check that you've both completed the iOS permission prompt — it's possible to have in-app notifications on while the iOS system permission was never granted.</p>`,
+    fr:`<p>Chaque membre contrôle ses propres paramètres de notification de manière indépendante, et l'autorisation iOS est par appareil. Si un collègue a les notifications de répétition activées et vous non, il la recevra et pas vous. Les administrateurs ne peuvent pas remplacer les préférences de notification individuelles.</p><p>Si vous êtes tous les deux sûrs que vos paramètres correspondent et que la différence persiste, vérifiez que vous avez tous les deux accordé l'autorisation iOS.</p>`,
+    es:`<p>Cada miembro controla sus propios ajustes de notificación de forma independiente, y el permiso de iOS es por dispositivo. Si un compañero tiene las notificaciones de ensayos activadas y tú no, él las recibirá y tú no. Los administradores no pueden anular las preferencias de notificación individuales.</p><p>Si ambos están seguros de que sus ajustes coinciden y la diferencia persiste, comprueba que ambos hayan completado el aviso de permiso de iOS.</p>`,
+    de:`<p>Jedes Mitglied kontrolliert seine eigenen Benachrichtigungseinstellungen unabhängig, und die iOS-Berechtigung ist gerätespezifisch. Wenn ein Bandmitglied Probenbenachrichtigungen aktiviert hat und du nicht, bekommt es sie und du nicht. Admins können individuelle Benachrichtigungseinstellungen nicht überschreiben.</p><p>Wenn ihr beide sicher seid, dass eure Einstellungen übereinstimmen und der Unterschied anhält, prüfe, ob ihr beide die iOS-Berechtigungsabfrage abgeschlossen habt.</p>`,
+    it:`<p>Ogni membro controlla le proprie impostazioni di notifica in modo indipendente, e il permesso iOS è per dispositivo. Se un collega ha le notifiche delle prove attivate e tu no, le riceverà lui e non tu. Gli amministratori non possono ignorare le preferenze di notifica individuali.</p><p>Se entrambi siete certi che le impostazioni corrispondano e la differenza persiste, verificate che abbiate entrambi completato il prompt di autorizzazione iOS.</p>`,
+    pt:`<p>Cada membro controla suas próprias configurações de notificação de forma independente, e a permissão do iOS é por dispositivo. Se um colega tem as notificações de ensaio ativadas e você não, ele as receberá e você não. Os administradores não podem substituir as preferências de notificação individuais.</p><p>Se ambos têm certeza de que as configurações correspondem e a diferença persiste, verifique se ambos completaram o prompt de permissão do iOS.</p>`,
+    pl:`<p>Każdy członek kontroluje swoje własne ustawienia powiadomień niezależnie, a uprawnienie iOS jest per-urządzenie. Jeśli kolega z zespołu ma włączone powiadomienia o próbach, a ty nie, on je otrzyma, a ty nie. Administratorzy nie mogą nadpisać indywidualnych preferencji powiadomień.</p><p>Jeśli obaj jesteście pewni, że wasze ustawienia się zgadzają i różnica nadal istnieje, sprawdź czy obaj ukończyliście monit uprawnień iOS.</p>`,
+  },
+  notifSongs:{
+    en:`<p>Song adds, edits, and deletions all generate notifications, grouped together under one toggle ("Song changes") in your settings. The notification text tells you which happened — "added to", "updated in", or "removed from" the band's songbook.</p>`,
+    fr:`<p>Les ajouts, modifications et suppressions de chansons génèrent tous des notifications, regroupées sous un seul interrupteur (« Modifications de chansons ») dans vos paramètres. Le texte de la notification indique ce qui s'est passé — « ajoutée à », « mise à jour dans » ou « retirée du » répertoire du groupe.</p>`,
+    es:`<p>Las adiciones, ediciones y eliminaciones de canciones generan notificaciones, agrupadas bajo un solo interruptor ("Cambios en canciones") en tu configuración. El texto de la notificación indica qué ocurrió — "añadida a", "actualizada en" o "eliminada del" repertorio de la banda.</p>`,
+    de:`<p>Song-Hinzufügungen, -Bearbeitungen und -Löschungen erzeugen alle Benachrichtigungen, die unter einem einzigen Schalter ("Songänderungen") in deinen Einstellungen zusammengefasst sind. Der Benachrichtigungstext sagt dir, was passiert ist — "hinzugefügt zu", "aktualisiert in" oder "entfernt aus" dem Songbuch der Band.</p>`,
+    it:`<p>Le aggiunte, le modifiche e le eliminazioni di canzoni generano tutte notifiche, raggruppate sotto un unico toggle ("Modifiche canzoni") nelle impostazioni. Il testo della notifica indica cosa è successo — "aggiunta a", "aggiornata in" o "rimossa dal" repertorio della band.</p>`,
+    pt:`<p>Adições, edições e exclusões de músicas geram notificações, agrupadas sob um único toggle ("Alterações de músicas") nas configurações. O texto da notificação indica o que aconteceu — "adicionada a", "atualizada em" ou "removida do" repertório da banda.</p>`,
+    pl:`<p>Dodania, edycje i usunięcia piosenek generują powiadomienia, pogrupowane pod jednym przełącznikiem ("Zmiany piosenek") w ustawieniach. Tekst powiadomienia informuje co się stało — "dodana do", "zaktualizowana w" lub "usunięta z" śpiewnika zespołu.</p>`,
+  },
+    contact:{
     en:`<p>Email us at <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. We read everything and aim to reply within one working day.</p>`,
     fr:`<p>Envoyez-nous un e-mail à <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Nous lisons tout et visons à répondre dans un jour ouvrable.</p>`,
     es:`<p>Envíanos un correo electrónico a <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a>. Leemos todo y nos comprometemos a responder en un día hábil.</p>`,
