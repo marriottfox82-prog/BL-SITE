@@ -121,17 +121,54 @@ footer a{color:var(--accent)}
     <img class="hero-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
     <div id="tagline" style="font-family:var(--font-display);font-size:clamp(1.4rem,4vw,2.2rem);font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:18px;color:var(--text)">Plan.<span style="color:var(--accent)"> Rehearse.</span> Perform.</div>
     <p data-key="heroP" style="font-size:var(--fs-lg);color:var(--text-soft);max-width:480px;margin:0 auto 32px;line-height:1.6">Everything your band needs — setlists, scheduling, availability, song ideas — in one app. Less admin. More music.</p>
-    <div style="display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:12px">
-      <div style="display:flex;align-items:center;gap:8px;color:var(--text-soft);font-size:var(--fs-md)">
-        <svg width="18" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <span style="font-family:var(--font-display);font-weight:700">App Store</span>
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px">
+
+      <!-- App Store — live link -->
+      <a href="https://apps.apple.com/gb/app/bandwolf/id6760418427"
+         target="_blank" rel="noopener"
+         aria-label="Download Bandwolf on the App Store"
+         style="display:inline-block;transition:opacity 0.15s;border-radius:13px"
+         onmouseover="this.style.opacity='0.82'" onmouseout="this.style.opacity='1'">
+        <svg width="156" height="52" viewBox="0 0 156 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <!-- Badge background -->
+          <rect width="156" height="52" rx="10" fill="#000"/>
+          <rect x="0.5" y="0.5" width="155" height="51" rx="9.5" stroke="rgba(255,255,255,0.25)"/>
+          <!-- Apple logo -->
+          <path d="M30.5 16.8c1.1-1.3 1.8-3.1 1.6-4.9-1.6.1-3.5 1.1-4.6 2.4-1 1.1-1.9 2.9-1.7 4.7 1.8.1 3.6-1 4.7-2.2z" fill="#fff"/>
+          <path d="M32.1 19.3c-2.6-.15-4.8 1.48-6.03 1.48-1.25 0-3.15-1.4-5.22-1.36-2.68.04-5.17 1.56-6.54 3.96-2.8 4.82-.72 11.97 1.98 15.88 1.33 1.93 2.92 4.08 5.02 4.01 2-.08 2.76-1.3 5.18-1.3 2.42 0 3.1 1.3 5.22 1.26 2.17-.04 3.54-1.96 4.87-3.9 1.53-2.23 2.16-4.39 2.2-4.5-.05-.02-4.23-1.63-4.27-6.44-.04-4.04 3.3-5.97 3.45-6.08-1.89-2.78-4.82-3.09-5.86-3.01z" fill="#fff"/>
+          <!-- "Download on the" text -->
+          <text x="50" y="21" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.88)" letter-spacing="0.3">Download on the</text>
+          <!-- "App Store" text -->
+          <text x="50" y="37" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="600" fill="#fff" letter-spacing="-0.3">App Store</text>
+        </svg>
+      </a>
+
+      <!-- Google Play — coming soon, no link, muted -->
+      <div aria-label="Google Play — coming soon"
+           title="Coming soon on Google Play"
+           style="display:inline-block;cursor:default;border-radius:13px;position:relative">
+        <svg width="156" height="52" viewBox="0 0 156 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+          <!-- Badge background — muted -->
+          <rect width="156" height="52" rx="10" fill="#1a1a1a"/>
+          <rect x="0.5" y="0.5" width="155" height="51" rx="9.5" stroke="rgba(255,255,255,0.1)"/>
+          <!-- Google Play triangle icon — muted -->
+          <g opacity="0.35">
+            <path d="M15 10.5 L15 41.5 L35 26 Z" fill="rgba(255,255,255,0.7)"/>
+            <path d="M15 10.5 L35 26 L27 33.5 L15 10.5Z" fill="#00c6ff" opacity="0.6"/>
+            <path d="M15 41.5 L27 18.5 L35 26 L15 41.5Z" fill="#ffb400" opacity="0.6"/>
+            <path d="M27 18.5 L27 33.5 L35 26 Z" fill="#ff3d3d" opacity="0.6"/>
+          </g>
+          <!-- "Google Play" text — muted -->
+          <text x="50" y="21" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.3)" letter-spacing="0.3">Get it on</text>
+          <text x="50" y="37" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="600" fill="rgba(255,255,255,0.3)" letter-spacing="-0.3">Google Play</text>
+          <!-- Clock overlay — "coming soon" signal -->
+          <circle cx="133" cy="14" r="9" fill="#1a1a1a" stroke="rgba(255,200,69,0.6)" stroke-width="1.5"/>
+          <line x1="133" y1="9.5" x2="133" y2="14" stroke="rgba(255,200,69,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="133" y1="14" x2="137" y2="14" stroke="rgba(255,200,69,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
       </div>
-      <div style="display:flex;align-items:center;gap:8px;color:var(--text-soft);font-size:var(--fs-md)">
-        <svg width="20" height="22" viewBox="0 0 512 512" fill="currentColor"><path d="M48 16.2C48 9.7 50.4 4.3 55.3 1.6l229.6 230.4L55.3 462.4C50.4 459.7 48 454.3 48 447.8V16.2zM102.1 475.6l196.8-113.6 54.3-31.3-60.5-60.5L102.1 475.6zM371.9 249.6L438.4 288c12.8 7.4 12.8 26.2 0 33.6l-66.5 38.4-67.2-67.2L371.9 249.6zM102.1 36.4l190.6 190.6 60.5-60.5-54.3-31.3L102.1 36.4z"/></svg>
-        <span style="font-family:var(--font-display);font-weight:700">Google Play</span>
-      </div>
+
     </div>
-    <div style="font-family:var(--font-display);font-size:var(--fs-xl);font-weight:800;color:var(--accent);margin-bottom:8px" data-key="comingSoon">Coming soon</div>
     <div class="hero-sub" data-key="heroSub">Free to start. 30-day Pro trial included.</div>
   </div>
 </section>
