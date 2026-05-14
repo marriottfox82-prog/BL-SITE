@@ -215,7 +215,7 @@
   <!-- ─── Form ─── -->
   <div class="panel" id="panel-form">
     <h1>Set a new password</h1>
-    <p class="subtitle">Must be at least 8 characters.</p>
+    <p class="subtitle">Must be at least 6 characters.</p>
 
     <div class="field">
       <label for="pw1">New password</label>
@@ -387,7 +387,7 @@
     const btn   = document.getElementById('submit-btn');
 
     if (pw1 !== pw2) { errEl.textContent = 'Passwords don\u2019t match.'; return; }
-    if (pw1.length < 8) { errEl.textContent = 'Password must be at least 8 characters.'; return; }
+    if (pw1.length < 6) { errEl.textContent = 'Password must be at least 6 characters.'; return; }
 
     btn.disabled    = true;
     btn.textContent = 'Updating\u2026';
