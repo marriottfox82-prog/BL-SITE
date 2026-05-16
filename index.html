@@ -34,6 +34,41 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);backdrop-filte
 .nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500;white-space:nowrap}
 .nav-links a:hover{color:var(--accent);text-decoration:none}
 
+/* Mobile nav: stack rows vertically, wrap link groups onto their own lines
+   so nothing overflows horizontally. Triggers below 640px which covers all
+   phones and small tablets in portrait. */
+@media(max-width:640px){
+  .nav-inner{
+    flex-direction:column;
+    gap:10px;
+    padding:0 16px;
+  }
+  .nav-brand{
+    align-self:flex-start;
+  }
+  .nav-links{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:8px 16px;
+    width:100%;
+  }
+  .nav-links a{
+    font-size:0.85rem;
+  }
+  /* Language switcher inline style sets margin-left:16px which breaks
+     centering on mobile. Override it. */
+  nav .nav-inner > div[style*="margin-left"]{
+    margin-left:0 !important;
+    flex-wrap:wrap;
+    justify-content:center;
+    width:100%;
+  }
+  .lang-btn{
+    font-size:0.7rem;
+    padding:3px 7px;
+  }
+}
+
 /* Hero */
 .hero{padding:80px 0 64px;text-align:center}
 .hero-icon{width:220px;height:220px;margin:0 auto;display:block;object-fit:contain}
