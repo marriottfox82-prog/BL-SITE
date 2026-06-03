@@ -313,11 +313,11 @@ footer a{color:var(--accent)}
       <h2 data-key="termsTitle" style="white-space:nowrap;">Terms of Use</h2>
 
       <p style="margin-bottom:12px">
-        <span data-key="termsAppleIntro">Bandwolf uses Apple's Standard End User License Agreement (EULA).</span>
+        <span data-key="termsStoreIntro">Bandwolf is available on the App Store and Google Play. On iOS it's licensed under Apple's Standard End User License Agreement (EULA); on Android it's governed by the Google Play Terms of Service.</span>
       </p>
 
       <p>
-        <span data-key="termsAppleLinkIntro">You can read the full Terms of Use here:</span>
+        <span data-key="termsLinkIntro">You can read the standard terms for your platform here:</span>
       </p>
 
       <p style="margin-top:10px">
@@ -328,6 +328,17 @@ footer a{color:var(--accent)}
           style="word-break:break-word"
         >
           <span data-key="termsAppleLink">Apple Standard EULA</span>
+        </a>
+      </p>
+
+      <p style="margin-top:6px">
+        <a 
+          href="https://play.google.com/about/play-terms/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style="word-break:break-word"
+        >
+          <span data-key="termsGoogleLink">Google Play Terms of Service</span>
         </a>
       </p>
 
@@ -353,7 +364,7 @@ footer a{color:var(--accent)}
   <div class="wrap">
     <img class="footer-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
     <p style="margin-bottom:6px" data-key="footerTagline">Less admin. More music.</p>
-    <p><a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a> · <a href="#terms" data-key="navTerms">Terms of Use</a> · <a href="#privacy" data-key="navPrivacy">Privacy</a></p>
+    <p><a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a> · <a href="#privacy" data-key="navPrivacy">Privacy</a></p>
     <p style="margin-top:16px;font-size:var(--fs-xs)">© 2026 Bandwolf. All rights reserved.</p>
   </div>
 </footer>
@@ -385,23 +396,32 @@ const T = {
   terms10H:{en:"10. Governing law",fr:"10. Droit applicable",es:"10. Ley aplicable",de:"10. Anwendbares Recht",it:"10. Legge applicabile",pt:"10. Lei aplicável",pl:"10. Prawo właściwe"},
   terms10B:{en:"These terms are governed by the laws of Ireland. Any disputes shall be subject to the exclusive jurisdiction of the Irish courts.",fr:"Ces conditions sont régies par le droit irlandais. Tout litige sera soumis à la compétence exclusive des tribunaux irlandais.",es:"Estos términos se rigen por las leyes de Irlanda. Cualquier disputa estará sujeta a la jurisdicción exclusiva de los tribunales irlandeses.",de:"Diese Bedingungen unterliegen dem irischen Recht. Alle Streitigkeiten unterliegen der ausschließlichen Zuständigkeit der irischen Gerichte.",it:"Questi termini sono regolati dalla legge irlandese. Qualsiasi controversia sarà soggetta alla giurisdizione esclusiva dei tribunali irlandesi.",pt:"Estes termos são regidos pelas leis da Irlanda. Quaisquer disputas estarão sujeitas à jurisdição exclusiva dos tribunais irlandeses.",pl:"Te warunki podlegają prawu irlandzkiemu. Wszelkie spory podlegają wyłącznej jurysdykcji sądów irlandzkich."},
 
-  termsAppleIntro:{
-    en:"Bandwolf uses Apple's Standard End User License Agreement (EULA).",
-    fr:"Bandwolf utilise le contrat de licence utilisateur final (EULA) standard d’Apple.",
-    es:"Bandwolf utiliza el Acuerdo de Licencia de Usuario Final (EULA) estándar de Apple.",
-    de:"Bandwolf verwendet die standardmäßige Apple-Endbenutzer-Lizenzvereinbarung (EULA).",
-    it:"Bandwolf utilizza il Contratto di Licenza con l’Utente Finale (EULA) standard di Apple.",
-    pt:"O Bandwolf utiliza o Contrato de Licença de Utilizador Final (EULA) padrão da Apple.",
-    pl:"Bandwolf korzysta ze standardowej umowy licencyjnej użytkownika końcowego Apple (EULA)."
+  termsStoreIntro:{
+    en:"Bandwolf is available on the App Store and Google Play. On iOS it's licensed under Apple's Standard End User License Agreement (EULA); on Android it's governed by the Google Play Terms of Service.",
+    fr:"Bandwolf est disponible sur l’App Store et Google Play. Sur iOS, l’application est régie par le contrat de licence utilisateur final (EULA) standard d’Apple ; sur Android, elle est régie par les Conditions d’utilisation de Google Play.",
+    es:"Bandwolf está disponible en la App Store y en Google Play. En iOS se rige por el Acuerdo de Licencia de Usuario Final (EULA) estándar de Apple; en Android se rige por las Condiciones del Servicio de Google Play.",
+    de:"Bandwolf ist im App Store und bei Google Play erhältlich. Unter iOS gilt die standardmäßige Apple-Endbenutzer-Lizenzvereinbarung (EULA); unter Android gelten die Nutzungsbedingungen von Google Play.",
+    it:"Bandwolf è disponibile su App Store e Google Play. Su iOS è concesso in licenza secondo il Contratto di Licenza con l’Utente Finale (EULA) standard di Apple; su Android è regolato dai Termini di servizio di Google Play.",
+    pt:"O Bandwolf está disponível na App Store e no Google Play. No iOS é licenciado ao abrigo do Contrato de Licença de Utilizador Final (EULA) padrão da Apple; no Android é regido pelos Termos de Serviço do Google Play.",
+    pl:"Bandwolf jest dostępny w App Store i Google Play. W systemie iOS obowiązuje standardowa umowa licencyjna użytkownika końcowego Apple (EULA); w systemie Android obowiązują Warunki korzystania z usługi Google Play."
   },
-  termsAppleLinkIntro:{
-    en:"You can read the full Terms of Use here:",
-    fr:"Vous pouvez lire les conditions complètes ici :",
-    es:"Puedes leer los Términos de uso completos aquí:",
-    de:"Hier kannst du die vollständigen Nutzungsbedingungen lesen:",
-    it:"Puoi leggere i Termini di utilizzo completi qui:",
-    pt:"Podes ler os Termos de Utilização completos aqui:",
-    pl:"Pełny Regulamin możesz przeczytać tutaj:"
+  termsLinkIntro:{
+    en:"You can read the standard terms for your platform here:",
+    fr:"Vous pouvez lire les conditions standard de votre plateforme ici :",
+    es:"Puedes leer las condiciones estándar de tu plataforma aquí:",
+    de:"Die Standardbedingungen für deine Plattform kannst du hier lesen:",
+    it:"Puoi leggere i termini standard della tua piattaforma qui:",
+    pt:"Podes ler os termos padrão da tua plataforma aqui:",
+    pl:"Standardowe warunki dla twojej platformy możesz przeczytać tutaj:"
+  },
+  termsGoogleLink:{
+    en:"Google Play Terms of Service",
+    fr:"Conditions d’utilisation de Google Play",
+    es:"Condiciones del Servicio de Google Play",
+    de:"Google Play-Nutzungsbedingungen",
+    it:"Termini di servizio di Google Play",
+    pt:"Termos de Serviço do Google Play",
+    pl:"Warunki korzystania z usługi Google Play"
   },
   termsAppleLink:{
     en:"Apple Standard EULA",
