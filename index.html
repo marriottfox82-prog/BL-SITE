@@ -178,30 +178,26 @@ footer a{color:var(--accent)}
         </svg>
       </a>
 
-      <!-- Google Play — coming soon, no link, muted -->
-      <div aria-label="Google Play — coming soon"
-           title="Coming soon on Google Play"
-           style="display:inline-block;cursor:default;border-radius:13px;position:relative">
+      <!-- Google Play — live link -->
+      <a href="https://play.google.com/store/apps/details?id=app.bandwolf.bandwolf"
+         target="_blank" rel="noopener"
+         aria-label="Get Bandwolf on Google Play"
+         style="display:inline-block;transition:opacity 0.15s;border-radius:13px"
+         onmouseover="this.style.opacity='0.82'" onmouseout="this.style.opacity='1'">
         <svg width="156" height="52" viewBox="0 0 156 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-          <!-- Badge background — muted -->
-          <rect width="156" height="52" rx="10" fill="#1a1a1a"/>
-          <rect x="0.5" y="0.5" width="155" height="51" rx="9.5" stroke="rgba(255,255,255,0.1)"/>
-          <!-- Google Play triangle icon — muted -->
-          <g opacity="0.35">
-            <path d="M15 10.5 L15 41.5 L35 26 Z" fill="rgba(255,255,255,0.7)"/>
-            <path d="M15 10.5 L35 26 L27 33.5 L15 10.5Z" fill="#00c6ff" opacity="0.6"/>
-            <path d="M15 41.5 L27 18.5 L35 26 L15 41.5Z" fill="#ffb400" opacity="0.6"/>
-            <path d="M27 18.5 L27 33.5 L35 26 Z" fill="#ff3d3d" opacity="0.6"/>
-          </g>
-          <!-- "Google Play" text — muted -->
-          <text x="50" y="21" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.3)" letter-spacing="0.3">Get it on</text>
-          <text x="50" y="37" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="600" fill="rgba(255,255,255,0.3)" letter-spacing="-0.3">Google Play</text>
-          <!-- Clock overlay — "coming soon" signal -->
-          <circle cx="133" cy="14" r="9" fill="#1a1a1a" stroke="rgba(255,200,69,0.6)" stroke-width="1.5"/>
-          <line x1="133" y1="9.5" x2="133" y2="14" stroke="rgba(255,200,69,0.8)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="133" y1="14" x2="137" y2="14" stroke="rgba(255,200,69,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Badge background -->
+          <rect width="156" height="52" rx="10" fill="#000"/>
+          <rect x="0.5" y="0.5" width="155" height="51" rx="9.5" stroke="rgba(255,255,255,0.25)"/>
+          <!-- Google Play triangle icon — full colour -->
+          <path d="M15 11 L30 26 L15 26 Z" fill="#00C6FF"/>
+          <path d="M15 26 L30 26 L15 41 Z" fill="#00D267"/>
+          <path d="M15 11 L37 26 L30 26 Z" fill="#FFCE00"/>
+          <path d="M15 41 L37 26 L30 26 Z" fill="#FF3D3D"/>
+          <!-- "Google Play" text -->
+          <text x="50" y="21" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="9.5" fill="rgba(255,255,255,0.88)" letter-spacing="0.3">Get it on</text>
+          <text x="50" y="37" font-family="-apple-system,'Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="600" fill="#fff" letter-spacing="-0.3">Google Play</text>
         </svg>
-      </div>
+      </a>
 
     </div>
     <div class="hero-sub" data-key="heroSub">Free to start. 30-day Pro trial included.</div>
