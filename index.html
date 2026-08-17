@@ -88,7 +88,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(0,0,0,0.92);backdrop-filte
 @media(max-width:600px){.features{grid-template-columns:1fr}}
 .feature{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px}
 .feature-icon{font-size:1.4rem;margin-bottom:10px}
-.feature h3{font-family:var(--font-display);font-size:var(--fs-lg);font-weight:700;margin-bottom:4px}
+.feature h3{font-family:var(--font-display);font-size:var(--fs-lg);font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pro-tag{font-family:var(--font-body);font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);background:rgba(255,200,69,0.12);border:1px solid rgba(255,200,69,0.32);border-radius:999px;padding:2px 7px;line-height:1.6;white-space:nowrap}
 .feature p{font-size:var(--fs-sm);color:var(--text-soft);line-height:1.55}
 
 /* Pro */
@@ -213,7 +214,7 @@ footer a{color:var(--accent)}
     <div class="features">
       <div class="feature" style="border-color:rgba(255,200,69,0.25);background:linear-gradient(135deg,var(--surface) 0%,rgba(255,200,69,0.04) 100%)">
         <div class="feature-icon">🎤</div>
-        <h3 data-key="f5Title">Gig Mode</h3>
+        <h3><span data-key="f5Title">Gig Mode</span><span class="pro-tag">Pro</span></h3>
         <p data-key="f5Body">Your setlist on stage, exactly how you need it. Full-screen view, large type, screen stays on. Tap to advance songs, see your band and personal notes alongside each one. No squinting, no fumbling — just play.</p>
       </div>
       <div class="feature">
@@ -228,17 +229,17 @@ footer a{color:var(--accent)}
       </div>
       <div class="feature">
         <div class="feature-icon">💡</div>
-        <h3 data-key="f3Title">Song suggestions</h3>
+        <h3><span data-key="f3Title">Song suggestions</span><span class="pro-tag">Pro</span></h3>
         <p data-key="f3Body">Any member can suggest songs. The whole band votes and comments. Convert winners straight into a setlist.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">📆</div>
-        <h3 data-key="f4Title">Availability checker</h3>
+        <h3><span data-key="f4Title">Availability checker</span><span class="pro-tag">Pro</span></h3>
         <p data-key="f4Body">Sync calendars from Google, iCloud, or Outlook. See when everyone's free at a glance. Find the best time for your next rehearsal.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🎙️</div>
-        <h3 data-key="f6Title">Recordings</h3>
+        <h3><span data-key="f6Title">Recordings</span><span class="pro-tag">Pro</span></h3>
         <p data-key="f6Body">Attach rehearsal recordings to setlists. Review performances and track progress over time.</p>
       </div>
       <div class="feature">
@@ -454,7 +455,7 @@ const T = {
   f2Title:{en:"Events & RSVPs",fr:"Événements et confirmations",es:"Eventos y confirmaciones",de:"Events & Zusagen",it:"Eventi e RSVP",pt:"Eventos e confirmações",pl:"Wydarzenia i potwierdzenia"},
   f2Body:{en:"Schedule rehearsals and gigs. One-tap RSVP so everyone knows who's coming. Export to Google Calendar or Apple Calendar.",fr:"Planifiez répétitions et concerts. RSVP en un tap pour que tout le monde sache qui vient. Exportez vers Google Agenda ou Apple Calendrier.",es:"Programa ensayos y conciertos. RSVP con un toque para que todos sepan quién viene. Exporta a Google Calendar o Apple Calendar.",de:"Plane Proben und Gigs. Eintippen-RSVP, damit jeder weiß, wer kommt. Exportiere zu Google Kalender oder Apple Kalender.",it:"Programma prove e concerti. RSVP con un tocco per sapere chi viene. Esporta su Google Calendar o Apple Calendario.",pt:"Agende ensaios e shows. RSVP com um toque para todos saberem quem vem. Exporte para Google Calendar ou Apple Calendar.",pl:"Planuj próby i koncerty. RSVP jednym kliknięciem, żeby wszyscy wiedzieli kto przychodzi. Eksportuj do Google Calendar lub Apple Calendar."},
   f3Title:{en:"Song suggestions",fr:"Suggestions de chansons",es:"Sugerencias de canciones",de:"Songvorschläge",it:"Suggerimenti canzoni",pt:"Sugestões de músicas",pl:"Sugestie piosenek"},
-  f3Body:{en:"Any member can suggest songs. The whole band votes and comments. Convert winners straight into a setlist.",fr:"N'importe quel membre peut suggérer des chansons. Tout le groupe vote et commente. Convertissez les gagnants directement en setlist.",es:"Cualquier miembro puede sugerir canciones. Toda la banda vota y comenta. Convierte los ganadores directamente en una setlist.",de:"Jedes Mitglied kann Songs vorschlagen. Die ganze Band stimmt ab und kommentiert. Wandle Gewinner direkt in eine Setlist um.",it:"Qualsiasi membro può suggerire canzoni. Tutta la band vota e commenta. Converti i vincitori direttamente in una setlist.",pt:"Qualquer membro pode sugerir músicas. Toda a banda vota e comenta. Converta os vencedores diretamente em uma setlist.",pl:"Każdy członek może sugerować piosenki. Cały zespół głosuje i komentuje. Zamień zwycięzców bezpośrednio w setlistę."},
+  f3Body:{en:"In the Ideas tab, any member can suggest songs. The whole band votes and comments. Convert winners straight into a setlist.",fr:"Dans l'onglet Idées, n'importe quel membre peut suggérer des chansons. Tout le groupe vote et commente. Convertissez les gagnants directement en setlist.",es:"En la pestaña Ideas, cualquier miembro puede sugerir canciones. Toda la banda vota y comenta. Convierte los ganadores directamente en una setlist.",de:"Im Ideen-Tab kann jedes Mitglied Songs vorschlagen. Die ganze Band stimmt ab und kommentiert. Wandle Gewinner direkt in eine Setlist um.",it:"Nella scheda Idee, qualsiasi membro può suggerire canzoni. Tutta la band vota e commenta. Converti i vincitori direttamente in una setlist.",pt:"No separador Ideias, qualquer membro pode sugerir músicas. Toda a banda vota e comenta. Converta os vencedores diretamente em uma setlist.",pl:"W zakładce Pomysły każdy członek może sugerować piosenki. Cały zespół głosuje i komentuje. Zamień zwycięzców bezpośrednio w setlistę."},
   f4Title:{en:"Availability checker",fr:"Vérificateur de disponibilité",es:"Comprobador de disponibilidad",de:"Verfügbarkeitsprüfer",it:"Controllo disponibilità",pt:"Verificador de disponibilidade",pl:"Sprawdzanie dostępności"},
   f4Body:{en:"Sync calendars from Google, iCloud, or Outlook. See when everyone's free at a glance. Find the best time for your next rehearsal.",fr:"Synchronisez vos agendas depuis Google, iCloud ou Outlook. Voyez d'un coup d'œil quand tout le monde est libre. Trouvez le meilleur moment pour votre prochaine répétition.",es:"Sincroniza calendarios desde Google, iCloud u Outlook. Ve cuándo todos están libres de un vistazo. Encuentra el mejor momento para tu próximo ensayo.",de:"Synchronisiere Kalender von Google, iCloud oder Outlook. Sieh auf einen Blick, wann alle frei sind. Finde den besten Zeitpunkt für deine nächste Probe.",it:"Sincronizza calendari da Google, iCloud o Outlook. Vedi subito quando tutti sono liberi. Trova il momento migliore per la prossima prova.",pt:"Sincronize calendários do Google, iCloud ou Outlook. Veja quando todos estão livres de relance. Encontre o melhor horário para o próximo ensaio.",pl:"Synchronizuj kalendarze z Google, iCloud lub Outlook. Zobacz jednym rzutem oka kiedy wszyscy są wolni. Znajdź najlepszy czas na następną próbę."},
   f5Title:{en:"Gig Mode",fr:"Mode Gig",es:"Modo Concierto",de:"Gig Mode",it:"Modalità Gig",pt:"Modo Show",pl:"Tryb Gig"},
