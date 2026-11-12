@@ -5,174 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FAQ | Bandwolf</title>
 <meta name="description" content="Frequently asked questions about Bandwolf: membership, features, billing, and more.">
-<link rel="icon" type="image/png" href="./bandwolf-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#070b14;--surface:#0f1a2e;--surface2:#162442;--surface3:#1b2a49;
-  --accent:#FFC845;--accent-dim:rgba(255,200,69,0.1);
-  --text:#fff;--text-soft:rgba(255,255,255,0.65);--muted:rgba(255,255,255,0.35);
-  --border:rgba(255,255,255,0.06);
-  --font-display:'Manrope',sans-serif;--font-body:'Inter',sans-serif;
-  --fs-xs:0.75rem;--fs-sm:0.8rem;--fs-md:0.9rem;--fs-lg:1rem;--fs-xl:1.25rem;--fs-display:1.5rem;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-md);line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:860px;margin:0 auto;padding:0 24px}
-
-/* Nav */
-nav{position:sticky;top:0;z-index:100;background:rgba(7,11,20,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:860px;margin:0 auto;padding:0 24px}
-.nav-brand{display:flex;align-items:center;gap:0;text-decoration:none}
-.nav-icon{height:44px;width:44px;display:block;object-fit:contain}
-.nav-wordmark{height:36px;display:block;object-fit:contain}
-.nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500}
-.nav-links a:hover{color:var(--accent);text-decoration:none}
-
-/* Hero */
-.hero{padding:80px 0 56px;text-align:center}
-.hero-icon{width:220px;height:220px;margin:0 auto 0;display:block;object-fit:contain}
-.hero-wordmark{height:110px;margin:0 auto 28px;display:block;object-fit:contain}
-.hero h1{font-family:var(--font-display);font-size:var(--fs-xl);font-weight:700;color:var(--text-soft);margin-bottom:14px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.4}
-.hero p{font-size:var(--fs-md);color:var(--muted);max-width:520px;margin:0 auto;line-height:1.6}
-
-/* FAQ layout */
-.faq-page{padding:8px 0 80px}
-
-.section-label{
-  font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--accent);margin:52px 0 16px;padding-bottom:12px;
-  border-bottom:1px solid var(--border);font-family:var(--font-display);
-}
-
-/* FAQ items — card style matching .feature */
-.faq-item{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:16px;margin-bottom:8px;overflow:hidden;
-}
-.faq-q{
-  width:100%;background:none;border:none;color:var(--text);
-  font-family:var(--font-display);font-size:var(--fs-lg);font-weight:700;line-height:1.4;
-  text-align:left;padding:20px 24px;cursor:pointer;
-  display:flex;align-items:flex-start;gap:12px;transition:color 0.15s;
-}
-.faq-q:hover{color:var(--accent)}
-.faq-q .chevron{
-  margin-left:auto;flex-shrink:0;margin-top:2px;
-  width:20px;height:20px;border:1.5px solid var(--border);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  transition:transform 0.2s,border-color 0.15s;color:var(--muted);font-size:10px;
-}
-.faq-item.open .chevron{transform:rotate(180deg);border-color:var(--accent);color:var(--accent)}
-.faq-a{
-  display:none;padding:0 24px 24px;
-  font-family:var(--font-body);font-size:var(--fs-sm);
-  color:var(--text-soft);line-height:1.75;
-}
-.faq-item.open .faq-a{display:block}
-.faq-a p+p{margin-top:12px}
-.faq-a ul{margin:10px 0 10px 20px}
-.faq-a li{margin-bottom:6px}
-.faq-a strong{color:var(--text);font-weight:600}
-.faq-a .note{
-  margin-top:14px;padding:12px 16px;background:var(--surface2);
-  border-left:2px solid var(--accent);border-radius:0 10px 10px 0;font-size:var(--fs-xs);
-}
-
-/* Tier table */
-.tier-table{width:100%;border-collapse:collapse;margin:16px 0 8px;font-size:var(--fs-sm)}
-.tier-table th{text-align:left;padding:10px 14px;font-weight:700;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--border);font-family:var(--font-display)}
-.tier-table th:not(:first-child){text-align:center}
-.tier-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text-soft);vertical-align:middle}
-.tier-table td:first-child{color:var(--text)}
-.tier-table td:not(:first-child){text-align:center}
-.tier-table tr:last-child td{border-bottom:none}
-.check{color:var(--accent);font-size:var(--fs-md)}
-.cross{color:rgba(255,255,255,0.2);font-size:var(--fs-md)}
-.pro-col{color:var(--accent)!important;font-weight:600}
-
-/* CTA strip */
-.cta-strip{
-  margin-top:64px;padding:32px;background:var(--surface2);
-  border:1px solid rgba(255,200,69,0.12);border-radius:16px;
-  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
-}
-.cta-strip-text h3{font-family:var(--font-display);font-size:var(--fs-xl);font-weight:800;color:var(--text);margin-bottom:4px}
-.cta-strip-text p{font-size:var(--fs-sm);color:var(--muted)}
-.cta-btn{
-  margin-left:auto;background:var(--accent);color:#000;
-  font-family:var(--font-display);font-size:var(--fs-md);font-weight:700;
-  padding:11px 24px;border-radius:10px;white-space:nowrap;transition:opacity 0.15s;
-}
-.cta-btn:hover{opacity:0.88;text-decoration:none}
-
-/* Footer */
-footer{padding:40px 0;text-align:center;border-top:1px solid var(--border)}
-footer p{font-size:var(--fs-sm);color:var(--muted)}
-footer a{color:var(--accent)}
-.footer-wordmark{height:56px;margin:0 auto 10px;display:block;object-fit:contain;opacity:0.85}
-
-@media(max-width:600px){
-  .faq-q{padding:18px 20px;font-size:var(--fs-md)}
-  .faq-a{padding:0 20px 20px}
-  .cta-strip{flex-direction:column;align-items:flex-start}
-  .cta-btn{margin-left:0}
-}
-
-.lang-btn{background:none;border:none;color:var(--muted);font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.05em;padding:5px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;}
-.lang-btn:hover{color:var(--text);background:var(--surface2);}
-.lang-btn.active{color:var(--accent);background:rgba(255,200,69,0.1);}
-</style>
+<meta name="theme-color" content="#0A0E17">
+<link rel="icon" type="image/svg+xml" href="./bandwolf-icon.svg">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="stylesheet" href="./site.css">
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="./index.html">
-      <img class="nav-icon" src="./bandwolf-icon.png" alt="Bandwolf icon">
-      <img class="nav-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Bandwolf home">
+      <img class="mark" src="./bandwolf-icon.svg" alt="" width="38" height="38">
+      <img class="word" src="./bandwolf-wordmark.svg" alt="bandwolf" width="118" height="21">
     </a>
-    <div class="nav-links">
-      <a href="./index.html#features">Features</a>
-      <a href="./index.html#pro">Pro</a>
-      <a href="./index.html#privacy">Privacy</a>
-      <a href="mailto:hello@bandwolf.app">Contact</a>
-    </div>
+    <nav class="nav-links" aria-label="Main">
+      <a href="index.html#features" data-key="navFeatures">Features</a>
+      <a href="pricing.html" data-key="navPricing">Pricing</a>
+      <a href="faq.html" data-key="navFaq" aria-current="page">FAQ</a>
+    </nav>
+    <select class="lang" id="lang" aria-label="Language">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="it">Italiano</option>
+      <option value="pt">Português</option>
+      <option value="pl">Polski</option>
+    </select>
+    <a class="btn btn-gold" href="get.html" data-key="navGet">Get the app</a>
   </div>
-</nav>
-
-<section class="hero">
-  <div class="wrap">
-    <img class="hero-icon" src="./bandwolf-icon.png" alt="Bandwolf wolf icon">
-    <img class="hero-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
-    <h1 data-key="faqTitle">Frequently asked questions</h1>
-    <p data-key="faqIntro">Everything you need to know about Bandwolf membership, how features work, and what to expect as your band grows.</p>
+</header>
+<main>
+<section class="band">
+  <div class="narrow">
+    <h1 class="display h-lg" data-key="faqTitle">Frequently asked questions</h1>
+    <p class="lede" data-key="faqIntro">Everything you need to know about Bandwolf membership, how features work, and what to expect as your band grows.</p>
   </div>
 </section>
-
 <div class="faq-page">
+<div class="narrow">
 
-<!-- ─── Language switcher ─── -->
-<div style="border-bottom:1px solid var(--border);background:var(--surface);">
-  <div class="wrap" style="display:flex;gap:4px;align-items:center;height:40px;overflow-x:auto;scrollbar-width:none;">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('fr')">FR</button>
-    <button class="lang-btn" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" onclick="setLang('de')">DE</button>
-    <button class="lang-btn" onclick="setLang('it')">IT</button>
-    <button class="lang-btn" onclick="setLang('pt')">PT</button>
-    <button class="lang-btn" onclick="setLang('pl')">PL</button>
-  </div>
-</div>
-<div class="faq-page">
-<div class="wrap">
-
-  <div class="section-label" data-key="faqSectionMembership">Membership &amp; tiers</div>
+  <h2 class="section-label" data-key="faqSectionMembership">Membership &amp; tiers</h2>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggle(this)">
@@ -229,7 +101,7 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-key="faqA_everyonePro" data-html="everyonePro"></div>
   </div>
 
-  <div class="section-label" data-key="faqSectionDeps">Deps, front-of-house &amp; guests</div>
+  <h2 class="section-label" data-key="faqSectionDeps">Deps, front-of-house &amp; guests</h2>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggle(this)">
@@ -255,7 +127,7 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-key="faqA_guestRole" data-html="guestRole"></div>
   </div>
 
-  <div class="section-label" data-key="faqSectionBilling">Subscription &amp; billing</div>
+  <h2 class="section-label" data-key="faqSectionBilling">Subscription &amp; billing</h2>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggle(this)">
@@ -281,7 +153,7 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-key="faqA_restore" data-html="restore"></div>
   </div>
 
-  <div class="section-label" data-key="faqSectionBands">Bands &amp; admin</div>
+  <h2 class="section-label" data-key="faqSectionBands">Bands &amp; admin</h2>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggle(this)">
@@ -307,7 +179,7 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-key="faqA_admin" data-html="admin"></div>
   </div>
 
-  <div class="section-label" data-key="faqSectionFeatures">Features</div>
+  <h2 class="section-label" data-key="faqSectionFeatures">Features</h2>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggle(this)">
@@ -357,7 +229,7 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-key="faqA_personalNotes" data-html="personalNotes"></div>
   </div>
 
-  <div class="section-label" data-key="faqSectionNotifications">Notifications</div>
+  <h2 class="section-label" data-key="faqSectionNotifications">Notifications</h2>
 
   <!-- Comparison table — orientation content, not collapsible -->
   <div style="overflow-x:auto;margin-bottom:8px">
@@ -439,7 +311,7 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-html="notifSongs"></div>
   </div>
 
-  <div class="section-label" data-key="faqSectionContact">Still have questions?</div>
+  <h2 class="section-label" data-key="faqSectionContact">Still have questions?</h2>
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggle(this)">
@@ -449,40 +321,36 @@ footer a{color:var(--accent)}
     <div class="faq-a" data-key="faqA_contact" data-html="contact"></div>
   </div>
 
-</div>
-</div>
-    </div>
-  </div>
-
   <div class="cta-strip">
     <div class="cta-strip-text">
       <h3 data-key="faqCtaHeading">Ready to get your band organised?</h3>
       <p data-key="faqCtaSub">Free to start. No credit card needed.</p>
     </div>
-    <a href="https://apps.apple.com/gb/app/bandwolf/id6760418427" target="_blank" rel="noopener" class="cta-btn" data-key="faqCtaBtn">Download Bandwolf</a>
+    <a href="get.html" class="cta-btn" data-key="faqCtaBtn">Download Bandwolf</a>
   </div>
 
 </div>
 </div>
-
+</main>
 <footer>
   <div class="wrap">
-    <img class="footer-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
-    <p><a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a></p>
-    <p style="margin-top:16px;font-size:var(--fs-xs)">© 2026 Bandwolf. All rights reserved.</p>
+    <div class="foot">
+      <div>
+        <img class="word" src="./bandwolf-wordmark.svg" alt="bandwolf" width="146" height="26">
+        <p data-key="footerTagline">Less admin. More music.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="index.html#features" data-key="navFeatures">Features</a>
+        <a href="pricing.html" data-key="navPricing">Pricing</a>
+        <a href="faq.html" data-key="navFaq">FAQ</a>
+        <a href="index.html#privacy" data-key="navPrivacy">Privacy</a>
+        <a href="index.html#terms" data-key="navTerms">Terms of Use</a>
+        <a href="mailto:hello@bandwolf.app" data-key="navContact">Contact</a>
+      </nav>
+    </div>
+    <p class="rights" data-key="rights">© 2026 Bandwolf. All rights reserved.</p>
   </div>
 </footer>
-
-<script>
-  function toggle(btn) {
-    const item = btn.closest('.faq-item');
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
-  }
-</script>
-
-</body>
 <script>
 // ─── Translations ──────────────────────────────────────────────────────────
 const T = {
@@ -859,6 +727,19 @@ function toggle(btn) {
   document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
   if (!wasOpen) item.classList.add('open');
 }
+</script>
+<script>
+// Shared nav and footer wording, plus the language dropdown (remembers the choice across pages)
+(function(){
+  const X={"navFeatures":{"en":"Features","fr":"Fonctionnalités","es":"Funciones","de":"Funktionen","it":"Funzionalità","pt":"Recursos","pl":"Funkcje"},"navPricing":{"en":"Pricing","fr":"Tarifs","es":"Precios","de":"Preise","it":"Prezzi","pt":"Preços","pl":"Cennik"},"navFaq":{"en":"FAQ","fr":"FAQ","es":"FAQ","de":"FAQ","it":"FAQ","pt":"FAQ","pl":"FAQ"},"navPrivacy":{"en":"Privacy","fr":"Confidentialité","es":"Privacidad","de":"Datenschutz","it":"Privacy","pt":"Privacidade","pl":"Prywatność"},"navTerms":{"en":"Terms of Use","fr":"Conditions","es":"Términos","de":"Nutzung","it":"Termini","pt":"Termos","pl":"Regulamin"},"navContact":{"en":"Contact","fr":"Contact","es":"Contacto","de":"Kontakt","it":"Contatto","pt":"Contato","pl":"Kontakt"},"navGet":{"en":"Get the app","fr":"Obtenir l'app","es":"Descargar la app","de":"App holen","it":"Scarica l'app","pt":"Obter a app","pl":"Pobierz aplikację"},"footerTagline":{"en":"Less admin. More music.","fr":"Moins d'admin. Plus de musique.","es":"Menos gestión. Más música.","de":"Weniger Verwaltung. Mehr Musik.","it":"Meno amministrazione. Più musica.","pt":"Menos gestão. Mais música.","pl":"Mniej administracji. Więcej muzyki."},"rights":{"en":"© 2026 Bandwolf. All rights reserved.","fr":"© 2026 Bandwolf. Tous droits réservés.","es":"© 2026 Bandwolf. Todos los derechos reservados.","de":"© 2026 Bandwolf. Alle Rechte vorbehalten.","it":"© 2026 Bandwolf. Tutti i diritti riservati.","pt":"© 2026 Bandwolf. Todos os direitos reservados.","pl":"© 2026 Bandwolf. Wszelkie prawa zastrzeżone."},"langLabel":{"en":"Language","fr":"Langue","es":"Idioma","de":"Sprache","it":"Lingua","pt":"Idioma","pl":"Język"}};
+  for(const k in X) T[k]=X[k];
+  const sel=document.getElementById('lang');
+  let saved=''; try{ saved=localStorage.getItem('bw_lang')||''; }catch(e){}
+  function sync(){ sel.value=lang; sel.setAttribute('aria-label',(T.langLabel[lang]||T.langLabel.en)); }
+  sel.addEventListener('change',function(e){ try{ localStorage.setItem('bw_lang',e.target.value); }catch(_){} setLang(e.target.value); sync(); });
+  if(SUPPORTED.includes(saved)) setLang(saved); else applyLang();
+  sync();
+})();
 </script>
 </body>
 </html>

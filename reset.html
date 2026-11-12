@@ -4,212 +4,51 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reset your password | Bandwolf</title>
-<link rel="icon" type="image/png" href="./bandwolf-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0A0E17">
+<link rel="icon" type="image/svg+xml" href="./bandwolf-icon.svg">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="stylesheet" href="./site.css">
 <style>
-  :root {
-    --bw-black: #070b14;
-    --bw-gold: #FFC845;
-    --bw-gold-dim: #e6af30;
-    --bw-surface: #0f1a2e;
-    --bw-surface2: #162442;
-    --bw-border: rgba(255,255,255,0.06);
-    --bw-text: #ffffff;
-    --bw-text-soft: rgba(255,255,255,0.65);
-    --bw-muted: rgba(255,255,255,0.35);
-    --bw-red: #e05252;
-    --bw-green: #4caf82;
-    --radius: 12px;
-    --font-head: 'Manrope', sans-serif;
-    --font-body: 'Inter', sans-serif;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bw-black);
-    color: var(--bw-text);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 420px;
-    background: var(--bw-surface);
-    border: 1px solid rgba(255,200,69,0.15);
-    border-radius: var(--radius);
-    padding: 36px 32px;
-  }
-
-  h1 {
-    font-family: var(--font-head);
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--bw-text);
-    margin-bottom: 8px;
-    text-align: center;
-  }
-
-  .subtitle {
-    font-size: 14px;
-    color: var(--bw-text-soft);
-    text-align: center;
-    margin-bottom: 24px;
-    line-height: 1.55;
-  }
-
-  label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--bw-muted);
-    margin-bottom: 7px;
-  }
-
-  input[type="password"] {
-    width: 100%;
-    background: var(--bw-surface2);
-    border: 2px solid rgba(255,200,69,0.25);
-    border-radius: 10px;
-    padding: 13px 14px;
-    color: var(--bw-text);
-    font-size: 16px;
-    font-family: var(--font-body);
-    outline: none;
-    transition: border-color 0.15s;
-    -webkit-appearance: none;
-  }
-  input[type="password"]:focus { border-color: rgba(255,200,69,0.6); }
-  input[type="password"].error { border-color: var(--bw-red); }
-
-  .field { margin-bottom: 16px; }
-
-  .strength-bar {
-    height: 3px;
-    border-radius: 2px;
-    background: var(--bw-surface2);
-    margin-top: 8px;
-    overflow: hidden;
-  }
-  .strength-fill {
-    height: 100%;
-    border-radius: 2px;
-    width: 0%;
-    transition: width 0.2s, background 0.2s;
-  }
-  .strength-label {
-    font-size: 11px;
-    color: var(--bw-muted);
-    margin-top: 5px;
-    min-height: 16px;
-  }
-
-  .error-msg {
-    font-size: 13px;
-    color: var(--bw-red);
-    margin-top: 6px;
-    min-height: 18px;
-  }
-
-  .btn {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    background: var(--bw-gold);
-    color: #000;
-    font-family: var(--font-body);
-    font-size: 15px;
-    font-weight: 700;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
-    margin-top: 8px;
-    transition: background 0.15s, opacity 0.15s;
-    -webkit-appearance: none;
-  }
-  .btn:hover { background: var(--bw-gold-dim); }
-  .btn:disabled { opacity: 0.4; cursor: default; background: var(--bw-gold); }
-
-  /* State panels — only one shown at a time */
-  .panel { display: none; }
-  .panel.active { display: block; }
-
-  /* Verifying */
-  .spinner {
-    width: 36px; height: 36px;
-    border: 3px solid var(--bw-surface2);
-    border-top-color: var(--bw-gold);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin: 0 auto 16px;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Success / failure icons */
-  .icon { font-size: 2.4rem; text-align: center; margin-bottom: 12px; }
-
-  .back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 13px;
-    color: var(--bw-muted);
-    text-decoration: none;
-  }
-  .back-link:hover { color: var(--bw-text); }
-
-  .note {
-    margin-top: 16px;
-    padding: 12px 14px;
-    background: var(--bw-surface2);
-    border-left: 2px solid var(--bw-gold);
-    border-radius: 0 8px 8px 0;
-    font-size: 13px;
-    color: var(--bw-text-soft);
-    line-height: 1.55;
-  }
-  .note strong { color: var(--bw-text); font-weight: 600; }
-
-  .success-note {
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--bw-text-soft);
-    text-align: center;
-    line-height: 1.55;
-  }
+  :root{--bw-muted:rgba(10,14,23,.6);--bw-text-soft:rgba(10,14,23,.68);--bw-red:#C0332B}
+  .card h1{margin-bottom:10px}
+  label{display:block;font-size:.85rem;font-weight:700;margin-bottom:7px}
+  input[type="password"]{width:100%;background:#fff;border:2px solid rgba(10,14,23,.3);border-radius:10px;padding:13px 14px;color:var(--ink);font:400 16px var(--font);-webkit-appearance:none}
+  input[type="password"]:focus{border-color:var(--ink);outline:3px solid var(--gold);outline-offset:0}
+  input[type="password"].error{border-color:var(--bw-red)}
+  .field{margin-bottom:16px}
+  .strength-bar{height:4px;border-radius:2px;background:rgba(10,14,23,.12);margin-top:8px;overflow:hidden}
+  .strength-fill{height:100%;border-radius:2px;width:0%;transition:width .2s,background .2s}
+  .strength-label{font-size:.8rem;font-weight:600;color:var(--bw-muted);margin-top:5px;min-height:18px}
+  .error-msg{font-size:.85rem;color:var(--bw-red);margin-top:6px;min-height:18px}
+  .card .btn{display:flex;width:100%;padding:15px;background:var(--gold);color:var(--ink);font-size:1rem;margin-top:8px}
+  .card .btn:hover{background:#ffd25e}
+  .card .btn:disabled{opacity:.45;cursor:default;background:var(--gold)}
+  .panel{display:none}
+  .panel.active{display:block}
+  .spinner{width:36px;height:36px;border:3px solid rgba(10,14,23,.12);border-top-color:var(--ink);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .icon{font-size:2.4rem;text-align:center;margin-bottom:12px}
+  .note{margin-top:16px;padding:12px 14px;background:rgba(255,197,51,.28);border-left:4px solid var(--gold-deep);border-radius:0 8px 8px 0;font-size:.9rem;line-height:1.55}
+  .success-note{margin-top:16px;font-size:.9rem;color:var(--bw-text-soft);text-align:center;line-height:1.55}
 </style>
 </head>
 <body>
-
-<nav style="position:sticky;top:0;z-index:100;background:rgba(7,11,20,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--bw-border);padding:14px 0">
-  <div style="display:flex;align-items:center;max-width:860px;margin:0 auto;padding:0 24px;gap:0">
-    <a href="index.html" style="display:flex;align-items:center;gap:0;text-decoration:none">
-      <img src="./bandwolf-icon.png" alt="Bandwolf" style="height:44px;width:44px;object-fit:contain">
-      <img src="./bandwolf-wordmark.png" alt="bandwolf" style="height:36px;object-fit:contain;margin-left:-8px">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Bandwolf home">
+      <img class="mark" src="./bandwolf-icon.svg" alt="" width="38" height="38">
+      <img class="word" src="./bandwolf-wordmark.svg" alt="bandwolf" width="118" height="21">
     </a>
+    <a class="btn btn-gold" href="get.html" data-key="navGet">Get the app</a>
   </div>
-</nav>
-
-<div style="min-height:calc(100vh - 73px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 20px">
+</header>
+<main class="centre">
 <div class="card">
 
   <!-- ─── Verifying token ─── -->
   <div class="panel active" id="panel-verifying">
     <div class="spinner"></div>
-    <p style="text-align:center; color: var(--bw-muted); font-size:14px;">Verifying your reset link…</p>
+    <p style="text-align:center; color: var(--bw-muted); font-size:.95rem;">Verifying your reset link…</p>
   </div>
 
   <!-- ─── Form ─── -->
@@ -240,14 +79,14 @@
     <div class="icon">✅</div>
     <h1 style="margin-bottom:10px;">Password updated</h1>
     <p class="success-note">Your new password is set. Open the Bandwolf app and sign in.</p>
-    <p class="success-note" style="margin-top:10px; font-size:12px; color:var(--bw-muted);">You can close this tab.</p>
+    <p class="success-note" style="margin-top:10px; font-size:.85rem; color:var(--bw-muted);">You can close this tab.</p>
   </div>
 
   <!-- ─── Error / expired ─── -->
   <div class="panel" id="panel-error">
     <div class="icon">⚠️</div>
     <h1 style="margin-bottom:10px;">Link expired or invalid</h1>
-    <p style="text-align:center; color:var(--bw-text-soft); font-size:14px; line-height:1.6;">
+    <p style="text-align:center; color:var(--bw-text-soft); font-size:.95rem; line-height:1.6;">
       This reset link has already been used, has expired, or is missing a security token.
       Reset links are valid for one hour and can only be used once.
     </p>
@@ -260,14 +99,14 @@
   <div class="panel" id="panel-missing">
     <div class="icon">🔒</div>
     <h1 style="margin-bottom:10px;">Nothing to do here</h1>
-    <p style="text-align:center; color:var(--bw-text-soft); font-size:14px; line-height:1.6;">
+    <p style="text-align:center; color:var(--bw-text-soft); font-size:.95rem; line-height:1.6;">
       This page is only accessible via the reset link in your email.
       Open Bandwolf and tap <em>Forgot password?</em> to get started.
     </p>
   </div>
 
 </div>
-
+</main>
 <script>
   // ─── Supabase config ──────────────────────────────────────────────────────
   const SUPABASE_URL     = 'https://nncaasxgasgyhubalotd.supabase.co';
@@ -376,7 +215,7 @@
     const pw1 = document.getElementById('pw1').value;
     const pw2 = document.getElementById('pw2').value;
     const btn = document.getElementById('submit-btn');
-    btn.disabled = !(pw1.length >= 8 && pw1 === pw2);
+    btn.disabled = !(pw1.length >= 6 && pw1 === pw2);
   }
 
   // ─── Submit ───────────────────────────────────────────────────────────────
@@ -408,8 +247,5 @@
     }
   }
 </script>
-
-</div>
 </body>
 </html>
-

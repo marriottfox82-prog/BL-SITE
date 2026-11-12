@@ -3,98 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bandwolf | Free vs Pro</title>
-<meta name="description" content="Compare Bandwolf Free and Pro. One Pro member runs the band; everyone else joins free.">
-<link rel="icon" type="image/png" href="./bandwolf-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#070b14;--surface:#0f1a2e;--surface2:#162442;--surface3:#1b2a49;
-  --accent:#FFC845;--accent-dim:rgba(255,200,69,0.1);
-  --text:#fff;--text-soft:rgba(255,255,255,0.65);--muted:rgba(255,255,255,0.35);
-  --border:rgba(255,255,255,0.06);
-  --font-display:'Manrope',sans-serif;--font-body:'Inter',sans-serif;
-  --fs-xs:0.75rem;--fs-sm:0.8rem;--fs-md:0.9rem;--fs-lg:1rem;--fs-xl:1.25rem;--fs-display:1.5rem;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--fs-md);line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:860px;margin:0 auto;padding:0 24px}
-nav{position:sticky;top:0;z-index:100;background:rgba(7,11,20,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 0}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:860px;margin:0 auto;padding:0 24px;flex-wrap:wrap;gap:8px}
-.nav-brand{display:flex;align-items:center;gap:0;text-decoration:none}
-.nav-icon{height:44px;width:44px;display:block;object-fit:contain}
-.nav-wordmark{height:36px;display:block;object-fit:contain}
-.nav-links{display:flex;gap:20px;align-items:center}
-.nav-links a{font-size:var(--fs-md);color:var(--text-soft);font-weight:500}
-.nav-links a:hover{color:var(--accent);text-decoration:none}
-.lang-btn{background:none;border:none;color:var(--muted);font-family:var(--font-body);font-size:0.75rem;font-weight:600;letter-spacing:0.05em;padding:5px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;transition:color 0.15s,background 0.15s;}
-.lang-btn:hover{color:var(--text);background:var(--surface2);}
-.lang-btn.active{color:var(--accent);background:rgba(255,200,69,0.1);}
-.hero{padding:48px 0 32px;text-align:center}
-.divider{height:1px;background:rgba(255,200,69,0.1);margin:0}
-.matrix{width:100%;border-collapse:collapse;margin-bottom:48px}
-.matrix th,.matrix td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--border)}
-.matrix th{font-family:var(--font-display);font-weight:700;font-size:var(--fs-md);vertical-align:bottom}
-.matrix td{font-size:var(--fs-sm);color:var(--text-soft)}
-.matrix thead th{padding-bottom:20px}
-.matrix .col-feature{width:50%}
-.matrix .col-free,.matrix .col-pro{width:25%;text-align:center}
-.matrix thead .col-free{color:var(--text-soft);font-size:var(--fs-md)}
-.matrix thead .col-pro{color:var(--accent);font-size:var(--fs-md)}
-.matrix .section-row td{font-family:var(--font-display);font-weight:800;font-size:var(--fs-md);color:var(--text);padding-top:28px;border-bottom:1px solid rgba(255,200,69,0.15)}
-.matrix .check{color:var(--accent);font-size:var(--fs-lg);font-weight:700}
-.matrix .limit{color:var(--muted);font-size:var(--fs-sm)}
-.matrix .dash{color:rgba(255,255,255,0.15);font-size:var(--fs-lg)}
-.matrix td.col-free,.matrix td.col-pro{text-align:center;vertical-align:middle}
-footer{padding:40px 0;text-align:center;border-top:1px solid var(--border)}
-footer p{font-size:var(--fs-sm);color:var(--muted)}
-footer a{color:var(--accent)}
-.footer-wordmark{height:56px;margin:0 auto 10px;display:block;object-fit:contain;opacity:0.85}
-</style>
+<title>Free vs Pro | Bandwolf</title>
+<meta name="description" content="Compare Bandwolf Free and Pro: limits, core features and Pro features.">
+<meta name="theme-color" content="#0A0E17">
+<link rel="icon" type="image/svg+xml" href="./bandwolf-icon.svg">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="stylesheet" href="./site.css">
 </head>
 <body>
-
-<nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="index.html">
-      <img class="nav-icon" src="./bandwolf-icon.png" alt="Bandwolf icon">
-      <img class="nav-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Bandwolf home">
+      <img class="mark" src="./bandwolf-icon.svg" alt="" width="38" height="38">
+      <img class="word" src="./bandwolf-wordmark.svg" alt="bandwolf" width="118" height="21">
     </a>
-    <div class="nav-links">
+    <nav class="nav-links" aria-label="Main">
       <a href="index.html#features" data-key="navFeatures">Features</a>
-      <a href="index.html#pro">Pro</a>
-      <a href="index.html#privacy" data-key="navPrivacy">Privacy</a>
+      <a href="pricing.html" data-key="navPricing" aria-current="page">Pricing</a>
       <a href="faq.html" data-key="navFaq">FAQ</a>
-      <a href="mailto:hello@bandwolf.app" data-key="navContact">Contact</a>
-    </div>
-    <div style="display:flex;gap:2px;align-items:center;">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" onclick="setLang('es')">ES</button>
-      <button class="lang-btn" onclick="setLang('de')">DE</button>
-      <button class="lang-btn" onclick="setLang('it')">IT</button>
-      <button class="lang-btn" onclick="setLang('pt')">PT</button>
-      <button class="lang-btn" onclick="setLang('pl')">PL</button>
-    </div>
+    </nav>
+    <select class="lang" id="lang" aria-label="Language">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="it">Italiano</option>
+      <option value="pt">Português</option>
+      <option value="pl">Polski</option>
+    </select>
+    <a class="btn btn-gold" href="get.html" data-key="navGet">Get the app</a>
   </div>
-</nav>
-
-<section class="hero">
-  <div class="wrap">
-    <img src="./bandwolf-icon.png" alt="Bandwolf" style="width:80px;height:80px;display:block;margin:0 auto 20px;object-fit:contain">
-    <h1 style="font-family:var(--font-display);font-size:var(--fs-display);font-weight:800;margin-bottom:8px;letter-spacing:-0.02em" data-key="pricingH1">Free vs Pro</h1>
-    <p style="font-size:var(--fs-md);color:var(--text-soft);max-width:480px;margin:0 auto" data-key="pricingSub">One Pro member runs the band. Everyone else joins free to view setlists, prepare and play.</p>
+</header>
+<main>
+<section class="band">
+  <div class="narrow">
+    <h1 class="display h-lg" data-key="pricingH1">Free vs Pro</h1>
+    <p class="lede" data-key="pricingSub">One Pro member runs the band. Everyone else joins free to view setlists, prepare and play.</p>
   </div>
 </section>
-
-<div class="divider"></div>
-
-<section style="padding:32px 0">
-  <div class="wrap">
+<section class="pricing">
+  <div class="narrow">
     <table class="matrix">
       <thead>
         <tr>
@@ -130,30 +78,41 @@ footer a{color:var(--accent)}
         <tr><td data-key="rowRecordings">Recordings</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
         <tr><td data-key="rowAvailability">Availability checker (calendar sync)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
         <tr><td data-key="rowFindTime">Find-a-time picker</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
-        <tr><td data-key="rowImport">Setlist import (Spotify, Chosic, CSV, text)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
+        <tr><td data-key="rowImport">Setlist import (Spotify, Tidal, Chosic, CSV, text)</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
         <tr><td data-key="rowDuplicate">Setlist duplicate</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
         <tr><td data-key="rowPromote">Promote members to admin</td><td class="col-free"><span class="dash">—</span></td><td class="col-pro"><span class="check">✓</span></td></tr>
       </tbody>
     </table>
-
-    <div style="text-align:center;font-size:var(--fs-sm);color:var(--text-soft);max-width:520px;margin:0 auto;line-height:1.6">
-      <p style="margin-bottom:12px" data-key="downgradeNote">Your content is never deleted on downgrade. If your band exceeds Free limits after a Pro subscription ends, existing content stays. Only new adds are capped.</p>
+    <div class="pricing-notes">
+      <p data-key="downgradeNote">Your content is never deleted on downgrade. If your band exceeds Free limits after a Pro subscription ends, existing content stays. Only new adds are capped.</p>
       <p data-key="questionsNote">Questions? <a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a></p>
+    </div>
+    <div class="pricing-cta">
+      <a class="btn btn-ink" href="get.html" data-key="navGet">Get the app</a>
+      <a class="btn btn-line" href="faq.html" data-key="navFaq">FAQ</a>
     </div>
   </div>
 </section>
-
-<div class="divider"></div>
-
+</main>
 <footer>
   <div class="wrap">
-    <img class="footer-wordmark" src="./bandwolf-wordmark.png" alt="bandwolf">
-    <p style="margin-bottom:6px" data-key="footerTagline">Less admin. More music.</p>
-    <p><a href="mailto:hello@bandwolf.app">hello@bandwolf.app</a></p>
-    <p style="margin-top:16px;font-size:var(--fs-xs)">© 2026 Bandwolf. All rights reserved.</p>
+    <div class="foot">
+      <div>
+        <img class="word" src="./bandwolf-wordmark.svg" alt="bandwolf" width="146" height="26">
+        <p data-key="footerTagline">Less admin. More music.</p>
+      </div>
+      <nav aria-label="Footer">
+        <a href="index.html#features" data-key="navFeatures">Features</a>
+        <a href="pricing.html" data-key="navPricing">Pricing</a>
+        <a href="faq.html" data-key="navFaq">FAQ</a>
+        <a href="index.html#privacy" data-key="navPrivacy">Privacy</a>
+        <a href="index.html#terms" data-key="navTerms">Terms of Use</a>
+        <a href="mailto:hello@bandwolf.app" data-key="navContact">Contact</a>
+      </nav>
+    </div>
+    <p class="rights" data-key="rights">© 2026 Bandwolf. All rights reserved.</p>
   </div>
 </footer>
-
 <script>
 const T = {
   navFeatures:{en:"Features",fr:"Fonctionnalités",es:"Funciones",de:"Funktionen",it:"Funzionalità",pt:"Recursos",pl:"Funkcje"},
@@ -189,7 +148,7 @@ const T = {
   rowPersonalNotes:{en:"Personal notes on songs",fr:"Notes personnelles sur les chansons",es:"Notas personales en canciones",de:"Persönliche Songnotizen",it:"Note personali sulle canzoni",pt:"Notas pessoais nas músicas",pl:"Osobiste notatki do piosenek"},
   rowAvailability:{en:"Availability checker (calendar sync)",fr:"Vérificateur de disponibilité (sync calendrier)",es:"Comprobador de disponibilidad (sync calendario)",de:"Verfügbarkeitsprüfer (Kalender-Sync)",it:"Controllo disponibilità (sync calendario)",pt:"Verificador de disponibilidade (sync calendário)",pl:"Sprawdzanie dostępności (sync kalendarza)"},
   rowFindTime:{en:"Find-a-time picker",fr:"Sélecteur de créneau",es:"Selector de horario",de:"Terminsuche",it:"Selettore di orario",pt:"Seletor de horário",pl:"Wyszukiwarka terminu"},
-  rowImport:{en:"Setlist import (Spotify, Chosic, CSV, text)",fr:"Import setlist (Spotify, Chosic, CSV, texte)",es:"Importación de setlist (Spotify, Chosic, CSV, texto)",de:"Setlist-Import (Spotify, Chosic, CSV, Text)",it:"Importazione setlist (Spotify, Chosic, CSV, testo)",pt:"Importação de setlist (Spotify, Chosic, CSV, texto)",pl:"Import setlisty (Spotify, Chosic, CSV, tekst)"},
+  rowImport:{en:"Setlist import (Spotify, Tidal, Chosic, CSV, text)",fr:"Import setlist (Spotify, Tidal, Chosic, CSV, texte)",es:"Importación de setlist (Spotify, Tidal, Chosic, CSV, texto)",de:"Setlist-Import (Spotify, Tidal, Chosic, CSV, Text)",it:"Importazione setlist (Spotify, Tidal, Chosic, CSV, testo)",pt:"Importação de setlist (Spotify, Tidal, Chosic, CSV, texto)",pl:"Import setlisty (Spotify, Tidal, Chosic, CSV, tekst)"},
   rowDuplicate:{en:"Setlist duplicate",fr:"Dupliquer une setlist",es:"Duplicar setlist",de:"Setlist duplizieren",it:"Duplica setlist",pt:"Duplicar setlist",pl:"Duplikowanie setlisty"},
   rowPromote:{en:"Promote members to admin",fr:"Promouvoir des membres en admin",es:"Promover miembros a admin",de:"Mitglieder zu Admins befördern",it:"Promuovi membri ad admin",pt:"Promover membros a admin",pl:"Awansowanie członków na administratora"},
   downgradeNote:{en:"Your content is never deleted on downgrade. If your band exceeds Free limits after a Pro subscription ends, existing content stays. Only new adds are capped.",fr:"Votre contenu n'est jamais supprimé lors d'un retour au Gratuit. Si votre groupe dépasse les limites Gratuites après la fin d'un abonnement Pro, le contenu existant reste. Seuls les nouveaux ajouts sont limités.",es:"Tu contenido nunca se elimina al hacer downgrade. Si tu banda supera los límites Gratis tras finalizar una suscripción Pro, el contenido existente permanece. Solo los nuevos añadidos están limitados.",de:"Dein Inhalt wird beim Downgrade nie gelöscht. Wenn deine Band die kostenlosen Limits nach einem Pro-Abonnement überschreitet, bleibt der vorhandene Inhalt erhalten. Nur neue Hinzufügungen sind begrenzt.",it:"Il tuo contenuto non viene mai eliminato durante il downgrade. Se la tua band supera i limiti Gratuiti dopo la fine di un abbonamento Pro, il contenuto esistente rimane. Solo i nuovi aggiunti sono limitati.",pt:"O teu conteúdo nunca é eliminado no downgrade. Se a tua banda ultrapassar os limites Gratuitos após o término de uma assinatura Pro, o conteúdo existente permanece. Apenas os novos adds são limitados.",pl:"Twoja zawartość nigdy nie jest usuwana przy przejściu na niższy plan. Jeśli twój zespół przekroczy bezpłatne limity po zakończeniu subskrypcji Pro, istniejąca zawartość pozostaje. Ograniczone są tylko nowe dodania."},
@@ -220,6 +179,19 @@ function applyLang(){
 function setLang(l){ lang=l; applyLang(); }
 
 applyLang();
+</script>
+<script>
+// Shared nav and footer wording, plus the language dropdown (remembers the choice across pages)
+(function(){
+  const X={"navFeatures":{"en":"Features","fr":"Fonctionnalités","es":"Funciones","de":"Funktionen","it":"Funzionalità","pt":"Recursos","pl":"Funkcje"},"navPricing":{"en":"Pricing","fr":"Tarifs","es":"Precios","de":"Preise","it":"Prezzi","pt":"Preços","pl":"Cennik"},"navFaq":{"en":"FAQ","fr":"FAQ","es":"FAQ","de":"FAQ","it":"FAQ","pt":"FAQ","pl":"FAQ"},"navPrivacy":{"en":"Privacy","fr":"Confidentialité","es":"Privacidad","de":"Datenschutz","it":"Privacy","pt":"Privacidade","pl":"Prywatność"},"navTerms":{"en":"Terms of Use","fr":"Conditions","es":"Términos","de":"Nutzung","it":"Termini","pt":"Termos","pl":"Regulamin"},"navContact":{"en":"Contact","fr":"Contact","es":"Contacto","de":"Kontakt","it":"Contatto","pt":"Contato","pl":"Kontakt"},"navGet":{"en":"Get the app","fr":"Obtenir l'app","es":"Descargar la app","de":"App holen","it":"Scarica l'app","pt":"Obter a app","pl":"Pobierz aplikację"},"footerTagline":{"en":"Less admin. More music.","fr":"Moins d'admin. Plus de musique.","es":"Menos gestión. Más música.","de":"Weniger Verwaltung. Mehr Musik.","it":"Meno amministrazione. Più musica.","pt":"Menos gestão. Mais música.","pl":"Mniej administracji. Więcej muzyki."},"rights":{"en":"© 2026 Bandwolf. All rights reserved.","fr":"© 2026 Bandwolf. Tous droits réservés.","es":"© 2026 Bandwolf. Todos los derechos reservados.","de":"© 2026 Bandwolf. Alle Rechte vorbehalten.","it":"© 2026 Bandwolf. Tutti i diritti riservati.","pt":"© 2026 Bandwolf. Todos os direitos reservados.","pl":"© 2026 Bandwolf. Wszelkie prawa zastrzeżone."},"langLabel":{"en":"Language","fr":"Langue","es":"Idioma","de":"Sprache","it":"Lingua","pt":"Idioma","pl":"Język"}};
+  for(const k in X) T[k]=X[k];
+  const sel=document.getElementById('lang');
+  let saved=''; try{ saved=localStorage.getItem('bw_lang')||''; }catch(e){}
+  function sync(){ sel.value=lang; sel.setAttribute('aria-label',(T.langLabel[lang]||T.langLabel.en)); }
+  sel.addEventListener('change',function(e){ try{ localStorage.setItem('bw_lang',e.target.value); }catch(_){} setLang(e.target.value); sync(); });
+  if(SUPPORTED.includes(saved)) setLang(saved); else applyLang();
+  sync();
+})();
 </script>
 </body>
 </html>
